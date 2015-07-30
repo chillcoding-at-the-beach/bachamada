@@ -219,6 +219,8 @@ public class MainActivity extends ActionBarActivity implements
         // Handle presses on the action bar items
         switch (item.getItemId()) {
             case R.id.action_settings:
+                if (mMeasurementFrag != null)
+                    mMeasurementFrag.stopTimer();
                 new TimerNumberDialogFragment().show(getSupportFragmentManager(), null);
                 return true;
             case R.id.action_profile:

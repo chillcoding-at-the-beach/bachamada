@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="value_sexe" translatable="false">sexe</string>
+    <string name="value_year" translatable="false">year</string>
+    <string name="value_timer" translatable="false">timer</string>
+    <string name="value_bpm_min" translatable="false">bpmmin</string>
+    <string name="value_bpm_max" translatable="false">bpmmax</string>
+    <string name="value_bpa" translatable="false">bpa</string>
+    <string name="text_default" translatable="false">default</string>
+    <string name="preference_file_key" translatable="false">default</string>
+
     <string name="app_name">BaChamada</string>
     <string name="title_bpm">BPM</string>
     <string name="title_profil">Profile</string>
@@ -54,21 +63,7 @@ Here is 7 <font fgcolor="#ff3498db">types of activity</font> :\n(<i> s the speed
 You can find <font fgcolor="#ff3498db"><b>BPM Zones</b></font> in second tab. They give some values of <font fgcolor="#ff3498db">BPM to maintain</font>, depending on the <font fgcolor="#ff3498db">activity</font> (footing...).\n BPM Zones are based on Profile, they are determinated with <i>Astrand method</i> (theoric), used in first place, and with <i>Karvonen method</i> (customised with BPM Min and BPM Max), used after some measurements. \n <font fgcolor="#ff3498db"><b>BPM Monitoring</b></font> is very important to follow <font fgcolor="#ff3498db"><i>athlete evolution</i></font> (more train less BPM).\n
  </string>
     <string name="link_icon">BaChamada on <a href="https://www.facebook.com/suivifc">Facebook</a>\nApplication realised by <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
-
     <string name="text_start">Start</string>
     <string name="text_stop">Stop</string>
-
-    <string name="value_sexe" translatable="false">sexe</string>
-    <string name="value_year" translatable="false">year</string>
-    <string name="value_timer" translatable="false">timer</string>
-    <string name="value_bpm_min" translatable="false">bpmmin</string>
-    <string name="value_bpm_max" translatable="false">bpmmax</string>
-    <string name="value_bpa" translatable="false">bpa</string>
-    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-1181112801867525/4967968899</string>
-    <string name="text_default" translatable="false">default</string>
-    <string name="preference_file_key" translatable="false">default</string>
-
-
     <string name="notification_text">Soon : Smartwatch connection ! </string>
-    <string name="play_store_bachamada_url" translatable="false">market://details?id=fr.machada.bpm.pro</string>
 </resources>

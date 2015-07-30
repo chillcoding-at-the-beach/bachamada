@@ -9,15 +9,6 @@
 
     </style>
 
-
-    <style name="CustomNumberPicker">
-        <item name="android:textColor">@android:color/white</item>
-    </style>
-
-    <style name="tab_title">
-        <item name="android:background">@android:color/black</item>
-    </style>
-
     <style name="button">
         <item name="android:textColor">@color/blue</item>
         <item name="android:background">@color/gray</item>

@@ -55,7 +55,7 @@ public class TimerNumberDialogFragment extends DialogFragment implements NumberP
 
         builder.setView(promptsView);
 
-        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getActivity().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         mValue = sharedPref.getInt(getString(R.string.value_timer), mValue) / 1000;
 
 

@@ -54,7 +54,7 @@ public class MeasurementFragment extends Fragment {
     }
 
     public void onTimeChanged() {
-        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getActivity().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         mTime = sharedPref.getInt(getString(R.string.value_timer), mTime);
         mStopWatch.setTime(mTime);
     }

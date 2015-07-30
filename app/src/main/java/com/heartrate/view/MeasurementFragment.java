@@ -31,7 +31,7 @@ public class MeasurementFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getActivity().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         mTime = sharedPref.getInt(getString(R.string.value_timer), mTime);
         View rootView = inflater.inflate(R.layout.fragment_layout_measurement, container, false);
 

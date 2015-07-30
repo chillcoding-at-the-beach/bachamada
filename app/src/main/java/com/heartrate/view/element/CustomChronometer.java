@@ -20,21 +20,18 @@ public class CustomChronometer extends Chronometer {
     private long startTime, elapsedTime;
     private float angle = 0f;
     private Paint paint;
-    private RectF r, rectBtnRefresh;
-    private int mMargin = 0;
+    private RectF rectMainCircle, rectBtnRefresh;
     private int mXCenter = 0;
-    private int mYCenter = 0;
+    private int mYTextCenter = 0;
     private String mTxtStart;
     private int mTxtSize;
     private int mTime = 15000;
-    private int mX2Center;
+    private int mXSecondCenter;
     private MediaPlayer mMediaPlayer;
     private String mTxtStop;
     private Bitmap mBtnRefresh;
     private int mYDown;
     private int mXDown;
-    private int mXRight;
-    private int mTxtSizeS;
 
 
     public CustomChronometer(Context context, AttributeSet attrs) {
@@ -67,16 +64,26 @@ public class CustomChronometer extends Chronometer {
         super.onLayout(changed, left, top, right, bottom);
         //get Dimension of the screen to have a plastic chronometer
         int width = getWidth();
-        mMargin = width / 10;
-        mXCenter = width / 5;
-        mX2Center = 2 * width / 6;
-        mYCenter = (getHeight() / 2);
-        mXRight = mXCenter + 43 * width / 100;
+        int height = getHeight();
+
         mTxtSize = 3 * width / 11;
-        mTxtSizeS = width / 10;
-        mYDown = getHeight() * 4 / 5;
+
+        mXCenter = width / 5;
+
+        int diamCircle = 4 * width / 5;
+        int marginXCircle = width / 10;
+        int marginYCircle = (height - diamCircle) / 2;
+
+        rectMainCircle = new RectF(marginXCircle, marginYCircle, marginXCircle + diamCircle, marginYCircle + diamCircle);
+
+        int halfWidthTxtSize = 56 * mTxtSize / 100;
+        int halfHeightTxtSize = 35 * mTxtSize / 100;
+
+        mYTextCenter = marginYCircle + diamCircle / 2 + halfHeightTxtSize;
+        mXSecondCenter = width / 2 - halfWidthTxtSize;
+
+        mYDown = marginYCircle + diamCircle + marginYCircle / 7;
         mXDown = width / 2 - mBtnRefresh.getWidth() / 2;
-        r = new RectF(left + mMargin, top + mMargin, left + width - mMargin, top + width - mMargin);
         rectBtnRefresh = new RectF(mXDown, mYDown, mXDown + mBtnRefresh.getWidth(), mYDown + mBtnRefresh.getHeight());
     }
 
@@ -84,7 +91,7 @@ public class CustomChronometer extends Chronometer {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                if (start == false && stop == false && r.contains(event.getX(), event.getY())) {
+                if (start == false && stop == false && rectMainCircle.contains(event.getX(), event.getY())) {
                     start = true;
                     start();
                 }
@@ -108,14 +115,14 @@ public class CustomChronometer extends Chronometer {
         //initiate paint for the base circle
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(getResources().getColor(R.color.gray));
-        canvas.drawArc(r, 270f, 360, false, paint);
+        canvas.drawArc(rectMainCircle, 270f, 360, false, paint);
         if (start) {
             //for the dynamic circle
             paint.setColor(getResources().getColor(R.color.red));
             //calculate angle of dynamic circle
             elapsedTime = System.currentTimeMillis();
             angle = (elapsedTime - startTime) * 360f / mTime;
-            canvas.drawArc(r, 270f, angle, false, paint);
+            canvas.drawArc(rectMainCircle, 270f, angle, false, paint);
 
             //to stp the chrono
             if ((elapsedTime - startTime) > (mTime + 2000))
@@ -126,12 +133,10 @@ public class CustomChronometer extends Chronometer {
             paint.setColor(getResources().getColor(android.R.color.white));
             long v = (mTime - (elapsedTime - startTime)) / 1000;
             if (v < 10)
-                canvas.drawText("0" + v, mX2Center, mYCenter, paint);
+                canvas.drawText("0" + v, mXSecondCenter, mYTextCenter, paint);
             else
-                canvas.drawText("" + v, mX2Center, mYCenter, paint);
+                canvas.drawText("" + v, mXSecondCenter, mYTextCenter, paint);
             //second info
-            paint.setTextSize(mTxtSizeS);
-            canvas.drawText("s.", mXRight, mYCenter, paint);
             paint.setTextSize(mTxtSize);
             //restart button
             canvas.drawBitmap(mBtnRefresh, mXDown, mYDown, null);
@@ -150,7 +155,7 @@ public class CustomChronometer extends Chronometer {
                 paint.setStyle(Paint.Style.FILL);
                 paint.setAntiAlias(true);
                 paint.setColor(getResources().getColor(android.R.color.white));
-                canvas.drawText(mTxtStop, mXCenter, mYCenter, paint);
+                canvas.drawText(mTxtStop, mXCenter, mYTextCenter, paint);
                 //refresh button
                 canvas.drawBitmap(mBtnRefresh, mXDown, mYDown, null);
             } else {
@@ -160,7 +165,7 @@ public class CustomChronometer extends Chronometer {
                 paint.setStrokeWidth(10);
                 paint.setTextSize(mTxtSize);
                 paint.setAntiAlias(true);
-                canvas.drawText(mTxtStart, mXCenter, mYCenter, paint);
+                canvas.drawText(mTxtStart, mXCenter, mYTextCenter, paint);
 
             }
             invalidate();

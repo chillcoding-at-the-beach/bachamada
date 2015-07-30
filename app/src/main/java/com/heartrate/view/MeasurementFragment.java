@@ -12,12 +12,12 @@ import android.widget.Chronometer;
 import android.widget.Chronometer.OnChronometerTickListener;
 
 import com.heartrate.R;
-import com.heartrate.view.element.CustomChronometer;
+import com.heartrate.view.element.CustomStopwatch;
 
 
 public class MeasurementFragment extends Fragment {
 
-    private CustomChronometer mStopWatch;
+    private CustomStopwatch mStopWatch;
     private int mTime = 7000;
 
     OnTimerListener mCallback;
@@ -35,7 +35,7 @@ public class MeasurementFragment extends Fragment {
         mTime = sharedPref.getInt(getString(R.string.value_timer), mTime);
         View rootView = inflater.inflate(R.layout.fragment_layout_measurement, container, false);
 
-        mStopWatch = (CustomChronometer) rootView.findViewById(R.id.chronometer1);
+        mStopWatch = (CustomStopwatch) rootView.findViewById(R.id.stopwatch);
 
         mStopWatch.setTime(mTime);
         mStopWatch.setOnChronometerTickListener(new OnChronometerTickListener() {
@@ -53,7 +53,7 @@ public class MeasurementFragment extends Fragment {
         return rootView;
     }
 
-    public void onCronoChanged() {
+    public void onTimeChanged() {
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         mTime = sharedPref.getInt(getString(R.string.value_timer), mTime);
         mStopWatch.setTime(mTime);

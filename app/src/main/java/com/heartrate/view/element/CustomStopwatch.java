@@ -14,7 +14,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.Chronometer;
 
-public class CustomChronometer extends Chronometer {
+public class CustomStopwatch extends Chronometer {
     private boolean start = false;
     private boolean stop = false;
     private long startTime, elapsedTime;
@@ -34,7 +34,7 @@ public class CustomChronometer extends Chronometer {
     private int mXDown;
 
 
-    public CustomChronometer(Context context, AttributeSet attrs) {
+    public CustomStopwatch(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         //initiate of variable textual
@@ -62,7 +62,7 @@ public class CustomChronometer extends Chronometer {
     protected void onLayout(boolean changed, int left, int top, int right,
                             int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        //get Dimension of the screen to have a plastic chronometer
+        //get Dimension of the screen to have a plastic stopwatch
         int width = getWidth();
         int height = getHeight();
 
@@ -124,7 +124,7 @@ public class CustomChronometer extends Chronometer {
             angle = (elapsedTime - startTime) * 360f / mTime;
             canvas.drawArc(rectMainCircle, 270f, angle, false, paint);
 
-            //to stp the chrono
+            //to stop count down
             if ((elapsedTime - startTime) > (mTime + 2000))
                 stop();
 

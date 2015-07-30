@@ -334,7 +334,7 @@ public class MainActivity extends ActionBarActivity implements
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putInt(getString(R.string.value_timer), value);
         editor.commit();
-        mMeasurementFrag.onCronoChanged();
+        mMeasurementFrag.onTimeChanged();
     }
 
 

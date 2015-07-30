@@ -1,0 +1,4 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/collapse_arrow" android:state_expanded="true" />
+    <item android:drawable="@drawable/expand_arrow" />
+</selector>

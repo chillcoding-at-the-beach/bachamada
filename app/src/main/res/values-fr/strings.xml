@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BaChamada</string>
+    <string name="title_bpm">BPM</string>
+    <string name="title_profil">Profil</string>
+    <string name="title_info">Info</string>
+    <string name="title_history">Historique</string>
+    <string name="title_check_bpm">Mesurer BPM</string>
+    <string name="title_bpm_zone">Zones de BPM</string>
+    <string name="title_about">A Propos</string>
+    <string name="title_vpro">Version Pro</string>
+    <string name="navigation_drawer_open">Ouvrir menu</string>
+    <string name="navigation_drawer_close">Fermer menu</string>
+    <string name="action_settings">Paramètre</string>
+    <string name="setting_timer">temps du chrono</string>
+    <string name="text_nb_pulse">Entrez le nombre de pulsations comptées : </string>
+    <string name="text_heart_rate">Valeur BPM :</string>
+    <string name="text_how">RESSENTI</string>
+    <string name="text_where">ENDROIT DE LA MESURE</string>
+    <string name="text_type">TYPE D\'EFFORT</string>
+    <string name="save">Enregistrer</string>
+    <string name="text_year">Année de \n Naissance :</string>
+    <string name="text_sexe">Sexe :</string>
+    <string name="message_ready_to_count">Appuyez sur Start \nquand vous êtes prêt à compter \nvos pulsations!</string>
+    <string name="text_profile_saved">Profil enregistré</string>
+    <string name="text_bpm_activity">ACTIVITÉ</string>
+    <string name="text_bpm_footing">FOOTING</string>
+    <string name="text_bpm_resting">REPOS</string>
+    <string name="text_bpm_marathon">MARATHON</string>
+    <string name="text_bpm_semi">SEMI-\n MARATHON</string>
+    <string name="text_bpm_allure">ALLURE 10km</string>
+    <string name="text_bpm_vma_l">VMA Long</string>
+    <string name="text_bpm_vma_c">VMA Court</string>
+    <string name="text_set_timer">Valeur du Chrono :\n en seconde(s)</string>
+    <string name="set">Changer</string>
+    <string name="text_bpm_min">BPM Min:</string>
+    <string name="text_bpm_max">BPM Max:</string>
+    <string name="dialog_delete">Voulez-vous supprimer cette valeur?</string>
+    <string name="message_info_about_bpm">La fréquence cardiaque, exprimée en Battement Par Minute <font fgcolor="#ff3498db"><b>BPM</b></font>, est déterminée par la <font fgcolor="#ff3498db"><i>prise de pouls</i></font> : <i>mesure au poignet ou à la carotide du nombre de pulsations en un temps donné</i>.\n\n
+Voici 3 <font fgcolor="#ff3498db">types de <B>BPM</B></font> :\n
+- <font fgcolor="#ff2ecc71">BPM Min</font> : BPM au repos,\n  \u0020 \u0020 \u0020 \u0020 \u0020 calculée au reveil\n
+- <font fgcolor="#fff1c40f">BPME</font> : BPM à l\'entrainement,\n  \u0020 \u0020 \u0020 \u0020 \u0020 calculée entre 2 efforts\n
+- <font fgcolor="#ffe74c3c">BPM Max</font> : BPM maximal,\n   \u0020 \u0020 \u0020 \u0020 \u0020 calculée juste après un effort intense\n\n
+Voici 6  <font fgcolor="#ff3498db">types de courses</font> :\n(<i>notons v la vitesse et t le temps de la course</i>)\n
+* <font fgcolor="#fff1c40f">FOOTING</font> \u0020 \u0020 \u0020 v~11km/h, t~3h et +\n
+* <font fgcolor="#fff1c40f">MARATHON</font>\u0020 \u0020 \u0020  v~11km/h, t~3h30\'\n
+* <font fgcolor="#fff1c40f">SEMI-MARATHON</font> \u0020 \u0020 \u0020 v~12km/h, t~1h45\'\n
+* <font fgcolor="#fff39c12">ALLURE 10km</font> \u0020 \u0020 \u0020 v~13km/h, t~45\'\n
+* <font fgcolor="#ffe74c3c">VMA Court</font>\u0020 \u0020 \u0020 v~15km/h, t~6-7\'\n
+*<font fgcolor="#ffe74c3c"> VMA Long</font>\u0020 \u0020 \u0020 v~16 km/h, t~5\' et -\n
+(<i>Vitesse Maximal Aérobie obtenue lors de la pratique de fractionné ou de speedburning</i>)\n\n
+Vous trouverez un tableau des <font fgcolor="#ff3498db"><b>zones de BPM</b></font> dans le deuxième onglet de l\'app., elles donnent des repères sur la <font fgcolor="#ff3498db">BPM à maintenir</font>, à ne pas depasser, selon la <font fgcolor="#ff3498db">course pratiquée</font> (footing, marathon,etc.).\n Les zones de BPM sont calculées par raport au Profil. Il intègre la <i>méthode Astrand</i> (théorique), utilisée dans un premiers temps, ainsi que la <i>méthode Karvonen</i> (individualisée avec BPM Min et BPM Max), utilisée après quelques mesures. \n
+Le <font fgcolor="#ff3498db"><b>suivi de BPM</b></font> est important pour suivre l\'<font fgcolor="#ff3498db"><i>évolution des performances</i></font> d\'un sportif (plus le sujet s\'entrainera plus sa BPM sera basse).\n
+</string>
+    <string name="link_icon">BaChamada sur <a href="https://www.facebook.com/suivifc">Facebook</a>\nApplication réalisée par <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
+
+    <string name="text_start">Start</string>
+    <string name="text_stop">Stop</string>
+
+    <string name="notification_text">Bientôt : connexion avec smartwatch !</string>
+</resources>

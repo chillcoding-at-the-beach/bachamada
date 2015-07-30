@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/general_padding"
+            android:text="@string/text_heart_rate"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/blue" />
+
+        <com.heartrate.view.element.CustomShowBPM
+            android:id="@+id/show_bpm"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/text_type"
+            android:textColor="@color/blue" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <RadioGroup
+                    android:id="@+id/efforts"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:checkedButton="@+id/guru"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/guru"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/ic_guru"
+                        android:button="@drawable/radio_btn_selector" />
+
+                    <RadioButton
+                        android:id="@+id/walking"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/ic_walking"
+                        android:button="@drawable/radio_btn_selector" />
+
+                    <RadioButton
+                        android:id="@+id/interval"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/ic_interval"
+                        android:button="@drawable/radio_btn_selector" />
+
+                    <RadioButton
+                        android:id="@+id/exercise"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/ic_exercise"
+                        android:button="@drawable/radio_btn_selector" />
+                </RadioGroup>
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/text_how"
+            android:textColor="@color/blue" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <RadioGroup
+                    android:id="@+id/hows"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:checkedButton="@+id/happy"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/happy"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/ic_happy"
+                        android:button="@drawable/radio_btn_selector" />
+
+                    <RadioButton
+                        android:id="@+id/cool"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/ic_cool"
+                        android:button="@drawable/radio_btn_selector" />
+
+                    <RadioButton
+                        android:id="@+id/tongue"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/ic_tongue"
+                        android:button="@drawable/radio_btn_selector" />
+
+                    <RadioButton
+                        android:id="@+id/sad"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/ic_sad"
+                        android:button="@drawable/radio_btn_selector" />
+                </RadioGroup>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</ScrollView>

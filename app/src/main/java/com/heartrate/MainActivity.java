@@ -74,8 +74,9 @@ public class MainActivity extends ActionBarActivity implements
     //for notification
     private int notification_id = 1;
     /* These are the classes you use to start the notification */
-    private NotificationCompat.Builder notification_builder;
-    private NotificationManagerCompat notification_manager;
+    private NotificationCompat.Builder mNotificationBuilder;
+    private NotificationManagerCompat mNotificationManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,7 +159,7 @@ public class MainActivity extends ActionBarActivity implements
         open_activity_intent.putExtra(NOTIFICATION_ID, notification_id);
         android.app.PendingIntent pending_intent = android.app.PendingIntent.getActivity(this, 0, open_activity_intent, android.app.PendingIntent.FLAG_CANCEL_CURRENT);
 
-        notification_builder = new NotificationCompat.Builder(this)
+        mNotificationBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.ic_launcher_heartrate)
                 .setContentTitle(getString(R.string.app_name))
                 .setContentText(getString(R.string.notification_text))
@@ -166,8 +167,8 @@ public class MainActivity extends ActionBarActivity implements
                 .setAutoCancel(true)
                 .setContentIntent(pending_intent);
 
-        notification_manager = NotificationManagerCompat.from(this);
-        notification_manager.notify(notification_id, notification_builder.build());
+        mNotificationManager = NotificationManagerCompat.from(this);
+        mNotificationManager.notify(notification_id, mNotificationBuilder.build());
     }
 
     @Override

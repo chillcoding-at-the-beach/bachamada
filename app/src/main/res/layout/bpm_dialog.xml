@@ -38,53 +38,49 @@
             android:text="@string/text_type"
             android:textColor="@color/blue" />
 
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <RadioGroup
+            android:id="@+id/efforts"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
             android:layout_gravity="center"
-            android:shrinkColumns="*"
-            android:stretchColumns="*">
+            android:layout_marginTop="10dp"
+            android:background="@null"
+            android:checkedButton="@+id/guru"
+            android:orientation="horizontal">
 
-            <TableRow
-                android:layout_width="match_parent"
+            <RadioButton
+                android:id="@+id/guru"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:layout_margin="6dp"
+                android:background="@drawable/ic_guru"
+                android:button="@drawable/radio_btn_selector" />
 
-                <RadioGroup
-                    android:id="@+id/efforts"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:checkedButton="@+id/guru"
-                    android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/walking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:background="@drawable/ic_walking"
+                android:button="@drawable/radio_btn_selector" />
 
-                    <RadioButton
-                        android:id="@+id/guru"
-                        android:layout_margin="6dp"
-                        android:background="@drawable/ic_guru"
-                        android:button="@drawable/radio_btn_selector" />
+            <RadioButton
+                android:id="@+id/interval"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:background="@drawable/ic_interval"
+                android:button="@drawable/radio_btn_selector" />
 
-                    <RadioButton
-                        android:id="@+id/walking"
-                        android:layout_margin="6dp"
-                        android:background="@drawable/ic_walking"
-                        android:button="@drawable/radio_btn_selector" />
+            <RadioButton
+                android:id="@+id/exercise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:background="@drawable/ic_exercise"
+                android:button="@drawable/radio_btn_selector" />
+        </RadioGroup>
 
-                    <RadioButton
-                        android:id="@+id/interval"
-                        android:layout_margin="6dp"
-                        android:background="@drawable/ic_interval"
-                        android:button="@drawable/radio_btn_selector" />
-
-                    <RadioButton
-                        android:id="@+id/exercise"
-                        android:layout_margin="6dp"
-                        android:background="@drawable/ic_exercise"
-                        android:button="@drawable/radio_btn_selector" />
-                </RadioGroup>
-            </TableRow>
-        </TableLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -93,53 +89,49 @@
             android:text="@string/text_how"
             android:textColor="@color/blue" />
 
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <RadioGroup
+            android:id="@+id/hows"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
             android:layout_gravity="center"
-            android:shrinkColumns="*"
-            android:stretchColumns="*">
+            android:layout_marginTop="10dp"
+            android:background="@null"
+            android:checkedButton="@+id/happy"
+            android:orientation="horizontal">
 
-            <TableRow
-                android:layout_width="match_parent"
+            <RadioButton
+                android:id="@+id/happy"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:layout_margin="6dp"
+                android:background="@drawable/ic_happy"
+                android:button="@drawable/radio_btn_selector" />
 
-                <RadioGroup
-                    android:id="@+id/hows"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:checkedButton="@+id/happy"
-                    android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/cool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:background="@drawable/ic_cool"
+                android:button="@drawable/radio_btn_selector" />
 
-                    <RadioButton
-                        android:id="@+id/happy"
-                        android:layout_margin="6dp"
-                        android:background="@drawable/ic_happy"
-                        android:button="@drawable/radio_btn_selector" />
+            <RadioButton
+                android:id="@+id/tongue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:background="@drawable/ic_tongue"
+                android:button="@drawable/radio_btn_selector" />
 
-                    <RadioButton
-                        android:id="@+id/cool"
-                        android:layout_margin="6dp"
-                        android:background="@drawable/ic_cool"
-                        android:button="@drawable/radio_btn_selector" />
+            <RadioButton
+                android:id="@+id/sad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:background="@drawable/ic_sad"
+                android:button="@drawable/radio_btn_selector" />
+        </RadioGroup>
 
-                    <RadioButton
-                        android:id="@+id/tongue"
-                        android:layout_margin="6dp"
-                        android:background="@drawable/ic_tongue"
-                        android:button="@drawable/radio_btn_selector" />
-
-                    <RadioButton
-                        android:id="@+id/sad"
-                        android:layout_margin="6dp"
-                        android:background="@drawable/ic_sad"
-                        android:button="@drawable/radio_btn_selector" />
-                </RadioGroup>
-            </TableRow>
-        </TableLayout>
     </LinearLayout>
 
 </ScrollView>

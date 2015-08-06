@@ -3,6 +3,7 @@ package com.heartrate.view.element;
 import com.heartrate.R;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -12,6 +13,8 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 
 import android.view.View;
+
+import java.util.Calendar;
 
 
 public class CustomShowBPM extends View {
@@ -37,6 +40,9 @@ public class CustomShowBPM extends View {
             }
         }
     };
+    private int mGreenStep;
+    private int mYelloStep;
+    private int mOrangStep;
 
     public CustomShowBPM(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -51,6 +57,41 @@ public class CustomShowBPM extends View {
         mRotator = new Matrix();
         removeCallbacks(animator);
         post(animator);
+        initSteps();
+    }
+
+    private void initSteps() {
+        SharedPreferences sharedPref = getContext().getSharedPreferences(getResources().getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        int sexe = R.id.sexe_male;
+        sexe = sharedPref.getInt(getResources().getString(R.string.value_sexe), sexe);
+        int year = 1984;
+        year = sharedPref.getInt(getResources().getString(R.string.value_year), year);
+
+        Calendar calendar = Calendar.getInstance();
+        int curYear = calendar.get(Calendar.YEAR);
+        int age = curYear - year;
+
+        int bpm;
+        if (sexe == R.id.sexe_male)
+            bpm = 220 - age;
+        else
+            bpm = 226 - age;
+
+        int bpmMin = 0;
+        int bpmMax = 0;
+        bpmMin = sharedPref.getInt(getResources().getString(R.string.value_bpm_min), bpmMin);
+        bpmMax = sharedPref.getInt(getResources().getString(R.string.value_bpm_max), bpmMax);
+        int diff = bpmMax - bpmMin;
+
+        if (bpmMin != 0 && bpmMax != 0 && diff > 50) {
+            mGreenStep = bpmMin + 65 * (bpmMax - bpmMin) / 100;
+            mYelloStep = bpmMin + 85 * (bpmMax - bpmMin) / 100;
+            mOrangStep = bpmMin + 90 * (bpmMax - bpmMin) / 100;
+        } else {
+            mGreenStep = 65 * bpm / 100;
+            mYelloStep = 85 * bpm / 100;
+            mOrangStep = 90 * bpm / 100;
+        }
     }
 
     @Override
@@ -71,10 +112,22 @@ public class CustomShowBPM extends View {
     protected void onDraw(Canvas canvas) {
 
         canvas.drawBitmap(mBmHeartScale, 0, 0, paint);
+
+        if (mValue < mGreenStep)
+            paint.setColor(getResources().getColor(R.color.green));
+        else if (mValue < mYelloStep)
+            paint.setColor(getResources().getColor(R.color.yellow));
+        else if (mValue < mOrangStep)
+            paint.setColor(getResources().getColor(R.color.orange));
+        else
+            paint.setColor(getResources().getColor(R.color.red));
+
+
         if (mValue > 100)
             canvas.drawText("" + mValue, mXCenter, mYCenter, paint);
         else
             canvas.drawText("0" + mValue, mXCenter, mYCenter, paint);
+
         paint.setTextSize(mWidth / 15);
         canvas.drawText("BPM", mX2Center, mY2Center, paint);
         paint.setTextSize(mWidth / 4);

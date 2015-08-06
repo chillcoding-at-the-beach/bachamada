@@ -54,6 +54,7 @@ public class CustomShowBPM extends View {
         paint.setAntiAlias(true);
 
         mBmHeartScale = BitmapFactory.decodeResource(getResources(), R.drawable.heart_scale);
+
         mBmArrow = BitmapFactory.decodeResource(getResources(), R.drawable.im_arrow);
         mValue = 83;
         mRotator = new Matrix();
@@ -103,12 +104,15 @@ public class CustomShowBPM extends View {
         //get Dimension of the screen to have a plastic chronometer
         mWidth = getWidth();
         mHeight = getHeight();
-        mXDigitalCenter = mWidth * 33 / 100;
+        mXDigitalCenter = mWidth * 34 / 100;
         mYDigitalCenter = 4 * mHeight / 7;
-        mXTextCenter = mWidth * 47 / 100;
+        mXTextCenter = mWidth * 45 / 100;
         mYTextCenter = 5 * mHeight / 7;
-        mDigitalTextSize = mWidth / 4;
+        mDigitalTextSize = mWidth / 5;
         mTextSize = mWidth / 15;
+        mBmHeartScale = Bitmap.createScaledBitmap(mBmHeartScale, mWidth, mWidth, false);
+        mBmArrow = Bitmap.createScaledBitmap(mBmArrow, mWidth, mWidth, false);
+
     }
 
     @Override
@@ -123,7 +127,7 @@ public class CustomShowBPM extends View {
         else if (mValue < mOrangStep)
             paint.setColor(getResources().getColor(R.color.orange));
         else
-            paint.setColor(getResources().getColor(R.color.red));
+            paint.setColor(getResources().getColor(R.color.reed));
 
         paint.setTextSize(mDigitalTextSize);
 

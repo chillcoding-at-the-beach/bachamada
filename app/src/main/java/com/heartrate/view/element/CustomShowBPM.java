@@ -20,13 +20,13 @@ import java.util.Calendar;
 public class CustomShowBPM extends View {
 
 
-    private int mWidth, mHeight, mXCenter, mYCenter;
+    private int mWidth, mHeight, mXDigitalCenter, mYDigitalCenter;
     private Bitmap mBmHeartScale, mBmArrow;
     private Paint paint;
     private int mValue;
     private long mAngle = 0;
-    private float mX2Center;
-    private float mY2Center;
+    private float mXTextCenter;
+    private float mYTextCenter;
     private Matrix mRotator;
     private int mAnimTime = 60;
 
@@ -43,6 +43,8 @@ public class CustomShowBPM extends View {
     private int mGreenStep;
     private int mYelloStep;
     private int mOrangStep;
+    private int mDigitalTextSize;
+    private int mTextSize;
 
     public CustomShowBPM(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -101,11 +103,12 @@ public class CustomShowBPM extends View {
         //get Dimension of the screen to have a plastic chronometer
         mWidth = getWidth();
         mHeight = getHeight();
-        mXCenter = mWidth * 33 / 100;
-        mYCenter = 4 * mHeight / 7;
-        mX2Center = mWidth * 47 / 100;
-        mY2Center = 5 * mHeight / 7;
-        paint.setTextSize(mWidth / 4);
+        mXDigitalCenter = mWidth * 33 / 100;
+        mYDigitalCenter = 4 * mHeight / 7;
+        mXTextCenter = mWidth * 47 / 100;
+        mYTextCenter = 5 * mHeight / 7;
+        mDigitalTextSize = mWidth / 4;
+        mTextSize = mWidth / 15;
     }
 
     @Override
@@ -122,15 +125,17 @@ public class CustomShowBPM extends View {
         else
             paint.setColor(getResources().getColor(R.color.red));
 
+        paint.setTextSize(mDigitalTextSize);
 
         if (mValue > 100)
-            canvas.drawText("" + mValue, mXCenter, mYCenter, paint);
+            canvas.drawText(String.valueOf(mValue), mXDigitalCenter, mYDigitalCenter, paint);
         else
-            canvas.drawText("0" + mValue, mXCenter, mYCenter, paint);
+            canvas.drawText(String.format("0%d", mValue), mXDigitalCenter, mYDigitalCenter, paint);
 
-        paint.setTextSize(mWidth / 15);
-        canvas.drawText("BPM", mX2Center, mY2Center, paint);
-        paint.setTextSize(mWidth / 4);
+        paint.setTextSize(mTextSize);
+
+        canvas.drawText("BPM", mXTextCenter, mYTextCenter, paint);
+
         canvas.drawBitmap(mBmArrow, mRotator, paint);
 
 

@@ -108,19 +108,11 @@
                 android:button="@drawable/radio_btn_selector" />
 
             <RadioButton
-                android:id="@+id/cool"
+                android:id="@+id/neutral"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="6dp"
-                android:background="@drawable/ic_cool"
-                android:button="@drawable/radio_btn_selector" />
-
-            <RadioButton
-                android:id="@+id/tongue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:background="@drawable/ic_tongue"
+                android:background="@drawable/ic_neutral"
                 android:button="@drawable/radio_btn_selector" />
 
             <RadioButton

@@ -286,11 +286,8 @@ public class MainActivity extends ActionBarActivity implements
             case R.id.happy:
                 h = How.HAPPY;
                 break;
-            case R.id.cool:
-                h = How.COOL;
-                break;
-            case R.id.tongue:
-                h = How.TONGUE;
+            case R.id.neutral:
+                h = How.NEUTRAL;
                 break;
             case R.id.sad:
                 h = How.SAD;

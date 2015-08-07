@@ -1,7 +1,7 @@
 package com.heartrate.model;
 
 public enum How {
-    HAPPY(0), COOL(1), TONGUE(2), SAD(3);
+    HAPPY(0), NEUTRAL(1), SAD(2);
     private int value;
 
     private How(int value) {

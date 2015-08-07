@@ -91,11 +91,8 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
                 case HAPPY:
                     imH.setImageResource(R.drawable.ic_happy);
                     break;
-                case COOL:
-                    imH.setImageResource(R.drawable.ic_cool);
-                    break;
-                case TONGUE:
-                    imH.setImageResource(R.drawable.ic_tongue);
+                case NEUTRAL:
+                    imH.setImageResource(R.drawable.ic_neutral);
                     break;
                 case SAD:
                     imH.setImageResource(R.drawable.ic_sad);

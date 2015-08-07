@@ -23,36 +23,34 @@ public class CustomStopwatch extends Chronometer {
     private RectF rectMainCircle, rectBtnRefresh;
     private int mXCenter = 0;
     private int mYTextCenter = 0;
-    private String mTxtStart;
     private int mTxtSize;
     private int mTime = 15000;
     private int mXSecondCenter;
     private MediaPlayer mMediaPlayer;
     private String mTxtStop;
-    private Bitmap mBtnRefresh;
+    private Bitmap mBtnRefresh, mBtnPlay;
     private int mYDown;
     private int mXDown;
+    private int mBtnPlayYMargin;
+    private int mBtnPlayXMargin;
 
 
     public CustomStopwatch(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         //initiate of variable textual
-        mTxtStart = context.getString(R.string.text_start);
         mTxtStop = context.getString(R.string.text_stop);
 
         paint = new Paint();
 
-        //initiate of paint
-        paint.setStrokeWidth(10);
-        //paint.setTextSize(mTxtSize);
-        paint.setAntiAlias(true);
 
         //initiate of media player
         mMediaPlayer = MediaPlayer.create(context, R.raw.ding);
 
         //initiate of refresh button
         mBtnRefresh = BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_rotate);
+
+        mBtnPlay = BitmapFactory.decodeResource(getResources(), R.drawable.ic_play);
 
 
     }
@@ -65,8 +63,12 @@ public class CustomStopwatch extends Chronometer {
         //get Dimension of the screen to have a plastic stopwatch
         int width = getWidth();
         int height = getHeight();
-
         mTxtSize = 3 * width / 11;
+
+        //initiate of paint
+        paint.setStrokeWidth(2 * width / 100);
+        paint.setAntiAlias(true);
+        paint.setTextSize(mTxtSize);
 
         mXCenter = width / 5;
 
@@ -85,6 +87,12 @@ public class CustomStopwatch extends Chronometer {
         mYDown = marginYCircle + diamCircle + marginYCircle / 7;
         mXDown = width / 2 - mBtnRefresh.getWidth() / 2;
         rectBtnRefresh = new RectF(mXDown, mYDown, mXDown + mBtnRefresh.getWidth(), mYDown + mBtnRefresh.getHeight());
+
+        mBtnPlay = Bitmap.createScaledBitmap(mBtnPlay, 80 * width / 100, 80 * height / 100, false);
+
+        mBtnPlayXMargin = 19 * width / 100;
+        mBtnPlayYMargin = 125 * width / 1000;
+
     }
 
     @Override
@@ -116,6 +124,8 @@ public class CustomStopwatch extends Chronometer {
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(getResources().getColor(R.color.gray));
         canvas.drawArc(rectMainCircle, 270f, 360, false, paint);
+
+
         if (start) {
             //for the dynamic circle
             paint.setColor(getResources().getColor(R.color.red));
@@ -133,11 +143,9 @@ public class CustomStopwatch extends Chronometer {
             paint.setColor(getResources().getColor(android.R.color.white));
             long v = (mTime - (elapsedTime - startTime)) / 1000;
             if (v < 10)
-                canvas.drawText("0" + v, mXSecondCenter, mYTextCenter, paint);
+                canvas.drawText(String.format("0%d", v), mXSecondCenter, mYTextCenter, paint);
             else
-                canvas.drawText("" + v, mXSecondCenter, mYTextCenter, paint);
-            //second info
-            paint.setTextSize(mTxtSize);
+                canvas.drawText(String.valueOf(v), mXSecondCenter, mYTextCenter, paint);
             //restart button
             canvas.drawBitmap(mBtnRefresh, mXDown, mYDown, null);
 
@@ -148,7 +156,6 @@ public class CustomStopwatch extends Chronometer {
                 start = false;
                 stop = true;
             }
-            invalidate();
         } else {
             if (stop == true) {
                 //for the stop button
@@ -159,17 +166,18 @@ public class CustomStopwatch extends Chronometer {
                 //refresh button
                 canvas.drawBitmap(mBtnRefresh, mXDown, mYDown, null);
             } else {
+                canvas.drawBitmap(mBtnPlay, mBtnPlayXMargin, mBtnPlayYMargin, paint);
                 paint.setStyle(Paint.Style.FILL);
-                paint.setAntiAlias(true);
                 paint.setColor(getResources().getColor(android.R.color.white));
-                paint.setStrokeWidth(10);
-                paint.setTextSize(mTxtSize);
-                paint.setAntiAlias(true);
-                canvas.drawText(mTxtStart, mXCenter, mYTextCenter, paint);
+                int time = mTime / 1000;
+                if (time < 10)
+                    canvas.drawText(String.format("0%d", time), mXSecondCenter, mYTextCenter, paint);
+                else
+                    canvas.drawText(String.valueOf(time), mXSecondCenter, mYTextCenter, paint);
 
             }
-            invalidate();
         }
+        invalidate();
 
     }
 

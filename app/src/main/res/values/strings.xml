@@ -11,12 +11,12 @@
     <string name="preference_file_key" translatable="false">default</string>
 
     <string name="app_name">BaChamada</string>
-    <string name="title_bpm">BPM</string>
+    <string name="title_bpm">HR (BPM)</string>
     <string name="title_profil">Profile</string>
     <string name="title_info">Info</string>
     <string name="title_history">History</string>
-    <string name="title_check_bpm">Check BPM</string>
-    <string name="title_bpm_zone">BPM Zone</string>
+    <string name="title_check_bpm">Check HR</string>
+    <string name="title_bpm_zone">HR Zone</string>
     <string name="title_about">About</string>
     <string name="title_vpro">Version Pro</string>
     <string name="action_settings">Settings</string>
@@ -26,7 +26,7 @@
     <string name="navigation_drawer_close">Close menu</string>
     <string name="text_profile_saved">Profile saved</string>
     <string name="text_nb_pulse">Enter number of counted pulse : </string>
-    <string name="text_heart_rate">BPM Value :</string>
+    <string name="text_heart_rate">HR Value (in BPM) :</string>
     <string name="text_how">FEELING</string>
     <string name="text_where">PLACE OF MEASURE</string>
     <string name="text_type">ACTIVITY TYPE</string>
@@ -43,14 +43,14 @@
     <string name="text_bpm_vma_c">SMA Court</string>
     <string name="text_set_timer">Value of timer :\n in second(s)</string>
     <string name="set">Set</string>
-    <string name="text_bpm_min">BPM Min:</string>
-    <string name="text_bpm_max">BPM Max:</string>
-    <string name="dialog_delete">Delete this BPM ?</string>
+    <string name="text_bpm_min">HR Min:</string>
+    <string name="text_bpm_max">HR Max:</string>
+    <string name="dialog_delete">Delete this HR ?</string>
     <string name="message_info_about_bpm">       Heart rate in Beat Per Minute, <font fgcolor="#ff3498db"><b>BPM</b></font>,  is determinated by <font fgcolor="#ff3498db"><i>taking pulse</i></font> : <i>measurement can be done by putting your fingers at clenched or at neck.</i>.\n  It is done in beat per minute <b>BPM</b>.\n\n
-Here is 3 <font fgcolor="#ff3498db">types of <B>BPM</B></font> :\n
-- <font fgcolor="#ff2ecc71">BPM Min</font> : BPM at resting,\n \u0020 \u0020 \u0020 \u0020 \u0020 calculated at wake up\n
-- <font fgcolor="#fff1c40f">BPM T</font> : BPM during training,\n  \u0020 \u0020 \u0020 \u0020 \u0020 calculated between 2 efforts\n
-- <font fgcolor="#ffe74c3c">BPM Max</font> : BPM maximal,\n   \u0020 \u0020 \u0020 \u0020 \u0020 calculated after a strong effort\n\n
+Here is 3 <font fgcolor="#ff3498db">types of <B>HR</B></font> :\n
+- <font fgcolor="#ff2ecc71">HR Min</font> : HR at resting,\n \u0020 \u0020 \u0020 \u0020 \u0020 calculated at wake up\n
+- <font fgcolor="#fff1c40f">HR T</font> : HR during training,\n  \u0020 \u0020 \u0020 \u0020 \u0020 calculated between 2 efforts\n
+- <font fgcolor="#ffe74c3c">HR Max</font> : HR maximal,\n   \u0020 \u0020 \u0020 \u0020 \u0020 calculated after a strong effort\n\n
 Here is 7 <font fgcolor="#ff3498db">types of activity</font> :\n(<i> s the speed and t the time of the activity</i>)\n
 * <font fgcolor="#ff2ecc71">RESTING</font> s~0, t=everytime\n
 * <font fgcolor="#fff1c40f">FOOTING</font> \u0020 \u0020 \u0020 s~11km/h, t~3h and +\n
@@ -60,7 +60,7 @@ Here is 7 <font fgcolor="#ff3498db">types of activity</font> :\n(<i> s the speed
 * <font fgcolor="#ffe74c3c">SMA Court</font>\u0020 \u0020 \u0020 s~15km/h, t~6-7\'\n
 *<font fgcolor="#ffe74c3c"> SMA Long</font>\u0020 \u0020 \u0020 s~16 km/h, t~5\' et -\n
 (<i>Speed Maximal Aeroby obtain during speedburning</i>)\n\n
-You can find <font fgcolor="#ff3498db"><b>BPM Zones</b></font> in second tab. They give some values of <font fgcolor="#ff3498db">BPM to maintain</font>, depending on the <font fgcolor="#ff3498db">activity</font> (footing...).\n BPM Zones are based on Profile, they are determinated with <i>Astrand method</i> (theoric), used in first place, and with <i>Karvonen method</i> (customised with BPM Min and BPM Max), used after some measurements. \n <font fgcolor="#ff3498db"><b>BPM Monitoring</b></font> is very important to follow <font fgcolor="#ff3498db"><i>athlete evolution</i></font> (more train less BPM).\n
+You can find <font fgcolor="#ff3498db"><b>HR Zones</b></font> in second tab. They give some values of <font fgcolor="#ff3498db">HR to maintain</font>, depending on the <font fgcolor="#ff3498db">activity</font> (footing...).\n HR Zones are based on Profile, they are determinated with <i>Astrand method</i> (theoric), used in first place, and with <i>Karvonen method</i> (customised with HR Min and HR Max), used after some measurements. \n <font fgcolor="#ff3498db"><b>HR Monitoring</b></font> is very important to follow <font fgcolor="#ff3498db"><i>athlete evolution</i></font> (more train less HR).\n
  </string>
     <string name="link_icon">BaChamada on <a href="https://www.facebook.com/suivifc">Facebook</a>\nApplication realised by <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
     <string name="text_start">Start</string>

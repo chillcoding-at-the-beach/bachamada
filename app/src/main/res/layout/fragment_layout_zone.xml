@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:src="@drawable/ic_guru2" />
+                android:src="@drawable/ic_guru" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -206,7 +206,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:src="@drawable/ic_interval2" />
+                android:src="@drawable/ic_interval" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -247,7 +247,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:src="@drawable/ic_exercise2" />
+                android:src="@drawable/ic_exercise" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -279,7 +279,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:src="@drawable/ic_exercise2" />
+                android:src="@drawable/ic_exercise" />
 
             <TextView
                 android:layout_width="wrap_content"

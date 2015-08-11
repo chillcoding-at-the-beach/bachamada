@@ -14,25 +14,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/black"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:src="@drawable/ic_action_info" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title_about"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
+                android:layout_marginLeft="@dimen/general_space"
+                android:layout_marginTop="@dimen/general_space"
+                android:drawableLeft="@drawable/ic_action_info"
+                android:drawablePadding="@dimen/general_space_icon"
+                android:text="@string/title_about"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/blu" />
 
             <View
                 android:layout_width="match_parent"
@@ -51,25 +42,17 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@android:color/white" />
 
-            <LinearLayout
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/black"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:src="@drawable/ic_action_info" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title_info"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
+                android:layout_marginLeft="@dimen/general_space"
+                android:layout_marginTop="@dimen/general_space"
+                android:drawableLeft="@drawable/ic_action_info"
+                android:drawablePadding="@dimen/general_space_icon"
+                android:text="@string/title_info"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/blu" />
 
             <View
                 android:layout_width="match_parent"

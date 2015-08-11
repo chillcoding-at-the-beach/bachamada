@@ -6,6 +6,7 @@
 
     <dimen name="button_width">60dp</dimen>
     <dimen name="button_height">40dp</dimen>
-    <dimen name="general_padding">10dp</dimen>
+    <dimen name="general_space">10dp</dimen>
+    <dimen name="general_space_icon">5dp</dimen>
 
 </resources>

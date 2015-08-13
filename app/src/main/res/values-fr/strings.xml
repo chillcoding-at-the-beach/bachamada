@@ -59,4 +59,6 @@ Le <font fgcolor="#ff3498db"><b>suivi de FC</b></font> est important pour suivre
     <string name="text_stop">Stop</string>
 
     <string name="notification_text">Bientôt : connexion avec smartwatch !</string>
+    <string name="formula_bpm">% FC Max</string>
+
 </resources>

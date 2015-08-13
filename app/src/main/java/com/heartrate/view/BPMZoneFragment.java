@@ -69,55 +69,57 @@ public class BPMZoneFragment extends Fragment {
         else
             mBPM = 226 - age;
 
-        //for BPM at rest its depend on the age
-        switch (age) {
-            case 0:
-                t0.setText("90-190");
-                break;
-            case 1:
-            case 2:
-                t0.setText("70-150");
-                break;
-            case 3:
-            case 4:
-            case 5:
-                t0.setText("70-140");
-                break;
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-            case 10:
-            case 11:
-            case 12:
-                t0.setText("65-125");
-                break;
-            default:
-                t0.setText("70-80");
-        }
         //if there is BPM Min and Max
-
         int bpmMin = 0;
         int bpmMax = 0;
         int diff;
         bpmMin = sharedPref.getInt(getString(R.string.value_bpm_min), bpmMin);
         bpmMax = sharedPref.getInt(getString(R.string.value_bpm_max), bpmMax);
         diff = bpmMax - bpmMin;
+        //for BPM at rest its depend on the age
+        if (bpmMin != 0 && bpmMin < 100)
+            t0.setText(String.valueOf(bpmMin));
+        else
+            switch (age) {
+                case 0:
+                    t0.setText("90-190");
+                    break;
+                case 1:
+                case 2:
+                    t0.setText("70-150");
+                    break;
+                case 3:
+                case 4:
+                case 5:
+                    t0.setText("70-140");
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                case 12:
+                    t0.setText("65-125");
+                    break;
+                default:
+                    t0.setText("70-80");
+            }
 
         if (bpmMin != 0 && bpmMax != 0 && diff > 50) {
-            t1.setText("" + (bpmMin + 65 * (bpmMax - bpmMin) / 100) + "-" + (bpmMin + 75 * (bpmMax - bpmMin) / 100));
-            t2.setText("" + (bpmMin + 75 * (bpmMax - bpmMin) / 100) + "-" + (bpmMin + 80 * (bpmMax - bpmMin) / 100));
-            t3.setText("" + (bpmMin + 80 * (bpmMax - bpmMin) / 100) + "-" + (bpmMin + 85 * (bpmMax - bpmMin) / 100));
-            t4.setText("" + (bpmMin + 85 * (bpmMax - bpmMin) / 100) + "-" + (bpmMin + 90 * (bpmMax - bpmMin) / 100));
-            t5.setText("" + (bpmMin + 90 * (bpmMax - bpmMin) / 100) + "-" + (bpmMin + 95 * (bpmMax - bpmMin) / 100));
-            t6.setText("" + (bpmMin + 95 * (bpmMax - bpmMin) / 100) + "-" + bpmMax);
+            t1.setText(String.format("%d-%d", (bpmMin + 65 * (bpmMax - bpmMin) / 100), (bpmMin + 75 * (bpmMax - bpmMin) / 100)));
+            t2.setText(String.format("%d-%d", (bpmMin + 75 * (bpmMax - bpmMin) / 100 + 1), (bpmMin + 80 * (bpmMax - bpmMin) / 100)));
+            t3.setText(String.format("%d-%d", (bpmMin + 80 * (bpmMax - bpmMin) / 100 + 1), (bpmMin + 85 * (bpmMax - bpmMin) / 100)));
+            t4.setText(String.format("%d-%d", (bpmMin + 85 * (bpmMax - bpmMin) / 100 + 1), (bpmMin + 90 * (bpmMax - bpmMin) / 100)));
+            t5.setText(String.format("%d-%d", (bpmMin + 90 * (bpmMax - bpmMin) / 100 + 1), (bpmMin + 95 * (bpmMax - bpmMin) / 100)));
+            t6.setText(String.format("%d-%d", (bpmMin + 95 * (bpmMax - bpmMin) / 100 + 1), bpmMax));
         } else {
-            t1.setText("" + 65 * mBPM / 100 + "-" + 75 * mBPM / 100);
-            t2.setText("" + 75 * mBPM / 100 + "-" + 80 * mBPM / 100);
-            t3.setText("" + 80 * mBPM / 100 + "-" + 85 * mBPM / 100);
-            t4.setText("" + 85 * mBPM / 100 + "-" + 90 * mBPM / 100);
-            t5.setText("" + 90 * mBPM / 100 + "-" + 95 * mBPM / 100);
-            t6.setText("" + 95 * mBPM / 100 + "-" + mBPM);
+            t1.setText(String.format("%d-%d", 65 * mBPM / 100, 75 * mBPM / 100));
+            t2.setText(String.format("%d-%d", 75 * mBPM / 100 + 1, 80 * mBPM / 100));
+            t3.setText(String.format("%d-%d", 80 * mBPM / 100 + 1, 85 * mBPM / 100));
+            t4.setText(String.format("%d-%d", 85 * mBPM / 100 + 1, 90 * mBPM / 100));
+            t5.setText(String.format("%d-%d", 90 * mBPM / 100 + 1, 95 * mBPM / 100));
+            t6.setText(String.format("%d-%d", 95 * mBPM / 100 + 1, mBPM));
         }
     }
 

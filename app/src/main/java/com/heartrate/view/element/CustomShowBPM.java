@@ -105,9 +105,9 @@ public class CustomShowBPM extends View {
         mWidth = getWidth();
         mHeight = getHeight();
         mXDigitalCenter = mWidth * 34 / 100;
-        mYDigitalCenter = 4 * mHeight / 7;
+        mYDigitalCenter = 54 * mHeight / 100;
         mXTextCenter = mWidth * 45 / 100;
-        mYTextCenter = 5 * mHeight / 7;
+        mYTextCenter = 62 * mHeight / 100;
         mDigitalTextSize = mWidth / 5;
         mTextSize = mWidth / 15;
         mBmHeartScale = Bitmap.createScaledBitmap(mBmHeartScale, mWidth, mWidth, false);

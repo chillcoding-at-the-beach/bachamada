@@ -10,213 +10,136 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="fill_parent"
+            <TextView
+                android:id="@+id/profil_title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/black"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/general_space_icon"
-                    android:src="@drawable/ic_action_user" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/title_profil"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/yellow" />
-            </LinearLayout>
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/general_space"
+                android:layout_marginTop="@dimen/general_space"
+                android:drawableLeft="@drawable/ic_action_user"
+                android:drawablePadding="@dimen/general_space_icon"
+                android:text="@string/title_profil"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/yellow" />
 
             <View
+                android:id="@+id/profil_bar_title"
                 android:layout_width="match_parent"
                 android:layout_height="0.8dp"
+                android:layout_below="@id/profil_title"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:background="@color/yellow" />
 
-            <TableLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:shrinkColumns="*"
-                android:stretchColumns="*">
-
-                <TableRow
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:gravity="center">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="@string/text_sexe"
-                        android:textColor="@color/blue" />
-
-                    <RadioGroup
-                        android:id="@+id/sexes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_toRightOf="@+id/ic_sexe"
-                        android:background="@null"
-
-                        android:checkedButton="@+id/sexe_male"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/sexe_male"
-                            android:layout_margin="6dp"
-                            android:background="@drawable/ic_male"
-                            android:button="@drawable/radio_btn_selector" />
-
-                        <RadioButton
-                            android:id="@+id/sexe_female"
-                            android:layout_margin="6dp"
-                            android:background="@drawable/ic_female"
-                            android:button="@drawable/radio_btn_selector" />
-                    </RadioGroup>
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="9dp"
-                        android:text="@string/text_year"
-                        android:textColor="@color/blue" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/layout_bg"
-                        android:orientation="vertical"
-
-                        >
-
-                        <EditText
-                            android:id="@+id/edit_year"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="numberSigned">
-
-
-                        </EditText>
-                    </LinearLayout>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="9dp"
-                        android:text="@string/text_bpm_min"
-                        android:textColor="@color/blue" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/layout_bg"
-                        android:orientation="vertical"
-
-                        >
-
-                        <EditText
-                            android:id="@+id/edit_bpm_min"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="numberSigned">
-
-
-                        </EditText>
-                    </LinearLayout>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="9dp"
-                        android:text="@string/text_bpm_max"
-                        android:textColor="@color/blue" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/layout_bg"
-                        android:orientation="vertical"
-
-                        >
-
-                        <EditText
-                            android:id="@+id/edit_bpm_max"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="numberSigned">
-
-
-                        </EditText>
-                    </LinearLayout>
-                </TableRow>
-
-            </TableLayout>
-
-            <LinearLayout
+            <RadioGroup
+                android:id="@+id/profil_sexe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_below="@id/profil_bar_title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="10dp"
+                android:background="@null"
                 android:orientation="horizontal">
 
-                <ImageButton
-                    android:id="@+id/refreshprofil"
-                    style="@style/button"
-                    android:layout_width="@dimen/button_width"
-                    android:layout_height="@dimen/button_height"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:onClick="updateBpmWithDb"
-                    android:src="@drawable/ic_action_refresh" />
+                <RadioButton
+                    android:id="@+id/sexe_male"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/ic_male"
+                    android:button="@drawable/radio_btn_selector" />
 
-                <Button
-                    android:id="@+id/validprofil"
-                    style="@style/button"
-                    android:layout_width="@dimen/button_width"
-                    android:layout_height="@dimen/button_height"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:text="@android:string/yes" />
-            </LinearLayout>
-        </LinearLayout>
+                <RadioButton
+                    android:id="@+id/sexe_female"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/ic_female"
+                    android:button="@drawable/radio_btn_selector" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/profil_height_text"
+                android:layout_below="@id/profil_bar_title"
+                android:layout_margin="5dp"
+                android:layout_toLeftOf="@id/profil_sexe"
+                android:gravity="center"
+                android:text="@string/text_sexe"
+                android:textColor="@color/blue" />
+
+            <EditText
+                android:id="@+id/edit_year"
+                android:layout_width="@dimen/general_width_edit_text"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profil_sexe"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:inputType="numberSigned"
+                android:textColor="@color/blue" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/profil_height_text"
+                android:layout_alignBaseline="@id/edit_year"
+                android:layout_margin="9dp"
+                android:layout_toLeftOf="@id/edit_year"
+                android:text="@string/text_year"
+                android:textColor="@color/blue" />
+
+            <EditText
+                android:id="@+id/profil_bpm_min"
+                android:layout_width="@dimen/general_width_edit_text"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edit_year"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:inputType="numberSigned"
+                android:textColor="@color/blue" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/profil_height_text"
+                android:layout_alignBaseline="@id/profil_bpm_min"
+                android:layout_margin="9dp"
+                android:layout_toLeftOf="@id/profil_bpm_min"
+                android:text="@string/text_bpm_min"
+                android:textColor="@color/blue" />
+
+            <EditText
+                android:id="@+id/profil_bpm_max"
+                android:layout_width="@dimen/general_width_edit_text"
+                android:layout_height="@dimen/profil_height_text"
+                android:layout_below="@id/profil_bpm_min"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:inputType="numberSigned"
+                android:textColor="@color/blue" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/profil_bpm_max"
+                android:layout_margin="9dp"
+                android:layout_toLeftOf="@id/profil_bpm_max"
+                android:text="@string/text_bpm_max"
+                android:textColor="@color/blue" />
+
+            <Button
+                android:id="@+id/profil_valid"
+                style="@style/button"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
+                android:layout_below="@id/profil_bpm_max"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@android:string/yes" />
+
+        </RelativeLayout>
     </ScrollView>
 
 </LinearLayout>

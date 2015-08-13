@@ -40,19 +40,19 @@ public class ProfilActivity extends Activity implements RadioGroup.OnCheckedChan
         mYear = mSharedPref.getInt(getString(R.string.value_year), mYear);
 
         //sexe
-        RadioGroup radioSexeGroup = (RadioGroup) findViewById(R.id.sexes);
+        RadioGroup radioSexeGroup = (RadioGroup) findViewById(R.id.profil_sexe);
         radioSexeGroup.check(mSexe);
         radioSexeGroup.setOnCheckedChangeListener(this);
         //age
         final EditText textYear = (EditText) findViewById(R.id.edit_year);
         textYear.setText(String.valueOf(mYear));
         //BPMs
-        mTextBpmMin = (EditText) findViewById(R.id.edit_bpm_min);
-        mTextBpmMax = (EditText) findViewById(R.id.edit_bpm_max);
+        mTextBpmMin = (EditText) findViewById(R.id.profil_bpm_min);
+        mTextBpmMax = (EditText) findViewById(R.id.profil_bpm_max);
         updateBPM();
 
         //Valid button
-        Button valid = (Button) findViewById(R.id.validprofil);
+        Button valid = (Button) findViewById(R.id.profil_valid);
         valid.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 int duration = Toast.LENGTH_SHORT;

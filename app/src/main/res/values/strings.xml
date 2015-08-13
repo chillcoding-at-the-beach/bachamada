@@ -34,13 +34,13 @@
     <string name="text_year">Year of birth:</string>
     <string name="text_sexe">Sexe:</string>
     <string name="text_bpm_activity">ACTIVITY</string>
-    <string name="text_bpm_footing">FOOTING</string>
+    <string name="text_bpm_footing">JOGGING</string>
     <string name="text_bpm_resting">RESTING</string>
     <string name="text_bpm_marathon">MARATHON</string>
     <string name="text_bpm_semi">SEMI-\n MARATHON</string>
-    <string name="text_bpm_allure">ALLURE 10km</string>
-    <string name="text_bpm_vma_l">SMA Long</string>
-    <string name="text_bpm_vma_c">SMA Court</string>
+    <string name="text_bpm_allure">SPEED 6 m/h</string>
+    <string name="text_bpm_vma_l">SPEED HIGH</string>
+    <string name="text_bpm_vma_c">SPEED HIGH +</string>
     <string name="text_set_timer">Value of timer in seconds:</string>
     <string name="set">Set</string>
     <string name="text_bpm_min">HR Min:</string>

@@ -21,18 +21,18 @@
     <string name="title_vpro">Version Pro</string>
     <string name="action_settings">Settings</string>
     <string name="setting_timer">time of timer</string>
-    <string name="message_ready_to_count">Press Start when you are ready to count your pulse !</string>
+    <string name="message_ready_to_count">Press Start when you are ready to count your pulse!</string>
     <string name="navigation_drawer_open">Open menu</string>
     <string name="navigation_drawer_close">Close menu</string>
     <string name="text_profile_saved">Profile saved</string>
-    <string name="text_nb_pulse">Enter number of counted pulse : </string>
-    <string name="text_heart_rate">HR Value (in BPM) :</string>
+    <string name="text_nb_pulse">Enter number of counted pulse: </string>
+    <string name="text_heart_rate">HR Value in BPM:</string>
     <string name="text_how">FEELING</string>
     <string name="text_where">PLACE OF MEASURE</string>
     <string name="text_type">ACTIVITY TYPE</string>
     <string name="save">Register</string>
-    <string name="text_year">Year of birth :</string>
-    <string name="text_sexe">Sexe :</string>
+    <string name="text_year">Year of birth:</string>
+    <string name="text_sexe">Sexe:</string>
     <string name="text_bpm_activity">ACTIVITY</string>
     <string name="text_bpm_footing">FOOTING</string>
     <string name="text_bpm_resting">RESTING</string>
@@ -41,16 +41,16 @@
     <string name="text_bpm_allure">ALLURE 10km</string>
     <string name="text_bpm_vma_l">SMA Long</string>
     <string name="text_bpm_vma_c">SMA Court</string>
-    <string name="text_set_timer">Value of timer :\n in second(s)</string>
+    <string name="text_set_timer">Value of timer in seconds:</string>
     <string name="set">Set</string>
     <string name="text_bpm_min">HR Min:</string>
     <string name="text_bpm_max">HR Max:</string>
-    <string name="dialog_delete">Delete this HR ?</string>
+    <string name="dialog_delete">Delete this measure?</string>
     <string name="message_info_about_bpm">       Heart rate in Beat Per Minute, <font fgcolor="#ff3498db"><b>BPM</b></font>,  is determinated by <font fgcolor="#ff3498db"><i>taking pulse</i></font> : <i>measurement can be done by putting your fingers at clenched or at neck.</i>.\n  It is done in beat per minute <b>BPM</b>.\n\n
 Here is 3 <font fgcolor="#ff3498db">types of <B>HR</B></font> :\n
-- <font fgcolor="#ff2ecc71">HR Min</font> : HR at resting,\n \u0020 \u0020 \u0020 \u0020 \u0020 calculated at wake up\n
-- <font fgcolor="#fff1c40f">HR T</font> : HR during training,\n  \u0020 \u0020 \u0020 \u0020 \u0020 calculated between 2 efforts\n
-- <font fgcolor="#ffe74c3c">HR Max</font> : HR maximal,\n   \u0020 \u0020 \u0020 \u0020 \u0020 calculated after a strong effort\n\n
+- <font fgcolor="#ff2ecc71">HR Min</font>: HR at resting,\n \u0020 \u0020 \u0020 \u0020 \u0020 calculated at wake up\n
+- <font fgcolor="#fff1c40f">HR T</font>: HR during training,\n  \u0020 \u0020 \u0020 \u0020 \u0020 calculated between 2 efforts\n
+- <font fgcolor="#ffe74c3c">HR Max</font>: HR maximal,\n   \u0020 \u0020 \u0020 \u0020 \u0020 calculated after a strong effort\n\n
 Here is 7 <font fgcolor="#ff3498db">types of activity</font> :\n(<i> s the speed and t the time of the activity</i>)\n
 * <font fgcolor="#ff2ecc71">RESTING</font> s~0, t=everytime\n
 * <font fgcolor="#fff1c40f">FOOTING</font> \u0020 \u0020 \u0020 s~11km/h, t~3h and +\n
@@ -65,5 +65,5 @@ You can find <font fgcolor="#ff3498db"><b>HR Zones</b></font> in second tab. The
     <string name="link_icon">BaChamada on <a href="https://www.facebook.com/suivifc">Facebook</a>\nApplication realised by <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
     <string name="text_start">Start</string>
     <string name="text_stop">Stop</string>
-    <string name="notification_text">Soon : Smartwatch connection ! </string>
+    <string name="notification_text">Soon: Smartwatch connection ! </string>
 </resources>

@@ -15,7 +15,7 @@
     <string name="action_settings">Paramètre</string>
     <string name="setting_timer">temps du chrono</string>
     <string name="text_nb_pulse">Entrez le nombre de pulsations comptées : </string>
-    <string name="text_heart_rate">Valeur FC (en BPM) :</string>
+    <string name="text_heart_rate">Valeur FC en BPM :</string>
     <string name="text_how">RESSENTI</string>
     <string name="text_where">ENDROIT DE LA MESURE</string>
     <string name="text_type">TYPE D\'EFFORT</string>
@@ -32,11 +32,11 @@
     <string name="text_bpm_allure">ALLURE 10km</string>
     <string name="text_bpm_vma_l">VMA Long</string>
     <string name="text_bpm_vma_c">VMA Court</string>
-    <string name="text_set_timer">Valeur du Chrono :\n en seconde(s)</string>
+    <string name="text_set_timer">Valeur du Chrono en secondes :</string>
     <string name="set">Changer</string>
     <string name="text_bpm_min">FC Min:</string>
     <string name="text_bpm_max">FC Max:</string>
-    <string name="dialog_delete">Voulez-vous supprimer cette valeur?</string>
+    <string name="dialog_delete">Voulez-vous supprimer cette mesure ?</string>
     <string name="message_info_about_bpm">La fréquence cardiaque (FC), exprimée en Battement Par Minute <font fgcolor="#ff3498db"><b>BPM</b></font>, est déterminée par la <font fgcolor="#ff3498db"><i>prise de pouls</i></font> : <i>mesure au poignet ou à la carotide du nombre de pulsations en un temps donné</i>.\n\n
 Voici 3 <font fgcolor="#ff3498db">types de <B>FC</B></font> :\n
 - <font fgcolor="#ff2ecc71">FC Min</font> : FC au repos,\n  \u0020 \u0020 \u0020 \u0020 \u0020 calculée au reveil\n

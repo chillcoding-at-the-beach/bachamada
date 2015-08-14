@@ -18,7 +18,7 @@ import com.heartrate.view.element.CustomStopwatch;
 public class MeasurementFragment extends Fragment {
 
     private CustomStopwatch mStopWatch;
-    private int mTime = 7000;
+    private int mTime = 15000;
 
     OnTimerListener mCallback;
 

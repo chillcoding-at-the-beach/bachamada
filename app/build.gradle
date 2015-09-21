@@ -5,9 +5,9 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "fr.machada.bpm"
+        applicationId "fr.machada.bpm.pro"
         minSdkVersion 15
-        versionCode 12
+        versionCode 5
         targetSdkVersion 22
     }
 

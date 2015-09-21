@@ -65,6 +65,6 @@ You can find <font fgcolor="#ff3498db"><b>HR Zones</b></font> in second tab. The
     <string name="link_icon">BaChamada on <a href="https://www.facebook.com/suivifc">Facebook</a>\nApplication realised by <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
     <string name="text_start">Start</string>
     <string name="text_stop">Stop</string>
-    <string name="notification_text">Soon: Smartwatch connection ! </string>
+    <string name="notification_text">Do you have a smartwatch ?</string>
     <string name="formula_bpm">% HR Max</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.heartrate;
+package fr.machada.bpm.pro;
 
 import android.app.Activity;
 import android.hardware.Sensor;

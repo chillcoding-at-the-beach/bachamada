@@ -88,10 +88,10 @@ public class CustomStopwatch extends Chronometer {
         mXDown = width / 2 - mBtnRefresh.getWidth() / 2;
         rectBtnRefresh = new RectF(mXDown, mYDown, mXDown + mBtnRefresh.getWidth(), mYDown + mBtnRefresh.getHeight());
 
-        mBtnPlay = Bitmap.createScaledBitmap(mBtnPlay, 80 * width / 100, 80 * height / 100, false);
+        mBtnPlay = Bitmap.createScaledBitmap(mBtnPlay, 75 * width / 100, 75 * height / 100, false);
 
-        mBtnPlayXMargin = 19 * width / 100;
-        mBtnPlayYMargin = 125 * width / 1000;
+        mBtnPlayXMargin = 23 * width / 100;
+        mBtnPlayYMargin = 155 * width / 1000;
 
     }
 

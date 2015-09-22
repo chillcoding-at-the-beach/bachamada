@@ -1,4 +1,4 @@
-package com.heartrate.model;
+package fr.machada.bpm.pro.model;
 
 public enum Effort {
     GURU(0), WALKING(1), INTERVAL(2), EXERCISE(3);

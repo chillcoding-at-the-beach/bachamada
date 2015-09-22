@@ -1,4 +1,4 @@
-package com.heartrate.view;
+package fr.machada.bpm.pro.view;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,8 +11,9 @@ import android.view.ViewGroup;
 import android.widget.Chronometer;
 import android.widget.Chronometer.OnChronometerTickListener;
 
-import com.heartrate.R;
-import com.heartrate.view.element.CustomStopwatch;
+
+import fr.machada.bpm.pro.R;
+import fr.machada.bpm.pro.view.element.CustomStopwatch;
 
 
 public class MeasurementFragment extends Fragment {

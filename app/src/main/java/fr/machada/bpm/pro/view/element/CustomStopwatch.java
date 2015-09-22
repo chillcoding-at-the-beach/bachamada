@@ -1,6 +1,4 @@
-package com.heartrate.view.element;
-
-import com.heartrate.R;
+package fr.machada.bpm.pro.view.element;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,6 +11,8 @@ import android.media.MediaPlayer;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.Chronometer;
+
+import fr.machada.bpm.pro.R;
 
 public class CustomStopwatch extends Chronometer {
     private boolean start = false;

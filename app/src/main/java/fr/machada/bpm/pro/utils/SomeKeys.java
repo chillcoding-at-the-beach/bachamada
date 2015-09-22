@@ -1,4 +1,4 @@
-package com.heartrate.com.heartrate.utils;
+package fr.machada.bpm.pro.utils;
 
 /**
  * Created by macha on 21/07/15.

@@ -1,6 +1,4 @@
-package com.heartrate.view.element;
-
-import com.heartrate.R;
+package fr.machada.bpm.pro.view.element;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -15,6 +13,8 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import java.util.Calendar;
+
+import fr.machada.bpm.pro.R;
 
 
 public class CustomShowBPM extends View {

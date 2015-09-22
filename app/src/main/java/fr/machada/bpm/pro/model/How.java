@@ -1,4 +1,4 @@
-package com.heartrate.model;
+package fr.machada.bpm.pro.model;
 
 public enum How {
     HAPPY(0), NEUTRAL(1), SAD(2);

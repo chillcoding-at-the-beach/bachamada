@@ -1,4 +1,4 @@
-package com.heartrate.model;
+package fr.machada.bpm.pro.model;
 
 
 import android.app.Activity;
@@ -11,11 +11,12 @@ import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.heartrate.R;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
+
+import fr.machada.bpm.pro.R;
 
 
 public class CustomExpandableListAdapter extends BaseExpandableListAdapter {

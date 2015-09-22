@@ -25,7 +25,7 @@
             android:layout_marginTop="5dp"
             android:background="@color/blue" />
 
-        <com.heartrate.view.element.CustomShowBPM
+        <fr.machada.bpm.pro.view.element.CustomShowBPM
             android:id="@+id/show_bpm"
             android:layout_width="240dp"
             android:layout_height="240dp"

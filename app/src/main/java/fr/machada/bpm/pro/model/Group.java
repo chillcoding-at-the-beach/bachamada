@@ -1,4 +1,4 @@
-package com.heartrate.model;
+package fr.machada.bpm.pro.model;
 
 import java.util.ArrayList;
 import java.util.List;

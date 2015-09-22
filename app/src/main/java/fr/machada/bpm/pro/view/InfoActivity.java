@@ -1,11 +1,10 @@
-package com.heartrate.view;
+package fr.machada.bpm.pro.view;
 
 
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.heartrate.R;
-
+import fr.machada.bpm.pro.R;
 
 public class InfoActivity extends Activity {
 

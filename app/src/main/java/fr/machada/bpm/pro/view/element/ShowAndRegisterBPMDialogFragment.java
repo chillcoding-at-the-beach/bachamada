@@ -1,4 +1,4 @@
-package com.heartrate.view.element;
+package fr.machada.bpm.pro.view.element;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RadioGroup;
 
-import com.heartrate.R;
+import fr.machada.bpm.pro.R;
 
 
 public class ShowAndRegisterBPMDialogFragment extends DialogFragment {

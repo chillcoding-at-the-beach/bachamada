@@ -1,4 +1,4 @@
-package com.heartrate;
+package fr.machada.bpm.pro;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -21,22 +21,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.heartrate.com.heartrate.utils.SlidingTabLayout;
-import com.heartrate.com.heartrate.utils.SomeKeys;
-import com.heartrate.model.BpmDbAdapter;
-import com.heartrate.model.Effort;
-import com.heartrate.model.How;
-import com.heartrate.model.RegisteredBpm;
-import com.heartrate.view.BPMZoneFragment;
-import com.heartrate.view.HistoryFragment;
-import com.heartrate.view.InfoActivity;
-import com.heartrate.view.MeasurementFragment;
-import com.heartrate.view.ProfilActivity;
-import com.heartrate.view.element.PulseNumberDialogFragment;
-import com.heartrate.view.element.ShowAndRegisterBPMDialogFragment;
-import com.heartrate.view.element.TimerNumberDialogFragment;
 
 import java.util.ArrayList;
+
+import fr.machada.bpm.pro.model.BpmDbAdapter;
+import fr.machada.bpm.pro.model.Effort;
+import fr.machada.bpm.pro.model.How;
+import fr.machada.bpm.pro.model.RegisteredBpm;
+import fr.machada.bpm.pro.utils.SlidingTabLayout;
+import fr.machada.bpm.pro.utils.SomeKeys;
+import fr.machada.bpm.pro.view.BPMZoneFragment;
+import fr.machada.bpm.pro.view.HistoryFragment;
+import fr.machada.bpm.pro.view.InfoActivity;
+import fr.machada.bpm.pro.view.MeasurementFragment;
+import fr.machada.bpm.pro.view.ProfilActivity;
+import fr.machada.bpm.pro.view.element.PulseNumberDialogFragment;
+import fr.machada.bpm.pro.view.element.ShowAndRegisterBPMDialogFragment;
+import fr.machada.bpm.pro.view.element.TimerNumberDialogFragment;
 
 public class MainActivity extends ActionBarActivity implements
         MeasurementFragment.OnTimerListener,

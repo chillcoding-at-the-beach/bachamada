@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.heartrate.com.heartrate.utils;
+package fr.machada.bpm.pro.utils;
 
 import android.content.Context;
 import android.graphics.Typeface;

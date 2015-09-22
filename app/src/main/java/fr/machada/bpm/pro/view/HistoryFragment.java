@@ -1,4 +1,4 @@
-package com.heartrate.view;
+package fr.machada.bpm.pro.view;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,15 +10,16 @@ import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 
-import com.heartrate.R;
-import com.heartrate.com.heartrate.utils.SomeKeys;
-import com.heartrate.model.CustomExpandableListAdapter;
-import com.heartrate.model.Group;
-import com.heartrate.model.RegisteredBpm;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
+
+import fr.machada.bpm.pro.R;
+import fr.machada.bpm.pro.model.CustomExpandableListAdapter;
+import fr.machada.bpm.pro.model.Group;
+import fr.machada.bpm.pro.model.RegisteredBpm;
+import fr.machada.bpm.pro.utils.SomeKeys;
 
 public class HistoryFragment extends Fragment {
     // more efficient than HashMap for mapping integers to objects

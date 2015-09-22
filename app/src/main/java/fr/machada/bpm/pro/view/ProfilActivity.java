@@ -1,4 +1,4 @@
-package com.heartrate.view;
+package fr.machada.bpm.pro.view;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,10 +11,10 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.heartrate.R;
-import com.heartrate.model.BpmDbAdapter;
-
 import java.util.Calendar;
+
+import fr.machada.bpm.pro.R;
+import fr.machada.bpm.pro.model.BpmDbAdapter;
 
 public class ProfilActivity extends Activity implements RadioGroup.OnCheckedChangeListener {
 

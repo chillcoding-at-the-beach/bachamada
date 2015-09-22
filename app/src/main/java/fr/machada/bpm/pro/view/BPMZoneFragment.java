@@ -1,4 +1,4 @@
-package com.heartrate.view;
+package fr.machada.bpm.pro.view;
 
 
 import android.content.Context;
@@ -10,9 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.heartrate.R;
-
 import java.util.Calendar;
+
+import fr.machada.bpm.pro.R;
 
 public class BPMZoneFragment extends Fragment {
 

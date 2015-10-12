@@ -28,7 +28,7 @@ public class TimerNumberDialogFragment extends DialogFragment implements NumberP
 
     // Use this instance of the interface to deliver action events
     NoticeDialogListener mListener;
-    private int mValue = 7000;
+    private int mValue = 15000;
 
     // Override the Fragment.onAttach() method to instantiate the NoticeDialogListener
     @Override

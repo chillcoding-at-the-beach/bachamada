@@ -2,13 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "21.1.2"
+    buildToolsVersion "22.0.1"
 
     defaultConfig {
         applicationId "fr.machada.bpm.pro"
         minSdkVersion 11
-        versionCode 6
         targetSdkVersion 22
+        versionCode 10
+        versionName "2.0"
     }
 
     buildTypes {

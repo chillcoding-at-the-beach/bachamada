@@ -115,8 +115,8 @@ public class MainActivity extends ActionBarActivity implements
         initData();
         initFragment();
         initTabs();
-        initNotification();
         initFB();
+
 
         Toast.makeText(this, R.string.message_ready_to_count, Toast.LENGTH_LONG).show();
 

@@ -6,9 +6,9 @@ android {
 
     defaultConfig {
         applicationId "fr.machada.bpm.pro"
-        minSdkVersion 11
+        minSdkVersion 19
         targetSdkVersion 22
-        versionCode 10
+        versionCode 12
         versionName "2.0"
     }
 
@@ -21,6 +21,6 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:20.0.+'
+    compile 'com.android.support:support-v4:22.0.+'
     compile 'com.google.android.gms:play-services:+'
 }

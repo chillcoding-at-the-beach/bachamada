@@ -9,7 +9,7 @@ android {
         minSdkVersion 15
         versionCode 6
         targetSdkVersion 22
-        versionCode 12
+        versionCode 13
         versionName "2.0"
     }
 
@@ -22,6 +22,7 @@ android {
 }
 
 dependencies {
+    wearApp project(':wearable')
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.google.android.gms:play-services:+'
     compile 'com.facebook.android:facebook-android-sdk:4.6.0'

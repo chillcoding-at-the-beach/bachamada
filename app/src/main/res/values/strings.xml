@@ -10,7 +10,7 @@
     <string name="text_default" translatable="false">default</string>
     <string name="preference_file_key" translatable="false">default</string>
 
-    <string name="app_name">BaChamada</string>
+    <string name="app_name">Healthy Heart Rate</string>
     <string name="title_bpm">HR (BPM)</string>
     <string name="title_profil">Profile</string>
     <string name="title_info">Info</string>

@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
+    compileSdkVersion 23
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "fr.machada.bpm.pro"
-        minSdkVersion 11
+        applicationId "fr.machada.bpm"
+        minSdkVersion 15
         targetSdkVersion 22
     }
 
@@ -19,6 +19,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:20.0.+'
+    compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.google.android.gms:play-services:+'
+    compile 'com.facebook.android:facebook-android-sdk:4.6.0'
 }

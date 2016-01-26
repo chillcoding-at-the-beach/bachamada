@@ -83,7 +83,8 @@ public class HistoryFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
+        if (mGroups.size() > 0)
+            mListView.expandGroup(0);
     }
 
     public void createData(List<RegisteredBpm> bpmList) {

@@ -17,6 +17,8 @@ public class ShowAndRegisterBPMDialogFragment extends DialogFragment {
 
     public interface NoticeDialogListener {
         public void onDialogSaveClick(int v, int effort, int how);
+
+        public void onDialogShareClick(int V, int effort, int how);
     }
 
     NoticeDialogListener mListener;
@@ -54,7 +56,7 @@ public class ShowAndRegisterBPMDialogFragment extends DialogFragment {
 
         builder.setView(promptsView);
 
-        //builder.setMessage(R.string.text_heart_rate)
+
         builder.setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // Send the positive button event back to the host activity
@@ -65,16 +67,27 @@ public class ShowAndRegisterBPMDialogFragment extends DialogFragment {
 
             }
         })
-                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.discard, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // Send the negative button event back to the host activity
 
                     }
                 });
 
+        builder.setNeutralButton(R.string.share_on, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                RadioGroup radioEffortGroup = (RadioGroup) promptsView.findViewById(R.id.efforts);
+                RadioGroup radioHowGroup = (RadioGroup) promptsView.findViewById(R.id.hows);
+                mListener.onDialogShareClick(mV, radioEffortGroup.getCheckedRadioButtonId(), radioHowGroup.getCheckedRadioButtonId());
+
+            }
+        });
+
 
         // Create the AlertDialog object and return it
         return builder.create();
     }
+
 
 }

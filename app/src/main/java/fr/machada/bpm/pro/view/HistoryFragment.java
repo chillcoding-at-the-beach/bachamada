@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 
-
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -69,13 +68,9 @@ public class HistoryFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_layout_history, container, false);
-        //createData();
+
         mListView = (ExpandableListView) rootView.findViewById(R.id.listView);
-
-
         mListView.setAdapter(mAdapter);
-
-
         mListView.setOnChildClickListener(mListItemClicked);
         return rootView;
     }

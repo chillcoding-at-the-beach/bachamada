@@ -1,90 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/gray"
+    android:layout_height="@dimen/item_height"
     android:orientation="horizontal"
     android:padding="5dip">
     <!--  ListRow Left sied Thumbnail image -->
-    <LinearLayout
-        android:id="@+id/imgs"
+
+    <ImageView
+        android:id="@+id/hiseffort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="5dip"
-        android:orientation="horizontal"
-        android:padding="3dip">
+        android:layout_centerVertical="true"
+        android:layout_margin="5dp"
+        android:src="@drawable/ic_exercise" />
 
-        <ImageView
-            android:id="@+id/hiseffort"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:src="@drawable/ic_exercise" />
+    <ImageView
+        android:id="@+id/hishow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_margin="5dp"
+        android:layout_toRightOf="@id/hiseffort"
+        android:src="@drawable/ic_happy" />
 
-        <ImageView
-            android:id="@+id/hishow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:src="@drawable/ic_happy" />
-    </LinearLayout>
 
     <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/imgs"
+        android:layout_below="@id/hiseffort"
         android:textColor="@android:color/white"
         android:textSize="10dip"
         android:textStyle="bold"
         android:typeface="sans" />
 
-
-    <LinearLayout
+    <ImageView
+        android:id="@+id/heart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="5dip"
-        android:orientation="horizontal"
-        android:padding="3dip">
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_heart" />
 
-        <TextView
-            android:id="@+id/value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="80"
-            android:textColor="@android:color/white"
-            android:textSize="20dip" />
+    <TextView
+        android:id="@+id/value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/heart"
+        android:text="80"
+        android:textColor="@android:color/white"
+        android:textSize="20dip" />
 
-        <LinearLayout
-            android:id="@+id/bpm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dip"
-            android:orientation="vertical"
-            android:padding="3dip">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_heart" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="10dip"
+        android:layout_toLeftOf="@id/heart"
+        android:text="BPM"
+        android:textColor="@android:color/white"
+        android:textSize="10dip"
+        android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="5dip"
-                android:gravity="center"
-                android:text="BPM"
-                android:textColor="@android:color/white"
-                android:textSize="10dip"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop ="10dp"
+        android:background="@color/gray" />
+
 </RelativeLayout>

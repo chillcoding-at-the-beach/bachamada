@@ -10,5 +10,7 @@
     <dimen name="general_space_icon">5dp</dimen>
     <dimen name="general_width_edit_text">100dp</dimen>
     <dimen name="profil_height_text">50dp</dimen>
+    <dimen name="item_height">50dp</dimen>
+
 
 </resources>

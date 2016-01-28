@@ -67,4 +67,8 @@ You can find <font fgcolor="#ff3498db"><b>HR Zones</b></font> in second tab. The
     <string name="text_stop">Stop</string>
     <string name="notification_text">Download Pro version to use with smartwatch.</string>
     <string name="formula_bpm">% HR Max</string>
+    <string name="share_on">Share on Fb</string>
+    <string name="share_message_format">With Healthy Heart Rate, my pulse is about %d and you?</string>
+    <string name="discard">Discard</string>
+    <string name="text_share">SHARE</string>
 </resources>

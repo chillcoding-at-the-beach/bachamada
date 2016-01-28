@@ -74,16 +74,15 @@ public class ShowAndRegisterBPMDialogFragment extends DialogFragment {
                     }
                 });
 
-        builder.setNeutralButton(R.string.share_on, new DialogInterface.OnClickListener() {
+        View fbButton = promptsView.findViewById(R.id.fb_icon);
+        fbButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(View v) {
                 RadioGroup radioEffortGroup = (RadioGroup) promptsView.findViewById(R.id.efforts);
                 RadioGroup radioHowGroup = (RadioGroup) promptsView.findViewById(R.id.hows);
                 mListener.onDialogShareClick(mV, radioEffortGroup.getCheckedRadioButtonId(), radioHowGroup.getCheckedRadioButtonId());
-
             }
         });
-
 
         // Create the AlertDialog object and return it
         return builder.create();

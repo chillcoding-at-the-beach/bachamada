@@ -64,5 +64,6 @@ Le <font fgcolor="#ff3498db"><b>suivi de FC</b></font> est important pour suivre
 
     <string name="share_message_format">Avec BaChamada, mon pouls est de %d et vous ?</string>
     <string name="discard">Annuler</string>
+    <string name="text_share">PARTAGE</string>
 
 </resources>

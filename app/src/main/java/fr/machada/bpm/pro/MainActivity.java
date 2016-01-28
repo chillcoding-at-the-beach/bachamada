@@ -348,7 +348,6 @@ public class MainActivity extends ActionBarActivity implements
 
     @Override
     public void onDialogShareClick(int v, int effort, int how) {
-        onDialogSaveClick(v, effort, how);
         ShareLinkContent linkContent = new ShareLinkContent.Builder()
                 .setContentTitle(String.format(getString(R.string.share_message_format), v))
                 .setContentDescription(

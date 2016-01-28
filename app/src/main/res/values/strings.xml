@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="facebook_app_id" translatable="false">529160923919069</string>
+
+
     <string name="value_sexe" translatable="false">sexe</string>
     <string name="value_year" translatable="false">year</string>
     <string name="value_timer" translatable="false">timer</string>

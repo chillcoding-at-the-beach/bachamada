@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="facebook_app_id" translatable="false">529160923919069</string>
+
+
     <string name="value_sexe" translatable="false">sexe</string>
     <string name="value_year" translatable="false">year</string>
     <string name="value_timer" translatable="false">timer</string>
@@ -10,7 +13,7 @@
     <string name="text_default" translatable="false">default</string>
     <string name="preference_file_key" translatable="false">default</string>
 
-    <string name="app_name">BaChamada</string>
+    <string name="app_name">Healthy Heart Rate</string>
     <string name="title_bpm">HR (BPM)</string>
     <string name="title_profil">Profile</string>
     <string name="title_info">Info</string>
@@ -30,7 +33,7 @@
     <string name="text_how">FEELING</string>
     <string name="text_where">PLACE OF MEASURE</string>
     <string name="text_type">ACTIVITY TYPE</string>
-    <string name="save">Register</string>
+    <string name="save">Save</string>
     <string name="text_year">Year of birth:</string>
     <string name="text_sexe">Gender:</string>
     <string name="text_bpm_activity">ACTIVITY</string>
@@ -65,6 +68,10 @@ You can find <font fgcolor="#ff3498db"><b>HR Zones</b></font> in second tab. The
     <string name="link_icon">BaChamada on <a href="https://www.facebook.com/suivifc">Facebook</a>\nApplication realised by <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
     <string name="text_start">Start</string>
     <string name="text_stop">Stop</string>
-    <string name="notification_text">Do you have a smartwatch ?</string>
+    <string name="notification_text">Download Pro version to use with smartwatch.</string>
     <string name="formula_bpm">% HR Max</string>
+    <string name="share_on">Share on Fb</string>
+    <string name="share_message_format">With Healthy Heart Rate, my pulse is about %d and you?</string>
+    <string name="discard">Discard</string>
+    <string name="text_share">SHARE</string>
 </resources>

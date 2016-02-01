@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v4.app.Fragment;
@@ -16,11 +17,19 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.share.Sharer;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
 
 import java.util.ArrayList;
 
@@ -77,19 +86,49 @@ public class MainActivity extends ActionBarActivity implements
     /* These are the classes you use to start the notification */
     private NotificationCompat.Builder mNotificationBuilder;
     private NotificationManagerCompat mNotificationManager;
+    private CallbackManager callbackManager;
+    private ShareDialog mShareDialog;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_SHOW_TITLE);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
         initData();
         initFragment();
         initTabs();
-
+        initNotification();
+        initFB();
+        
         Toast.makeText(this, R.string.message_ready_to_count, Toast.LENGTH_LONG).show();
 
+    }
+
+    private void initFB() {
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
+        mShareDialog = new ShareDialog(this);
+        // this part is optional
+        mShareDialog.registerCallback(callbackManager, new FacebookCallback<Sharer.Result>() {
+            @Override
+            public void onSuccess(Sharer.Result result) {
+
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+
+            }
+        });
     }
 
     private void initData() {
@@ -160,7 +199,7 @@ public class MainActivity extends ActionBarActivity implements
         android.app.PendingIntent pending_intent = android.app.PendingIntent.getActivity(this, 0, open_activity_intent, android.app.PendingIntent.FLAG_CANCEL_CURRENT);
 
         mNotificationBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.ic_launcher_heartrate)
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(getString(R.string.app_name))
                 .setContentText(getString(R.string.notification_text))
                 .setDefaults(Notification.DEFAULT_ALL)
@@ -308,6 +347,19 @@ public class MainActivity extends ActionBarActivity implements
     }
 
     @Override
+    public void onDialogShareClick(int v, int effort, int how) {
+        ShareLinkContent linkContent = new ShareLinkContent.Builder()
+                .setContentTitle(String.format(getString(R.string.share_message_format), v))
+                .setContentDescription(
+                        String.format(getString(R.string.share_message_format), v))
+                .setContentUrl(Uri.parse("https://play.google.com/store/apps/details?id=fr.machada.bpm"))
+                .build();
+
+        mShareDialog.show(linkContent);
+    }
+
+
+    @Override
     public void onDeleteBpmClick(int idi, int grp, int cip) {
         final int iid = idi;
         final int gp = grp;
@@ -387,4 +439,11 @@ public class MainActivity extends ActionBarActivity implements
             }
         }
     }
+
+    @Override
+    protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
 }

@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
+    compileSdkVersion 23
     buildToolsVersion "22.0.1"
 
     defaultConfig {
         applicationId "fr.machada.bpm.pro"
         minSdkVersion 19
         targetSdkVersion 22
-        versionCode 13
+        versionCode 14
         versionName "2.0"
     }
 
@@ -22,6 +22,9 @@ android {
 
 dependencies {
     wearApp project(':wearable')
-    compile 'com.android.support:support-v4:22.0.+'
+    compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.google.android.gms:play-services:+'
+    compile 'com.facebook.android:facebook-android-sdk:4.6.0'
+    compile 'net.steamcrafted:materialiconlib:1.0.4'
+
 }

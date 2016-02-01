@@ -9,4 +9,4 @@
     android:textAlignment="textEnd"
     android:textColor="@android:color/white"
     android:textSize="14sp"
-    android:textStyle="bold" /> 
+    android:textStyle="bold" />

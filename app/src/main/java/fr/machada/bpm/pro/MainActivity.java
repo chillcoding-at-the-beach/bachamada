@@ -7,6 +7,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -29,6 +37,8 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.share.Sharer;
 import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.model.SharePhoto;
+import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
 
 import java.util.ArrayList;
@@ -348,14 +358,82 @@ public class MainActivity extends ActionBarActivity implements
 
     @Override
     public void onDialogShareClick(int v, int effort, int how) {
-        ShareLinkContent linkContent = new ShareLinkContent.Builder()
-                .setContentTitle(String.format(getString(R.string.share_message_format), v))
-                .setContentDescription(
-                        String.format(getString(R.string.share_message_format), v))
-                .setContentUrl(Uri.parse("https://play.google.com/store/apps/details?id=fr.machada.bpm"))
-                .build();
+        boolean installed = appInstalledOrNot("com.facebook.katana");
+        if (installed) {
+            Bitmap image = getPersonalHeartRateBitmap(v);
+            SharePhoto photo = new SharePhoto.Builder()
+                    .setBitmap(image)
+                    .build();
+            SharePhotoContent photoContent = new SharePhotoContent.Builder()
+                    .addPhoto(photo)
+                    .build();
+            mShareDialog.show(photoContent);
 
-        mShareDialog.show(linkContent);
+        } else {
+            ShareLinkContent linkContent = new ShareLinkContent.Builder()
+                    .setContentTitle(String.format(getString(R.string.share_message_format), v))
+                    .setContentDescription(
+                            String.format(getString(R.string.share_message_format), v))
+                    .setContentUrl(Uri.parse("https://play.google.com/store/apps/details?id=fr.machada.bpm"))
+                    .build();
+            mShareDialog.show(linkContent);
+        }
+    }
+
+    public Bitmap getPersonalHeartRateBitmap(int value) {
+        Resources resources = getResources();
+        float scale = resources.getDisplayMetrics().density;
+        Bitmap bitmap = BitmapFactory.decodeResource(resources, R.drawable.heart_scale);
+
+        android.graphics.Bitmap.Config bitmapConfig =
+                bitmap.getConfig();
+        // set default bitmap config if none
+        if (bitmapConfig == null) {
+            bitmapConfig = android.graphics.Bitmap.Config.ARGB_8888;
+        }
+        // resource bitmaps are imutable,
+        // so we need to convert it to mutable one
+        bitmap = bitmap.copy(bitmapConfig, true);
+
+        Canvas canvas = new Canvas(bitmap);
+        // new antialised Paint
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        // text color - #3D3D3D
+        if (value < 90)
+            paint.setColor(getResources().getColor(R.color.green));
+        else if (value < 120)
+            paint.setColor(getResources().getColor(R.color.yellow));
+        else if (value < 150)
+            paint.setColor(getResources().getColor(R.color.orange));
+        else
+            paint.setColor(getResources().getColor(R.color.reed));
+        // text size in pixels
+        paint.setTextSize((int) (60 * scale));
+        // text shadow
+        paint.setShadowLayer(1f, 0f, 1f, Color.WHITE);
+
+        // draw text to the Canvas center
+        Rect bounds = new Rect();
+        String gText = String.format("%d BPM", value);
+        paint.getTextBounds(gText, 0, gText.length(), bounds);
+        int x = (bitmap.getWidth() - bounds.width()) / 2;
+        int y = (bitmap.getHeight() + bounds.height()) / 2;
+
+        canvas.drawText(gText, x, y, paint);
+
+        return bitmap;
+    }
+
+    private boolean appInstalledOrNot(String uri) {
+        PackageManager pm = getPackageManager();
+        boolean app_installed = false;
+        try {
+            pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
+            app_installed = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            app_installed = false;
+        }
+        return app_installed;
     }
 
 

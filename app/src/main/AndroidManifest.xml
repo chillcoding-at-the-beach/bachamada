@@ -15,6 +15,9 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+        <provider android:authorities="com.facebook.app.FacebookContentProvider529160923919069"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true"/>
 
         <activity
             android:name="fr.machada.bpm.pro.MainActivity"

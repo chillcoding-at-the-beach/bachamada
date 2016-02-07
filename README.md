@@ -1,3 +1,4 @@
+[Healthy Heart Rate logo](https://github.com/chillcoding-at-the-beach/bachamada/blob/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
 # bachamada
 This project is about monitoring Heart Rate, in Beat Per Minute (BPM), with an Android App.
 

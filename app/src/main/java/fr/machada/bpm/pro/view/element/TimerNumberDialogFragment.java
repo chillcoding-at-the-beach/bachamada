@@ -52,7 +52,7 @@ public class TimerNumberDialogFragment extends DialogFragment implements NumberP
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater li = LayoutInflater.from(getActivity());
-        View promptsView = li.inflate(R.layout.number_dialog, null);
+        View promptsView = li.inflate(R.layout.number_dialog_timer, null);
 
         builder.setView(promptsView);
 
@@ -60,15 +60,15 @@ public class TimerNumberDialogFragment extends DialogFragment implements NumberP
         mValue = sharedPref.getInt(getString(R.string.value_timer), mValue) / 1000;
 
 
-        final NumberPicker np = (NumberPicker) promptsView.findViewById(R.id.numberPicker1);
+        final NumberPicker np = (NumberPicker) promptsView.findViewById(R.id.numberPickerTimer);
         np.setMaxValue(60);
         np.setMinValue(1);
         np.setWrapSelectorWheel(false);
         np.setValue(mValue);
         np.setOnValueChangedListener(this);
 
-
-        builder.setMessage(R.string.text_set_timer)
+        builder.setIcon(R.drawable.ic_action_settings)
+                .setTitle(R.string.text_set_timer)
                 .setPositiveButton(R.string.set, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // Send the positive button event back to the host activity

@@ -32,7 +32,7 @@
     <string name="text_bpm_allure">ALLURE 10km</string>
     <string name="text_bpm_vma_l">VMA Long</string>
     <string name="text_bpm_vma_c">VMA Court</string>
-    <string name="text_set_timer">Valeur du Chrono en secondes :</string>
+    <string name="text_set_timer">Valeur du Chrono</string>
     <string name="set">Changer</string>
     <string name="text_bpm_min">FC Min:</string>
     <string name="text_bpm_max">FC Max:</string>

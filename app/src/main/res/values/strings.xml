@@ -44,7 +44,7 @@
     <string name="text_bpm_allure">SPEED 6 m/h</string>
     <string name="text_bpm_vma_l">SPEED HIGH</string>
     <string name="text_bpm_vma_c">SPEED HIGH +</string>
-    <string name="text_set_timer">Value of timer in seconds:</string>
+    <string name="text_set_timer">Value of timer</string>
     <string name="set">Set</string>
     <string name="text_bpm_min">HR Min:</string>
     <string name="text_bpm_max">HR Max:</string>

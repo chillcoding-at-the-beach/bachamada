@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ import fr.machada.bpm.pro.model.BpmDbAdapter;
 public class ProfilActivity extends Activity implements RadioGroup.OnCheckedChangeListener {
 
 
+    public static final String VIEW_NAME_HEADER_IMAGE = "profile:header:image";
     private int mYear = 1984;
     private int mBpmMin = 0;
     private int mBpmMax = 0;
@@ -35,6 +38,9 @@ public class ProfilActivity extends Activity implements RadioGroup.OnCheckedChan
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_layout_profil);
+
+        ImageView headerImageView = (ImageView) findViewById(R.id.profile_img);
+        ViewCompat.setTransitionName(headerImageView, VIEW_NAME_HEADER_IMAGE);
 
         user = getString(R.string.text_default);
 

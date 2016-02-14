@@ -18,17 +18,21 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
+import android.support.v4.util.Pair;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.facebook.CallbackManager;
@@ -275,7 +279,18 @@ public class MainActivity extends ActionBarActivity implements
                 return true;
             case R.id.action_profile:
                 intent = new Intent(this, ProfilActivity.class);
-                startActivity(intent);
+
+                ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        this,
+
+                        // Now we provide a list of Pair items which contain the view we can transitioning
+                        // from, and the name of the view it is transitioning to, in the launched activity
+                        new Pair<View, String>(findViewById(R.id.action_profile),
+                                ProfilActivity.VIEW_NAME_HEADER_IMAGE));
+
+                // Now we can start the Activity, providing the activity options as a bundle
+                ActivityCompat.startActivity(this, intent, activityOptions.toBundle());
+                //startActivity(intent);
                 return true;
             case R.id.action_info:
                 intent = new Intent(this, InfoActivity.class);

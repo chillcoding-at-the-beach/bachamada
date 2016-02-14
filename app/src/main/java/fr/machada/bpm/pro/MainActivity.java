@@ -294,7 +294,17 @@ public class MainActivity extends ActionBarActivity implements
                 return true;
             case R.id.action_info:
                 intent = new Intent(this, InfoActivity.class);
-                startActivity(intent);
+                ActivityOptionsCompat activityOptions2 = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        this,
+
+                        // Now we provide a list of Pair items which contain the view we can transitioning
+                        // from, and the name of the view it is transitioning to, in the launched activity
+                        new Pair<View, String>(findViewById(R.id.action_info),
+                                InfoActivity.VIEW_NAME_HEADER_IMAGE));
+
+                // Now we can start the Activity, providing the activity options as a bundle
+                ActivityCompat.startActivity(this, intent, activityOptions2.toBundle());
+              //  startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

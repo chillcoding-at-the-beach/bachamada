@@ -65,7 +65,7 @@ Here is 7 <font fgcolor="#ff3498db">types of activity</font> :\n(<i> s the speed
 (<i>Speed Maximal Aeroby obtain during speedburning</i>)\n\n
 You can find <font fgcolor="#ff3498db"><b>HR Zones</b></font> in second tab. They give some values of <font fgcolor="#ff3498db">HR to maintain</font>, depending on the <font fgcolor="#ff3498db">activity</font> (footing...).\n HR Zones are based on Profile, they are determinated with <i>Astrand method</i> (theoric), used in first place, and with <i>Karvonen method</i> (customised with HR Min and HR Max), used after some measurements. \n <font fgcolor="#ff3498db"><b>HR Monitoring</b></font> is very important to follow <font fgcolor="#ff3498db"><i>athlete evolution</i></font> (more train less HR).\n
  </string>
-    <string name="link_icon">BaChamada on <a href="https://www.facebook.com/suivifc">Facebook</a>\nApplication realised by <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
+    <string name="link_icon">BaChamada on <a href="https://www.facebook.com/bachamada">Facebook</a>\nApplication realised by <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
     <string name="text_start">Start</string>
     <string name="text_stop">Stop</string>
     <string name="notification_text">Download Pro version to use with smartwatch.</string>

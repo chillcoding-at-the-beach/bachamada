@@ -53,7 +53,7 @@ Voici 6  <font fgcolor="#ff3498db">types de courses</font> :\n(<i>notons v la vi
 Vous trouverez un tableau des <font fgcolor="#ff3498db"><b>zones de FC</b></font> dans le deuxième onglet de l\'app., elles donnent des repères sur la <font fgcolor="#ff3498db">FC à maintenir</font>, à ne pas depasser, selon la <font fgcolor="#ff3498db">course pratiquée</font> (footing, marathon,etc.).\n Les zones de FC sont calculées par raport au Profil. Il intègre la <i>méthode Astrand</i> (théorique), utilisée dans un premiers temps, ainsi que la <i>méthode Karvonen</i> (individualisée avec FC Min et FC Max), utilisée après quelques mesures. \n
 Le <font fgcolor="#ff3498db"><b>suivi de FC</b></font> est important pour suivre l\'<font fgcolor="#ff3498db"><i>évolution des performances</i></font> d\'un sportif (plus le sujet s\'entrainera plus sa FC sera basse).\n
 </string>
-    <string name="link_icon">BaChamada sur <a href="https://www.facebook.com/suivifc">Facebook</a>\nApplication réalisée par <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
+    <string name="link_icon">BaChamada sur <a href="https://www.facebook.com/bachamada">Facebook</a>\nApplication réalisée par <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
 
     <string name="text_start">Start</string>
     <string name="text_stop">Stop</string>

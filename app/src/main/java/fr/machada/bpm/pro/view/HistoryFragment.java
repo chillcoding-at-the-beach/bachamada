@@ -87,32 +87,23 @@ public class HistoryFragment extends Fragment {
         mGroups = null;
         mGroups = new SparseArray<Group>();
         SimpleDateFormat sdf = new SimpleDateFormat("MMMM");
-        for (int i = 0; i < bpmList.size(); i = i + 5) {
+        int c = 0;
+        Date dc = new Date(bpmList.get(0).getDate());
+        Group group = new Group(sdf.format(dc));
+        for (int i = 0; i < bpmList.size(); i++) {
             // to get a nice title for expandable list
-            Date d1 = new Date(bpmList.get(i).getDate());
-            Group group = new Group(sdf.format(d1));
-            if (i + 5 < bpmList.size()) {
-                //there is another EL after this one
-                Date d2 = new Date(bpmList.get(i + 5).getDate());
-                if (d1.getMonth() == d2.getMonth())
-                    //the BPM of the 2 followed EL was taken in same month
-                    if (d1.getDay() == d2.getDay()) {
-                        //the BPM of the 2 followed EL was taken in same day
-                        if (i > 0)// it's not the first
-                            group = new Group(mGroups.get(i - 5).getLabel() + " Bis");
-                        else
-                            group = new Group(sdf.format(d1) + " Bis");
-                    } else
-                        group = new Group("" + d1.getDay() + "-" + d2.getDay() + " " + sdf.format(d1));
+            Date di = new Date(bpmList.get(i).getDate());
+            if (dc.getMonth() == di.getMonth()) {
+                group.children.add(bpmList.get(i));
+            } else {
+                mGroups.append(c, group);
+                dc = di;
+                group = new Group(sdf.format(dc));
+                c++;
+                group.children.add(bpmList.get(i));
             }
-
-            for (int ii = 0; ii < 5 && i + ii < bpmList.size(); ii++) {
-                group.children.add(bpmList.get(i + ii));
-            }
-            mGroups.append(i / 5, group);
         }
-
-
+        mGroups.append(c, group);
     }
 
     public void removeData(int gp, int cp) {
@@ -120,8 +111,11 @@ public class HistoryFragment extends Fragment {
     }
 
     public void addData(RegisteredBpm bpm) {
-        if (mAdapter != null)
+        if (mAdapter != null) {
             mAdapter.addBpm(bpm);
+            mAdapter.notifyDataSetChanged();
+        }
+
     }
 
 

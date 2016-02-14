@@ -11,10 +11,8 @@ import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import java.sql.Date;
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 import fr.machada.bpm.pro.R;
 
@@ -36,26 +34,26 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     public void addBpm(RegisteredBpm bpm) {
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM");
+        int l1 = mGroups.size() - 1;
+        int l2 = mGroups.get(l1).children.size() - 1;
+        Date dc = new Date(mGroups.get(l1).children.get(l2).getDate());
+        Date d1 = new Date(bpm.getDate());
         if (mGroups.size() > 0) {
-            int n = ((List<RegisteredBpm>) mGroups.get(mGroups.size() - 1).children).size();
-            if (n > 4) {
-                Date d1 = new Date(bpm.getDate());
-                SimpleDateFormat sdf = new SimpleDateFormat("MMMM");
-                Group group = new Group(sdf.format(d1) + " Bis");
+            if (d1.getMonth() == dc.getMonth()) {
+                mGroups.get(l1).children.add(bpm);
+            } else {
+                Group group = new Group(sdf.format(d1));
                 group.children.add(bpm);
                 mGroups.append(mGroups.size(), group);
-                //groups.get(0).children.add(f);
-            } else
-                mGroups.get(mGroups.size() - 1).children.add(bpm);
+            }
         } else {
-            Date d1 = new Date(bpm.getDate());
-            SimpleDateFormat sdf = new SimpleDateFormat("MMMM");
             Group group = new Group(sdf.format(d1));
             group.children.add(bpm);
             mGroups.append(mGroups.size(), group);
         }
-
     }
+
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {

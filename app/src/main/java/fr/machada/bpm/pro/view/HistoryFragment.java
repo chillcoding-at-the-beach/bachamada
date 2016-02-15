@@ -88,22 +88,26 @@ public class HistoryFragment extends Fragment {
         mGroups = new SparseArray<Group>();
         SimpleDateFormat sdf = new SimpleDateFormat("MMMM");
         int c = 0;
-        Date dc = new Date(bpmList.get(0).getDate());
-        Group group = new Group(sdf.format(dc));
-        for (int i = 0; i < bpmList.size(); i++) {
-            // to get a nice title for expandable list
-            Date di = new Date(bpmList.get(i).getDate());
-            if (dc.getMonth() == di.getMonth()) {
-                group.children.add(bpmList.get(i));
-            } else {
-                mGroups.append(c, group);
-                dc = di;
-                group = new Group(sdf.format(dc));
-                c++;
-                group.children.add(bpmList.get(i));
+        Date dc = null;
+        Group group = null;
+        if (bpmList.size() > 0) {
+            dc = new Date(bpmList.get(0).getDate());
+            group = new Group(sdf.format(dc));
+            for (int i = 0; i < bpmList.size(); i++) {
+                // to get a nice title for expandable list
+                Date di = new Date(bpmList.get(i).getDate());
+                if (dc.getMonth() == di.getMonth()) {
+                    group.children.add(bpmList.get(i));
+                } else {
+                    mGroups.append(c, group);
+                    dc = di;
+                    group = new Group(sdf.format(dc));
+                    c++;
+                    group.children.add(bpmList.get(i));
+                }
             }
+            mGroups.append(c, group);
         }
-        mGroups.append(c, group);
     }
 
     public void removeData(int gp, int cp) {

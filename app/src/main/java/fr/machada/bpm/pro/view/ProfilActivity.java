@@ -92,15 +92,23 @@ public class ProfilActivity extends Activity implements RadioGroup.OnCheckedChan
 
         SharedPreferences.Editor editor = mSharedPref.edit();
 
+        Calendar calendar = Calendar.getInstance();
+        int curYear = calendar.get(Calendar.YEAR);
+        int age = curYear - mYear;
+        int bpmMax;
+        if (mSexe == R.id.sexe_male)
+            bpmMax = 220 - age;
+        else
+            bpmMax = 226 - age;
+
         if (mBpmMin != 0) {
-            if (mBpmMin == mBpmMax)
-                if (mBpmMin < 100)
-                    initBpmMax();
-                else
-                    initBpmMin();
+            if (mBpmMin > 100)
+                initBpmMin();
+            if (mBpmMax < bpmMax)
+                mBpmMax = bpmMax;
         } else {
             initBpmMin();
-            initBpmMax();
+            mBpmMax = bpmMax;
         }
 
         editor.putInt(getString(R.string.value_bpm_min), mBpmMin);

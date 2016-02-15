@@ -75,7 +75,6 @@ public class BPMZoneFragment extends Fragment {
         int diff;
         bpmMin = sharedPref.getInt(getString(R.string.value_bpm_min), bpmMin);
         bpmMax = sharedPref.getInt(getString(R.string.value_bpm_max), bpmMax);
-        diff = bpmMax - bpmMin;
         //for BPM at rest its depend on the age
         if (bpmMin != 0 && bpmMin < 100)
             t0.setText(String.valueOf(bpmMin));
@@ -106,7 +105,7 @@ public class BPMZoneFragment extends Fragment {
                     t0.setText("70-80");
             }
 
-        if (bpmMin != 0 && bpmMax != 0 && diff > 50) {
+        if (bpmMin != 0 && bpmMax != 0 && bpmMax > mBPM) {
             t1.setText(String.format("%d-%d", (bpmMin + 65 * (bpmMax - bpmMin) / 100), (bpmMin + 75 * (bpmMax - bpmMin) / 100)));
             t2.setText(String.format("%d-%d", (bpmMin + 75 * (bpmMax - bpmMin) / 100 + 1), (bpmMin + 80 * (bpmMax - bpmMin) / 100)));
             t3.setText(String.format("%d-%d", (bpmMin + 80 * (bpmMax - bpmMin) / 100 + 1), (bpmMin + 85 * (bpmMax - bpmMin) / 100)));

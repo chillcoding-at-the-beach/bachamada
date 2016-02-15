@@ -95,14 +95,40 @@ public class ProfilActivity extends Activity implements RadioGroup.OnCheckedChan
         Calendar calendar = Calendar.getInstance();
         int curYear = calendar.get(Calendar.YEAR);
         int age = curYear - mYear;
-        int bpmMax;
+        int bpmMax, bpmMin = 80;
         if (mSexe == R.id.sexe_male)
             bpmMax = 220 - age;
         else
             bpmMax = 226 - age;
 
+        switch (mAge) {
+            case 0:
+                bpmMin = 190;
+                break;
+            case 1:
+            case 2:
+                bpmMin = 150;
+                break;
+            case 3:
+            case 4:
+            case 5:
+                bpmMin = 140;
+                break;
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+                bpmMin = 125;
+                break;
+            default:
+                bpmMin = 80;
+        }
+
         if (mBpmMin != 0) {
-            if (mBpmMin > 100)
+            if (mBpmMin > bpmMin)
                 initBpmMin();
             if (mBpmMax < bpmMax)
                 mBpmMax = bpmMax;
@@ -147,12 +173,6 @@ public class ProfilActivity extends Activity implements RadioGroup.OnCheckedChan
         }
     }
 
-    private void initBpmMax() {
-        if (mSexe == R.id.sexe_male)
-            mBpmMax = 220 - mAge;
-        else
-            mBpmMax = 226 - mAge;
-    }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {

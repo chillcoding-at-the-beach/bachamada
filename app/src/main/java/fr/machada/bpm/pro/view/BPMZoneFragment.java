@@ -64,33 +64,63 @@ public class BPMZoneFragment extends Fragment {
         int curYear = calendar.get(Calendar.YEAR);
         int age = curYear - mYear;
 
+        int bpmMinRef = 80;
+
         if (mSexe == R.id.sexe_male)
             mBPM = 220 - age;
         else
             mBPM = 226 - age;
 
+        switch (age) {
+            case 0:
+                bpmMinRef = 190;
+                break;
+            case 1:
+            case 2:
+                bpmMinRef = 150;
+                break;
+            case 3:
+            case 4:
+            case 5:
+                bpmMinRef = 140;
+                break;
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+                bpmMinRef = 125;
+                break;
+            default:
+                bpmMinRef = 80;
+        }
+
         //if there is BPM Min and Max
         int bpmMin = 0;
         int bpmMax = 0;
-        int diff;
         bpmMin = sharedPref.getInt(getString(R.string.value_bpm_min), bpmMin);
         bpmMax = sharedPref.getInt(getString(R.string.value_bpm_max), bpmMax);
         //for BPM at rest its depend on the age
-        if (bpmMin != 0 && bpmMin < 100)
+        if (bpmMin != 0 && bpmMin < bpmMinRef)
             t0.setText(String.valueOf(bpmMin));
         else
             switch (age) {
                 case 0:
                     t0.setText("90-190");
+                    bpmMin = 90 + (190 - 90) / 2;
                     break;
                 case 1:
                 case 2:
                     t0.setText("70-150");
+                    bpmMin = 70 + (150 - 70) / 2;
                     break;
                 case 3:
                 case 4:
                 case 5:
                     t0.setText("70-140");
+                    bpmMin = 70 + (140 - 70) / 2;
                     break;
                 case 6:
                 case 7:
@@ -100,12 +130,14 @@ public class BPMZoneFragment extends Fragment {
                 case 11:
                 case 12:
                     t0.setText("65-125");
+                    bpmMin = 65 + (125 - 65) / 2;
                     break;
                 default:
                     t0.setText("70-80");
+                    bpmMin = 75;
             }
 
-        if (bpmMin != 0 && bpmMax != 0 && bpmMax > mBPM) {
+        if (bpmMax > mBPM) {
             t1.setText(String.format("%d-%d", (bpmMin + 65 * (bpmMax - bpmMin) / 100), (bpmMin + 75 * (bpmMax - bpmMin) / 100)));
             t2.setText(String.format("%d-%d", (bpmMin + 75 * (bpmMax - bpmMin) / 100 + 1), (bpmMin + 80 * (bpmMax - bpmMin) / 100)));
             t3.setText(String.format("%d-%d", (bpmMin + 80 * (bpmMax - bpmMin) / 100 + 1), (bpmMin + 85 * (bpmMax - bpmMin) / 100)));

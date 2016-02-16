@@ -7,9 +7,8 @@ android {
     defaultConfig {
         applicationId "fr.machada.bpm.pro"
         minSdkVersion 15
-        versionCode 6
+        versionCode 16
         targetSdkVersion 22
-        versionCode 13
         versionName "2.0"
     }
 

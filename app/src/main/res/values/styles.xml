@@ -14,7 +14,8 @@
 
     <style name="button">
         <item name="android:textColor">@color/blue</item>
-        <item name="android:background">@color/gray</item>
+        <item name="android:background">@color/button_material_dark</item>
+        <item name="android:shadowRadius">0.2</item>
         <item name="android:layout_margin">@dimen/general_space</item>
     </style>
 

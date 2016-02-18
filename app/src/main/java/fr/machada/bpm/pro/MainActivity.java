@@ -316,23 +316,19 @@ public class MainActivity extends ActionBarActivity implements
         int bpmMax = 0;
 
         SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-        bpmMin = sharedPref.getInt(getString(R.string.value_bpm_min), bpmMin);
-        bpmMax = sharedPref.getInt(getString(R.string.value_bpm_max), bpmMax);
 
-        if (bpmMin == 0 || bpmMax == 0) {
-            SharedPreferences.Editor editor = sharedPref.edit();
+        bpmMin = mDbHelper.getBpmMin(user);
+        bpmMax = mDbHelper.getBpmMax(user);
 
-            if (bpmMin == 0) {
-                bpmMin = mDbHelper.getBpmMin(user);
-                editor.putInt(getString(R.string.value_bpm_min), bpmMin);
-            }
-            if (bpmMax == 0) {
-                bpmMax = mDbHelper.getBpmMax(user);
-                editor.putInt(getString(R.string.value_bpm_max), bpmMax);
-            }
-            editor.commit();
-        }
+        SharedPreferences.Editor editor = sharedPref.edit();
+        if (bpmMin != 0)
+            editor.putInt(getString(R.string.value_bpm_min), bpmMin);
+        if (bpmMax != 0)
+            editor.putInt(getString(R.string.value_bpm_max), bpmMax);
+
+        editor.commit();
     }
+
 
     @Override
     public void onDialogSaveClick(int v, int effort, int how) {
@@ -379,6 +375,8 @@ public class MainActivity extends ActionBarActivity implements
         initHistoryFragment();
         mHistoryFrag.addData(bpm);
         mHistoryFrag.refresh();
+        updateBpmMinMax();
+        mZoneBPMFrag.updateZone();
     }
 
     @Override
@@ -474,6 +472,8 @@ public class MainActivity extends ActionBarActivity implements
                         mDbHelper.deleteBpm(iid);
                         mHistoryFrag.removeData(gp, cp);
                         mHistoryFrag.refresh();
+                        updateBpmMinMax();
+                        mZoneBPMFrag.updateZone();
                     }
                 })
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -541,6 +541,7 @@ public class MainActivity extends ActionBarActivity implements
                     return getResources().getString(R.string.text_default);
             }
         }
+
     }
 
     @Override

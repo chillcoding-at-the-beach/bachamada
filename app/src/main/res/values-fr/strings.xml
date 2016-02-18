@@ -17,7 +17,6 @@
     <string name="text_nb_pulse">Entrez le nombre de pulsations comptées : </string>
     <string name="text_heart_rate">Valeur FC en BPM :</string>
     <string name="text_how">RESSENTI</string>
-    <string name="text_where">ENDROIT DE LA MESURE</string>
     <string name="text_type">TYPE D\'EFFORT</string>
     <string name="save">Enregistrer</string>
     <string name="text_year">Année de \n Naissance :</string>
@@ -55,15 +54,15 @@ Le <font fgcolor="#ff3498db"><b>suivi de FC</b></font> est important pour suivre
 </string>
     <string name="link_icon">BaChamada sur <a href="https://www.facebook.com/bachamada">Facebook</a>\nApplication réalisée par <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
 
-    <string name="text_start">Start</string>
     <string name="text_stop">Stop</string>
 
     <string name="notification_text">Telechargez la version pro, pour utiliser avec une smartwatch.</string>
     <string name="formula_bpm">% FC Max</string>
-    <string name="share_on">Partager sur Fb</string>
+    <string name="share_on">Partager sur FB</string>
 
     <string name="share_message_format">Avec BaChamada, mon pouls est de %d et vous ?</string>
     <string name="discard">Annuler</string>
     <string name="text_share">PARTAGE</string>
+    <string name="bpm_text">BPM</string>
 
 </resources>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Monitor Frecuencia Cardíaca</string>
-    <string name="action_settings">Parámetro</string>
+    <string name="app_name">Salud del Pulso</string>
+    <string name="action_settings">Ajustes</string>
     <string name="dialog_delete">¿ Quiere suprimir esta medida ?</string>
     <string name="discard">Anular</string>
     <string name="formula_bpm">% FC máx.</string>
@@ -10,7 +10,7 @@
   3 <font fgcolor="#ff3498db">tipo de <B>FC</B></font> :\n
 - <font fgcolor="#ff2ecc71">FCR</font>: FC en reposo ,\n \u0020 \u0020 \u0020 \u0020 \u0020 Se toma por la mañana antes de levantarse de la cama\n
 - <font fgcolor="#fff1c40f">FC E</font>: FC de esfuerzo,\n  \u0020 \u0020 \u0020 \u0020 \u0020 valor entre 2 esfuerzo\n
-- <font fgcolor="#ffe74c3c">FC Máx</font>: FC máxima,\n   \u0020 \u0020 \u0020 \u0020 \u0020 se toma despues esfurzo\n\n
+- <font fgcolor="#ffe74c3c">FC Máx</font>: FC máxima,\n   \u0020 \u0020 \u0020 \u0020 \u0020 se toma después de hacer ejercicio\n\n
   7 <font fgcolor="#ff3498db">tipo de actividad</font> :\n(<i> s el velocidad y t el tiempo del actividad</i>)\n
 * <font fgcolor="#ff2ecc71">REPOSO</font> s~0, t=everytime\n
 * <font fgcolor="#fff1c40f">FOOTING</font> \u0020 \u0020 \u0020 s~11km/h, t~3h and +\n
@@ -38,8 +38,8 @@
     <string name="text_bpm_min">FCR:</string>
     <string name="text_bpm_resting">REPOSO</string>
     <string name="text_bpm_semi">SEMIMARATON</string>
-    <string name="text_bpm_vma_c">++</string>
-    <string name="text_bpm_vma_l">+++</string>
+    <string name="text_bpm_vma_c">+++</string>
+    <string name="text_bpm_vma_l">++</string>
     <string name="text_heart_rate">Valor del FC en PPM :</string>
     <string name="text_how">SENTIDO</string>
     <string name="text_nb_pulse">Entras el número de pulsaciones contado :</string>
@@ -47,17 +47,16 @@
     <string name="text_set_timer">Valor del crono</string>
     <string name="text_sexe">Sexo :</string>
     <string name="text_share">COMPARTIR</string>
-    <string name="text_start">Comenzar</string>
     <string name="text_stop">Stop</string>
     <string name="text_type">TIPO DE ESFUERZO</string>
-    <string name="text_where">LUGAR DEL MEDIDA</string>
     <string name="text_year">Año de nacimiento</string>
     <string name="title_about">Acierto</string>
     <string name="title_bpm">FC (PPM)</string>
     <string name="title_bpm_zone">Zonas de FC</string>
     <string name="title_check_bpm">Medir FC</string>
-    <string name="title_history">Histórico</string>
+    <string name="title_history">Historial</string>
     <string name="title_info">Info</string>
     <string name="title_profil">Perfil</string>
     <string name="title_vpro">Versión Pro</string>
+    <string name="bpm_text">PPM</string>
 </resources>

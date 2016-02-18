@@ -31,7 +31,6 @@
     <string name="text_nb_pulse">Enter number of counted pulse: </string>
     <string name="text_heart_rate">HR Value in BPM:</string>
     <string name="text_how">FEELING</string>
-    <string name="text_where">PLACE OF MEASURE</string>
     <string name="text_type">ACTIVITY TYPE</string>
     <string name="save">Save</string>
     <string name="text_year">Year of birth:</string>
@@ -65,13 +64,13 @@ Here is 7 <font fgcolor="#ff3498db">types of activity</font> :\n(<i> s the speed
 (<i>Speed Maximal Aeroby obtain during speedburning</i>)\n\n
 You can find <font fgcolor="#ff3498db"><b>HR Zones</b></font> in second tab. They give some values of <font fgcolor="#ff3498db">HR to maintain</font>, depending on the <font fgcolor="#ff3498db">activity</font> (footing...).\n HR Zones are based on Profile, they are determinated with <i>Astrand method</i> (theoric), used in first place, and with <i>Karvonen method</i> (customised with HR Min and HR Max), used after some measurements. \n <font fgcolor="#ff3498db"><b>HR Monitoring</b></font> is very important to follow <font fgcolor="#ff3498db"><i>athlete evolution</i></font> (more train less HR).\n
  </string>
-    <string name="link_icon">BaChamada on <a href="https://www.facebook.com/bachamada">Facebook</a>\nApplication realised by <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
-    <string name="text_start">Start</string>
+    <string name="link_icon">Healthy Heart Rate on <a href="https://www.facebook.com/bachamada">Facebook</a>\nApplication realised by <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
     <string name="text_stop">Stop</string>
     <string name="notification_text">Download Pro version to use with smartwatch.</string>
     <string name="formula_bpm">% HR Max</string>
-    <string name="share_on">Share on Fb</string>
+    <string name="share_on">Share on FB</string>
     <string name="share_message_format">With Healthy Heart Rate, my pulse is about %d and you?</string>
     <string name="discard">Discard</string>
     <string name="text_share">SHARE</string>
+    <string name="bpm_text">BPM</string>
 </resources>

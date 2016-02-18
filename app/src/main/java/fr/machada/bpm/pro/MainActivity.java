@@ -439,7 +439,7 @@ public class MainActivity extends ActionBarActivity implements
 
         // draw text to the Canvas center
         Rect bounds = new Rect();
-        String gText = String.format("%d BPM", value);
+        String gText = String.format("%d %s", value, getString(R.string.bpm_text));
         paint.getTextBounds(gText, 0, gText.length(), bounds);
         int x = (bitmap.getWidth() - bounds.width()) / 2;
         int y = (bitmap.getHeight() + bounds.height()) / 2;

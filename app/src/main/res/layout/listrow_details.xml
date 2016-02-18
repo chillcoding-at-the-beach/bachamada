@@ -61,7 +61,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginRight="10dip"
         android:layout_toLeftOf="@id/heart"
-        android:text="BPM"
+        android:text="@string/bpm_text"
         android:textColor="@android:color/white"
         android:textSize="10dip"
         android:textStyle="bold" />

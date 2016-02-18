@@ -6,12 +6,12 @@
     <string name="discard">Anular</string>
     <string name="formula_bpm">% FC máx.</string>
     <string name="link_icon">Monitor Frecuencia Cardíaca en <a href="https://www.facebook.com/bachamada">Facebook</a>\nApplication realizado por Da Costa en <a href="http://www.chillcoding.com">ChillCoding</a>\n</string>
-    <string name="message_info_about_bpm">Frecuencia Cardíaca (FC) en pulsaciones por minuto, <font fgcolor="#ff3498db"><b>BPM</b></font>,  podemos tomar en la<font fgcolor="#ff3498db"><i>muñeca</i></font>  <i>en el cuello sobre la arteria carótida o en el pecho.</i>.\n  se expresa en pulsaciones por minuto <b>PPM</b>.\n\n
+    <string name="message_info_about_bpm">Frecuencia Cardíaca (FC) en pulsaciones por minuto, <font fgcolor="#ff3498db"><b>PPM</b></font>, podemos tomar en la<font fgcolor="#ff3498db"><i>muñeca</i></font>  <i>en el cuello sobre la arteria carótida o en el pecho.</i>.\n  se expresa en pulsaciones por minuto <b>PPM</b>.\n\n
   3 <font fgcolor="#ff3498db">tipo de <B>FC</B></font> :\n
 - <font fgcolor="#ff2ecc71">FCR</font>: FC en reposo ,\n \u0020 \u0020 \u0020 \u0020 \u0020 Se toma por la mañana antes de levantarse de la cama\n
 - <font fgcolor="#fff1c40f">FC E</font>: FC de esfuerzo,\n  \u0020 \u0020 \u0020 \u0020 \u0020 valor entre 2 esfuerzo\n
 - <font fgcolor="#ffe74c3c">FC Máx</font>: FC máxima,\n   \u0020 \u0020 \u0020 \u0020 \u0020 se toma despues esfurzo\n\n
-Here is 7 <font fgcolor="#ff3498db">tipo de actividad</font> :\n(<i> s el velocidad y t el tiempo del actividad</i>)\n
+  7 <font fgcolor="#ff3498db">tipo de actividad</font> :\n(<i> s el velocidad y t el tiempo del actividad</i>)\n
 * <font fgcolor="#ff2ecc71">REPOSO</font> s~0, t=everytime\n
 * <font fgcolor="#fff1c40f">FOOTING</font> \u0020 \u0020 \u0020 s~11km/h, t~3h and +\n
 * <font fgcolor="#fff1c40f">MARATON</font>\u0020 \u0020 \u0020  s~11km/h, t~3h30\'\n

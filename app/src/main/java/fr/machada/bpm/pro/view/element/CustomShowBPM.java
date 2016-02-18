@@ -138,7 +138,7 @@ public class CustomShowBPM extends View {
 
         paint.setTextSize(mTextSize);
 
-        canvas.drawText("BPM", mXTextCenter, mYTextCenter, paint);
+        canvas.drawText(getResources().getString(R.string.bpm_text), mXTextCenter, mYTextCenter, paint);
 
         canvas.drawBitmap(mBmArrow, mRotator, paint);
 

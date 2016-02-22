@@ -72,17 +72,20 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
         final RegisteredBpm children = (RegisteredBpm) getChild(groupPosition, childPosition);
-        TextView text, textD = null;
+        TextView text, textD, textP = null;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.listrow_details, null);
         }
         text = (TextView) convertView.findViewById(R.id.value);
         textD = (TextView) convertView.findViewById(R.id.date);
+        textP = (TextView) convertView.findViewById(R.id.percent);
         ImageView imE, imH;
         imE = (ImageView) convertView.findViewById(R.id.hiseffort);
         imH = (ImageView) convertView.findViewById(R.id.hishow);
         if (children != null) {
-            text.setText("" + children.getValue());
+            text.setText(String.format("%d", children.getValue()));
+
+            textP.setText(String.format("%d %%", children.getPercent()));
 
             SimpleDateFormat sdf = new SimpleDateFormat("EEEE dd  HH:mm");
             Date resultDate = new Date(children.getDate());

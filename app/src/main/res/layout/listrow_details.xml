@@ -11,7 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_margin="5dp"
+        android:layout_margin="@dimen/general_space"
+        android:layout_marginLeft="0dp"
         android:src="@drawable/ic_exercise" />
 
     <ImageView
@@ -19,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_margin="5dp"
+        android:layout_margin="@dimen/general_space"
         android:layout_toRightOf="@id/hiseffort"
         android:src="@drawable/ic_happy" />
 
@@ -35,33 +36,51 @@
         android:textStyle="bold"
         android:typeface="sans" />
 
-    <ImageView
-        android:id="@+id/heart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/ic_heart" />
-
     <TextView
         android:id="@+id/value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_margin="@dimen/general_space"
-        android:layout_toLeftOf="@id/heart"
+        android:background="@drawable/ic_heart"
+        android:padding="10dip"
         android:text="80"
         android:textColor="@android:color/white"
         android:textSize="20dip" />
 
 
     <TextView
+        android:id="@+id/bpm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/value"
-        android:layout_margin="10dip"
-        android:layout_toLeftOf="@id/heart"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/general_space"
         android:text="@string/bpm_text"
+        android:textColor="@android:color/white"
+        android:textSize="10dip"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/general_space"
+        android:text="80"
+        android:textColor="@android:color/white"
+        android:textSize="20dip" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/bpm"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/percent"
+        android:layout_margin="10dip"
+        android:text="@string/formula_bpm"
         android:textColor="@android:color/white"
         android:textSize="10dip"
         android:textStyle="bold" />

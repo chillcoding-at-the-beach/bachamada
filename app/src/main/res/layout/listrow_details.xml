@@ -11,8 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_margin="@dimen/general_space"
-        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="@dimen/general_space"
+        android:layout_marginTop="@dimen/general_space"
         android:src="@drawable/ic_exercise" />
 
     <ImageView
@@ -20,7 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_margin="@dimen/general_space"
+        android:layout_marginBottom="@dimen/general_space"
+        android:layout_marginTop="@dimen/general_space"
         android:layout_toRightOf="@id/hiseffort"
         android:src="@drawable/ic_happy" />
 

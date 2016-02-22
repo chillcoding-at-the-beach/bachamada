@@ -390,6 +390,7 @@ public class MainActivity extends ActionBarActivity implements
         bpm.setValue(v);
         bpm.setHow(h.getInt());
         bpm.setEffort(e.getInt());
+        bpm.setPercent(v*100/mHRMaxRef);
         bpm.setId((int) mDbHelper.insertBpm(user, bpm));
         mHistoryFrag.addData(bpm);
         mHistoryFrag.refresh();

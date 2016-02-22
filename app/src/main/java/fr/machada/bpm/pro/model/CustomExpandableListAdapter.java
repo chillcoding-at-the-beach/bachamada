@@ -84,8 +84,8 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
         imH = (ImageView) convertView.findViewById(R.id.hishow);
         if (children != null) {
             text.setText(String.format("%d", children.getValue()));
-
-            textP.setText(String.format("%d %%", children.getPercent()));
+            if (children.getPercent() != 0)
+                textP.setText(String.format("%d %%", children.getPercent()));
 
             SimpleDateFormat sdf = new SimpleDateFormat("EEEE dd  HH:mm");
             Date resultDate = new Date(children.getDate());

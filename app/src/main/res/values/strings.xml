@@ -68,7 +68,7 @@ You can find <font fgcolor="#ff3498db"><b>HR Zones</b></font> in second tab. The
  </string>
     <string name="link_icon">Healthy Heart Rate on <a href="https://www.facebook.com/bachamada">Facebook</a>\nApplication realised by <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
     <string name="text_stop">Stop</string>
-    <string name="notification_text">Download Pro version to use with smartwatch.</string>
+    <string name="notification_text">New Features ASAP !</string>
     <string name="formula_bpm">% HR Max</string>
     <string name="share_on">Share on FB</string>
     <string name="share_message_format">With Healthy Heart Rate, my pulse is about %d and you?</string>

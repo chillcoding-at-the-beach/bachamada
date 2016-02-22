@@ -5,7 +5,7 @@
     <string name="dialog_delete">¿ Quiere suprimir esta medida ?</string>
     <string name="discard">Anular</string>
     <string name="formula_bpm">% FC máx.</string>
-    <string name="link_icon">Monitor Frecuencia Cardíaca en <a href="https://www.facebook.com/bachamada">Facebook</a>\nApplication realizado por Da Costa en <a href="http://www.chillcoding.com">ChillCoding</a>\n</string>
+    <string name="link_icon">Salud del Pulso en <a href="https://www.facebook.com/bachamada">Facebook</a>\nApplication realizado por Da Costa en <a href="http://www.chillcoding.com">ChillCoding</a>\n</string>
     <string name="message_info_about_bpm">Frecuencia Cardíaca (FC) en pulsaciones por minuto, <font fgcolor="#ff3498db"><b>PPM</b></font>, podemos tomar en la<font fgcolor="#ff3498db"><i>muñeca</i></font>  <i>en el cuello sobre la arteria carótida o en el pecho.</i>.\n  se expresa en pulsaciones por minuto <b>PPM</b>.\n\n
   3 <font fgcolor="#ff3498db">tipo de <B>FC</B></font> :\n
 - <font fgcolor="#ff2ecc71">FCR</font>: FC en reposo ,\n \u0020 \u0020 \u0020 \u0020 \u0020 Se toma por la mañana antes de levantarse de la cama\n
@@ -23,7 +23,7 @@
 <font fgcolor="#ff3498db"><b>FC Zonas</b></font> da valor del <font fgcolor="#ff3498db">FC</font>, según <font fgcolor="#ff3498db">actividad</font> (footing...).\n FC Zonas estan basado en Perfil, y determinado con <i>metodo Astrand</i> (teórica), y con <i>metodo Karvonen</i> ( FCR and FC Máx), despues medida. \n <font fgcolor="#ff3498db"><b>Monitor FC</b></font> es muy importante en el <font fgcolor="#ff3498db"><i>deporte</i></font> (ejercicio diminua FC).\n</string>
     <string name="navigation_drawer_close">Cerrar menú </string>
     <string name="navigation_drawer_open">Abrir menú</string>
-    <string name="notification_text">Señala los errores en Facebook. Mas en información.</string>
+    <string name="notification_text">Mas en información !</string>
     <string name="save">Registrar</string>
     <string name="set">Cambiar</string>
     <string name="setting_timer">Tiempo del crono</string>
@@ -34,8 +34,8 @@
     <string name="text_bpm_marathon">MARATON</string>
     <string name="text_bpm_footing">FOOTING</string>
     <string name="message_ready_to_count">¡Pulse play cuándo estas dispuesto a contar tu pulso!</string>
-    <string name="text_bpm_max">FC máx:</string>
-    <string name="text_bpm_min">FCR:</string>
+    <string name="text_bpm_max">FC Máx :</string>
+    <string name="text_bpm_min">FCR :</string>
     <string name="text_bpm_resting">REPOSO</string>
     <string name="text_bpm_semi">SEMIMARATON</string>
     <string name="text_bpm_vma_c">+++</string>
@@ -49,7 +49,7 @@
     <string name="text_share">COMPARTIR</string>
     <string name="text_stop">Stop</string>
     <string name="text_type">TIPO DE ESFUERZO</string>
-    <string name="text_year">Año de nacimiento</string>
+    <string name="text_year">Año de nacimiento :</string>
     <string name="title_about">Acierto</string>
     <string name="title_bpm">FC (PPM)</string>
     <string name="title_bpm_zone">Zonas de FC</string>

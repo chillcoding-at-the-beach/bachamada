@@ -26,11 +26,14 @@ public class BpmDbAdapter {
     private static final String COL_HOW = "HOW";
     private static final int NUM_COL_HOW = 4;
     private static final String COL_USER = "USER";
+    private static final String COL_PERCENT = "PERCENT";
+    private static final int NUM_COL_PERCENT = 5;
 
     private static final String DATABASE_CREATE = "CREATE TABLE " + TABLE_BPM + " ("
             + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COL_DATE + " INTEGER, "
             + COL_VALUE + " INTEGER, "
+            + COL_PERCENT + " INTEGER, "
             + COL_EFFORT + " INTEGER, "
             + COL_HOW + " INTEGER, "
             + COL_USER + " TEXT NOT NULL );";
@@ -39,7 +42,7 @@ public class BpmDbAdapter {
     private DatabaseHelper mDbHelper;
     private SQLiteDatabase mDb;
     private static final String DATABASE_NAME = "data";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     private final Context mCtx;
 
@@ -120,6 +123,7 @@ public class BpmDbAdapter {
         initialValues.put(COL_VALUE, f.getValue());
         initialValues.put(COL_EFFORT, f.getEffort());
         initialValues.put(COL_HOW, f.getHow());
+        initialValues.put(COL_PERCENT, f.getPercent());
 
         return mDb.insert(TABLE_BPM, null, initialValues);
     }
@@ -167,7 +171,7 @@ public class BpmDbAdapter {
     public ArrayList<RegisteredBpm> getAllBpmUser(String user) {
         ArrayList<RegisteredBpm> listFcs = new ArrayList<RegisteredBpm>();
         //obtain in a Cursor HR value contained in BDD
-        Cursor c = mDb.query(TABLE_BPM, new String[]{COL_ID, COL_DATE, COL_VALUE, COL_EFFORT, COL_HOW}, COL_USER + " LIKE \"" + user + "\"", null, null, null, null);
+        Cursor c = mDb.query(TABLE_BPM, new String[]{COL_ID, COL_DATE, COL_VALUE, COL_EFFORT, COL_HOW, COL_PERCENT}, COL_USER + " LIKE \"" + user + "\"", null, null, null, null);
         while (c.moveToNext()) {
             listFcs.add(cursorToBpm(c));
         }
@@ -217,6 +221,7 @@ public class BpmDbAdapter {
         bpm.setValue(c.getInt(NUM_COL_VALUE));
         bpm.setEffort(c.getInt(NUM_COL_EFFORT));
         bpm.setHow(c.getInt(NUM_COL_HOW));
+        bpm.setPercent(c.getInt(NUM_COL_PERCENT));
 
         return bpm;
     }

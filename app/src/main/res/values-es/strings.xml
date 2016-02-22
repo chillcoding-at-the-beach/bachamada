@@ -4,7 +4,7 @@
     <string name="action_settings">Ajustes</string>
     <string name="dialog_delete">¿ Quiere suprimir esta medida ?</string>
     <string name="discard">Anular</string>
-    <string name="formula_bpm">% FC máx.</string>
+    <string name="formula_bpm">% FC Máx</string>
     <string name="link_icon">Salud del Pulso en <a href="https://www.facebook.com/bachamada">Facebook</a>\nApplication realizado por Da Costa en <a href="http://www.chillcoding.com">ChillCoding</a>\n</string>
     <string name="message_info_about_bpm">Frecuencia Cardíaca (FC) en pulsaciones por minuto, <font fgcolor="#ff3498db"><b>PPM</b></font>, podemos tomar en la<font fgcolor="#ff3498db"><i>muñeca</i></font>  <i>en el cuello sobre la arteria carótida o en el pecho.</i>.\n  se expresa en pulsaciones por minuto <b>PPM</b>.\n\n
   3 <font fgcolor="#ff3498db">tipo de <B>FC</B></font> :\n
@@ -23,7 +23,6 @@
 <font fgcolor="#ff3498db"><b>FC Zonas</b></font> da valor del <font fgcolor="#ff3498db">FC</font>, según <font fgcolor="#ff3498db">actividad</font> (footing...).\n FC Zonas estan basado en Perfil, y determinado con <i>metodo Astrand</i> (teórica), y con <i>metodo Karvonen</i> ( FCR and FC Máx), despues medida. \n <font fgcolor="#ff3498db"><b>Monitor FC</b></font> es muy importante en el <font fgcolor="#ff3498db"><i>deporte</i></font> (ejercicio diminua FC).\n</string>
     <string name="navigation_drawer_close">Cerrar menú </string>
     <string name="navigation_drawer_open">Abrir menú</string>
-    <string name="notification_text">Mas en información !</string>
     <string name="save">Registrar</string>
     <string name="set">Cambiar</string>
     <string name="setting_timer">Tiempo del crono</string>
@@ -60,4 +59,5 @@
     <string name="title_vpro">Versión Pro</string>
     <string name="bpm_text">PPM</string>
     <string name="text_default">Predeterminado </string>
+    <string name="notification_text">Rellenas tu perfil para tener un valor de %FC Max adaptado.</string>
 </resources>

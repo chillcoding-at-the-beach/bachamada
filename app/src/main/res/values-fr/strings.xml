@@ -34,7 +34,7 @@
     <string name="text_set_timer">Valeur du Chrono</string>
     <string name="set">Changer</string>
     <string name="text_bpm_min">FC Min:</string>
-    <string name="text_bpm_max">FC Max:</string>
+    <string name="text_bpm_max">FC Max :</string>
     <string name="dialog_delete">Voulez-vous supprimer cette mesure ?</string>
     <string name="message_info_about_bpm">La fréquence cardiaque (FC), exprimée en Battement Par Minute <font fgcolor="#ff3498db"><b>BPM</b></font>, est déterminée par la <font fgcolor="#ff3498db"><i>prise de pouls</i></font> : <i>mesure au poignet ou à la carotide du nombre de pulsations en un temps donné</i>.\n\n
 Voici 3 <font fgcolor="#ff3498db">types de <B>FC</B></font> :\n
@@ -56,7 +56,7 @@ Le <font fgcolor="#ff3498db"><b>suivi de FC</b></font> est important pour suivre
 
     <string name="text_stop">Stop</string>
 
-    <string name="notification_text">Remplissez votre profil pour des zones de FC plus personnalisées !</string>
+    <string name="notification_text">Remplissez votre profil pour avoir une valeur de %FC Max adapté.</string>
     <string name="formula_bpm">% FC Max</string>
     <string name="share_on">Partager sur FB</string>
 

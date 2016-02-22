@@ -28,10 +28,10 @@
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_below="@id/hiseffort"
+        android:layout_margin="@dimen/general_space"
         android:textColor="@android:color/white"
-        android:textSize="10dip"
+        android:textSize="12dip"
         android:textStyle="bold"
         android:typeface="sans" />
 
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginRight="10dp"
+        android:layout_margin="@dimen/general_space"
         android:layout_toLeftOf="@id/heart"
         android:text="80"
         android:textColor="@android:color/white"
@@ -58,8 +58,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="10dip"
+        android:layout_below="@id/value"
+        android:layout_margin="10dip"
         android:layout_toLeftOf="@id/heart"
         android:text="@string/bpm_text"
         android:textColor="@android:color/white"
@@ -70,8 +70,8 @@
         android:layout_width="match_parent"
         android:layout_height="0.8dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop ="10dp"
-        android:paddingTop="10dp"
-        android:background="@color/gray" />
+        android:layout_marginTop="10dp"
+        android:background="@color/gray"
+        android:paddingTop="10dp" />
 
 </RelativeLayout>

@@ -535,9 +535,9 @@ public class MainActivity extends ActionBarActivity implements
                 case 0:
                     return mMeasurementFrag;
                 case 1:
-                    return mZoneBPMFrag;
-                default:
                     return mHistoryFrag;
+                default:
+                    return mZoneBPMFrag;
             }
         }
 
@@ -552,9 +552,9 @@ public class MainActivity extends ActionBarActivity implements
                 case 0:
                     return getResources().getString(R.string.title_check_bpm);
                 case 1:
-                    return getResources().getString(R.string.title_bpm_zone);
-                case 2:
                     return getResources().getString(R.string.title_history);
+                case 2:
+                    return getResources().getString(R.string.title_bpm_zone);
                 default:
                     return getResources().getString(R.string.text_default);
             }

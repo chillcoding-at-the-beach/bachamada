@@ -9,8 +9,10 @@
     <string name="value_timer" translatable="false">timer</string>
     <string name="value_bpm_min" translatable="false">bpmmin</string>
     <string name="value_bpm_max" translatable="false">bpmmax</string>
+    <string name="value_bpm_min_ref" translatable="false">bpmminref</string>
+    <string name="value_bpm_max_ref" translatable="false">bpmmaxref</string>
     <string name="value_bpa" translatable="false">bpa</string>
-    <string name="text_default" translatable="false">default</string>
+    <string name="text_default">Default</string>
     <string name="preference_file_key" translatable="false">default</string>
 
     <string name="app_name">Healthy Heart Rate</string>

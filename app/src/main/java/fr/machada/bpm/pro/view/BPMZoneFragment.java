@@ -111,7 +111,7 @@ public class BPMZoneFragment extends Fragment {
         int bpmMax = 0;
         bpmMin = sharedPref.getInt(getString(R.string.value_bpm_min), bpmMin);
         bpmMax = sharedPref.getInt(getString(R.string.value_bpm_max), bpmMax);
-
+//if bpmMin is not good show default method in % of HR Max
         if (bpmMin == 0 || bpmMin > bpmMinRef) {
             t1.setText(String.format("%d-%d", 65 * mBPM / 100, 75 * mBPM / 100));
             t2.setText(String.format("%d-%d", 75 * mBPM / 100 + 1, 80 * mBPM / 100));
@@ -120,8 +120,10 @@ public class BPMZoneFragment extends Fragment {
             t5.setText(String.format("%d-%d", 90 * mBPM / 100 + 1, 95 * mBPM / 100));
             t6.setText(String.format("%d-%d", 95 * mBPM / 100 + 1, mBPM));
         } else {
+            //method more evoluate Karvonen
             if (bpmMax < mBPM)
                 bpmMax = mBPM;
+            //HR Max does not evoluate a lot with training so default is OK
             t1.setText(String.format("%d-%d", (bpmMin + 65 * (bpmMax - bpmMin) / 100), (bpmMin + 75 * (bpmMax - bpmMin) / 100)));
             t2.setText(String.format("%d-%d", (bpmMin + 75 * (bpmMax - bpmMin) / 100 + 1), (bpmMin + 80 * (bpmMax - bpmMin) / 100)));
             t3.setText(String.format("%d-%d", (bpmMin + 80 * (bpmMax - bpmMin) / 100 + 1), (bpmMin + 85 * (bpmMax - bpmMin) / 100)));

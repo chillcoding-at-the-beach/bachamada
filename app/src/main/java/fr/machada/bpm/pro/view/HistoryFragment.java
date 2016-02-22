@@ -79,14 +79,14 @@ public class HistoryFragment extends Fragment {
     public void onResume() {
         super.onResume();
         if (mGroups.size() > 0)
-            mListView.expandGroup(0);
+            mListView.expandGroup(mGroups.size() - 1);
     }
 
     public void createData(List<RegisteredBpm> bpmList) {
 
         mGroups = null;
         mGroups = new SparseArray<Group>();
-        SimpleDateFormat sdf = new SimpleDateFormat("MMMM");
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM y");
         int c = 0;
         Date dc = null;
         Group group = null;
@@ -116,7 +116,8 @@ public class HistoryFragment extends Fragment {
 
     public void addData(RegisteredBpm bpm) {
         if (mAdapter != null) {
-            mAdapter.addBpm(bpm);
+            if (mAdapter.addBpm(bpm))
+                mListView.expandGroup(mGroups.size());
             mAdapter.notifyDataSetChanged();
         }
 

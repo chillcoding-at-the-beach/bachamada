@@ -95,6 +95,9 @@ public class MainActivity extends ActionBarActivity implements
 
     private int mTime;
     private int mPosition;
+    //for algorithm
+    private int mHRMinRef = 80;
+    private int mHRMaxRef = 188;
     //for notification
     private int notification_id = 1;
     /* These are the classes you use to start the notification */
@@ -102,6 +105,7 @@ public class MainActivity extends ActionBarActivity implements
     private NotificationManagerCompat mNotificationManager;
     private CallbackManager callbackManager;
     private ShareDialog mShareDialog;
+    private boolean mIsANewValue;
 
 
     @Override
@@ -120,6 +124,12 @@ public class MainActivity extends ActionBarActivity implements
 
         Toast.makeText(this, R.string.message_ready_to_count, Toast.LENGTH_LONG).show();
 
+    }
+
+    private void initAlgorithmValue() {
+        SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        mHRMinRef = sharedPref.getInt(getString(R.string.value_bpm_min_ref), mHRMinRef);
+        mHRMaxRef = sharedPref.getInt(getString(R.string.value_bpm_max_ref), mHRMaxRef);
     }
 
     private void initFB() {
@@ -153,6 +163,7 @@ public class MainActivity extends ActionBarActivity implements
         mDbHelper.open();
 
         mListBpm = mDbHelper.getAllBpmUser(user);
+        initAlgorithmValue();
         updateBpmMinMax();
     }
 
@@ -202,6 +213,10 @@ public class MainActivity extends ActionBarActivity implements
                 if (mMeasurementFrag != null)
                     mMeasurementFrag.stopTimer();
                 invalidateOptionsMenu();
+                if (mPosition == 2 && mIsANewValue) {
+                    mZoneBPMFrag.updateZone();
+                    mIsANewValue = false;
+                }
             }
         });
 
@@ -237,7 +252,7 @@ public class MainActivity extends ActionBarActivity implements
                 getMenuInflater().inflate(R.menu.zone, menu);
                 break;
             default:
-                getMenuInflater().inflate(R.menu.history, menu);
+                getMenuInflater().inflate(R.menu.zone, menu);
         }
 
         return true;
@@ -312,20 +327,25 @@ public class MainActivity extends ActionBarActivity implements
     }
 
     public void updateBpmMinMax() {
-        int bpmMin = 0;
-        int bpmMax = 0;
+        int bpmMin;
+        int bpmMax;
 
         SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+
 
         bpmMin = mDbHelper.getBpmMin(user);
         bpmMax = mDbHelper.getBpmMax(user);
 
+        //new bpmMin or bpmMax is eligible ?
         SharedPreferences.Editor editor = sharedPref.edit();
-        if (bpmMin != 0)
+        if (bpmMin < mHRMinRef)
             editor.putInt(getString(R.string.value_bpm_min), bpmMin);
-        if (bpmMax != 0)
+        else
+            editor.putInt(getString(R.string.value_bpm_min), mHRMinRef);
+        if (bpmMax > mHRMaxRef)
             editor.putInt(getString(R.string.value_bpm_max), bpmMax);
-
+        else
+            editor.putInt(getString(R.string.value_bpm_max), mHRMaxRef);
         editor.commit();
     }
 
@@ -371,12 +391,10 @@ public class MainActivity extends ActionBarActivity implements
         bpm.setHow(h.getInt());
         bpm.setEffort(e.getInt());
         bpm.setId((int) mDbHelper.insertBpm(user, bpm));
-        //fixme for optimization
-        initHistoryFragment();
         mHistoryFrag.addData(bpm);
         mHistoryFrag.refresh();
         updateBpmMinMax();
-        mZoneBPMFrag.updateZone();
+        mIsANewValue = true;
     }
 
     @Override
@@ -550,4 +568,9 @@ public class MainActivity extends ActionBarActivity implements
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initAlgorithmValue();
+    }
 }

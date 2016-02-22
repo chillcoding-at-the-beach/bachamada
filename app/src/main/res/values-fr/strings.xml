@@ -64,5 +64,5 @@ Le <font fgcolor="#ff3498db"><b>suivi de FC</b></font> est important pour suivre
     <string name="discard">Annuler</string>
     <string name="text_share">PARTAGE</string>
     <string name="bpm_text">BPM</string>
-
+    <string name="text_default">Par défaut</string>
 </resources>

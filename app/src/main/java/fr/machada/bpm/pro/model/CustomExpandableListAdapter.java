@@ -33,25 +33,28 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
         mGroups.get(gp).children.remove(cp);
     }
 
-    public void addBpm(RegisteredBpm bpm) {
-        SimpleDateFormat sdf = new SimpleDateFormat("MMMM");
-        int l1 = mGroups.size() - 1;
-        int l2 = mGroups.get(l1).children.size() - 1;
-        Date dc = new Date(mGroups.get(l1).children.get(l2).getDate());
+    public boolean addBpm(RegisteredBpm bpm) {
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM yyyy");
         Date d1 = new Date(bpm.getDate());
         if (mGroups.size() > 0) {
+            int l1 = mGroups.size() - 1;
+            int l2 = mGroups.get(l1).children.size() - 1;
+            Date dc = new Date(mGroups.get(l1).children.get(l2).getDate());
             if (d1.getMonth() == dc.getMonth()) {
                 mGroups.get(l1).children.add(bpm);
             } else {
                 Group group = new Group(sdf.format(d1));
                 group.children.add(bpm);
                 mGroups.append(mGroups.size(), group);
+                return true;
             }
         } else {
             Group group = new Group(sdf.format(d1));
             group.children.add(bpm);
             mGroups.append(mGroups.size(), group);
+            return true;
         }
+        return false;
     }
 
 
@@ -81,9 +84,9 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
         if (children != null) {
             text.setText("" + children.getValue());
 
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy, HH:mm");
+            SimpleDateFormat sdf = new SimpleDateFormat("EEEE dd  HH:mm");
             Date resultDate = new Date(children.getDate());
-            textD.setText("" + sdf.format(resultDate));
+            textD.setText(sdf.format(resultDate));
 
             How ho = How.values()[children.getHow()];
             switch (ho) {

@@ -59,4 +59,5 @@
     <string name="title_profil">Perfil</string>
     <string name="title_vpro">Versión Pro</string>
     <string name="bpm_text">PPM</string>
+    <string name="text_default">Predeterminado </string>
 </resources>

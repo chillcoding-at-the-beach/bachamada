@@ -76,7 +76,7 @@
                 android:layout_toLeftOf="@id/profil_sexe"
                 android:gravity="center"
                 android:text="@string/text_sexe"
-                android:textColor="@color/blue" />
+                android:textColor="@android:color/white" />
 
             <EditText
                 android:id="@+id/edit_year"
@@ -86,7 +86,7 @@
                 android:layout_centerHorizontal="true"
                 android:ems="10"
                 android:inputType="numberSigned"
-                android:textColor="@color/blue" />
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -95,17 +95,28 @@
                 android:layout_margin="9dp"
                 android:layout_toLeftOf="@id/edit_year"
                 android:text="@string/text_year"
-                android:textColor="@color/blue" />
+                android:textColor="@android:color/white" />
+
+            <View
+                android:id="@+id/profil_bar_title_second"
+                android:layout_width="match_parent"
+                android:layout_height="0.8dp"
+                android:layout_below="@id/edit_year"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/yellow" />
 
             <EditText
                 android:id="@+id/profil_bpm_min"
                 android:layout_width="@dimen/general_width_edit_text"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/edit_year"
+                android:layout_below="@id/profil_bar_title_second"
                 android:layout_centerHorizontal="true"
                 android:ems="10"
                 android:inputType="numberSigned"
-                android:textColor="@color/blue" />
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -114,7 +125,18 @@
                 android:layout_margin="9dp"
                 android:layout_toLeftOf="@id/profil_bpm_min"
                 android:text="@string/text_bpm_min"
-                android:textColor="@color/blue" />
+                android:textColor="@android:color/white" />
+
+
+            <TextView
+                android:id="@+id/profil_bpm_min_is_default"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/profil_height_text"
+                android:layout_alignBaseline="@id/profil_bpm_min"
+                android:layout_margin="9dp"
+                android:layout_toRightOf="@id/profil_bpm_min"
+                android:textColor="@android:color/white" />
+
 
             <EditText
                 android:id="@+id/profil_bpm_max"
@@ -124,7 +146,7 @@
                 android:layout_centerHorizontal="true"
                 android:ems="10"
                 android:inputType="numberSigned"
-                android:textColor="@color/blue" />
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -133,7 +155,16 @@
                 android:layout_margin="9dp"
                 android:layout_toLeftOf="@id/profil_bpm_max"
                 android:text="@string/text_bpm_max"
-                android:textColor="@color/blue" />
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/profil_bpm_max_is_default"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/profil_height_text"
+                android:layout_alignBaseline="@id/profil_bpm_max"
+                android:layout_margin="9dp"
+                android:layout_toRightOf="@id/profil_bpm_max"
+                android:textColor="@android:color/white" />
 
             <Button
                 android:id="@+id/profil_valid"

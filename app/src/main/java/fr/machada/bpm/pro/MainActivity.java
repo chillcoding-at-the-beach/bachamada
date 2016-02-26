@@ -33,7 +33,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -121,8 +120,10 @@ public class MainActivity extends ActionBarActivity implements
         initTabs();
         initNotification();
         initFB();
-
-        Toast.makeText(this, R.string.message_ready_to_count, Toast.LENGTH_LONG).show();
+        SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        boolean firstLaunch = sharedPref.getBoolean(getString(R.string.first_launch), true);
+        if (firstLaunch)
+            startTuto();
 
     }
 
@@ -574,4 +575,10 @@ public class MainActivity extends ActionBarActivity implements
         super.onResume();
         initAlgorithmValue();
     }
+
+    public void startTuto() {
+        Intent intent = new Intent(this, PulseTuto.class);
+        startActivity(intent);
+    }
+
 }

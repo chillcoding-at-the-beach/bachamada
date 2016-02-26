@@ -65,4 +65,13 @@ Le <font fgcolor="#ff3498db"><b>suivi de FC</b></font> est important pour suivre
     <string name="text_share">PARTAGE</string>
     <string name="bpm_text">BPM</string>
     <string name="text_default">Par défaut</string>
+    <string name="how_one">Pour commencer, sent ton pouls.</string>
+    <string name="how_take_pulse">Comment mesurer son pouls ?</string>
+    <string name="how_two">Lance le chrono !</string>
+    <string name="how_two_details">Quand tu es prêt à compter les battements.</string>
+    <string name="how_three">Entre le nombre de pulsations comptés</string>
+    <string name="how_three_details">Le nombre de battements comptés.</string>
+    <string name="how_four">Obtient la valeur de ta Fréquence Cardiaque</string>
+    <string name="how_four_details">En battements par minute.</string>
+    <string name="history_no_data">Aucune valeur pour le moment, allez dans <b> Mesurer FC </b> !</string>
 </resources>

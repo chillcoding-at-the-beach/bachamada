@@ -60,4 +60,13 @@
     <string name="bpm_text">PPM</string>
     <string name="text_default">Predeterminado </string>
     <string name="notification_text">Rellenas tu perfil para tener un valor de %FC Max adaptado.</string>
+    <string name="how_one">Primero, sentir su pulso.</string>
+    <string name="how_take_pulse">¿ Cómo tomarse el pulso ?</string>
+    <string name="how_two">¡ Lanza crono !</string>
+    <string name="how_two_details">Cuando esté preparado para contar los pulsaciones.</string>
+    <string name="how_three">Entres el número de impulsos contados</string>
+    <string name="how_three_details">El número de batimentos contabas.</string>
+    <string name="how_four">Ver el valor de su Frecuencia Cardíaca</string>
+    <string name="how_four_details">En pulsaciones por minuto.</string>
+    <string name="history_no_data">Ningún valor por el momento, cita en  <b>Medir FC </b> !</string>
 </resources>

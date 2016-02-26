@@ -12,6 +12,7 @@
     <string name="value_bpm_min_ref" translatable="false">bpmminref</string>
     <string name="value_bpm_max_ref" translatable="false">bpmmaxref</string>
     <string name="value_bpa" translatable="false">bpa</string>
+    <string name="first_launch" translatable="false">firstime</string>
     <string name="text_default">Default</string>
     <string name="preference_file_key" translatable="false">default</string>
 
@@ -75,4 +76,13 @@ You can find <font fgcolor="#ff3498db"><b>HR Zones</b></font> in second tab. The
     <string name="discard">Discard</string>
     <string name="text_share">SHARE</string>
     <string name="bpm_text">BPM</string>
+    <string name="how_take_pulse">How to check his pulse ?</string>
+    <string name="how_one">First, feel your pulse.</string>
+    <string name="how_two">Start crono !</string>
+    <string name="how_two_details">When you are ready to count beats.</string>
+    <string name="how_three">Enter the number of counted pulses</string>
+    <string name="how_three_details">The number of beat you have counted.</string>
+    <string name="how_four">See value of your Heart Rate</string>
+    <string name="how_four_details">In beats per minute.</string>
+    <string name="history_no_data">No value for the moment, go in <b>Check HR</b>!</string>
 </resources>

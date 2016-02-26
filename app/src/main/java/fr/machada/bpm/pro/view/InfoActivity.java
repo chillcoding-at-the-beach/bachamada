@@ -25,4 +25,9 @@ public class InfoActivity extends Activity {
         link.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
+
+    public void showTuto(View view) {
+        Intent intent = new Intent(this, PulseTuto.class);
+        startActivity(intent);
+    }
 }

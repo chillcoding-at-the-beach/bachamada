@@ -72,9 +72,20 @@
             android:background="@color/blu" />
 
         <TextView
+            android:id="@+id/info_how_to"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="showTuto"
             android:layout_below="@id/info_bar_2"
+            android:textColor="@color/blu"
+            android:layout_margin="@dimen/general_space"
+            android:layout_centerHorizontal="true"
+            android:text="@string/how_take_pulse" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/info_how_to"
             android:text="@string/message_info_about_bpm"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@android:color/white" />

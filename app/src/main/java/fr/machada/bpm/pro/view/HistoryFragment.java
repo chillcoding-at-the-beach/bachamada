@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.TextView;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -25,6 +26,8 @@ public class HistoryFragment extends Fragment {
     SparseArray<Group> mGroups;
     CustomExpandableListAdapter mAdapter;
     ExpandableListView mListView;
+    private TextView mTextView;
+    private boolean mNoData;
 
 
     public interface ItemSelectedListener {
@@ -69,6 +72,9 @@ public class HistoryFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_layout_history, container, false);
 
+        mTextView = (TextView) rootView.findViewById(R.id.history_empty);
+        if (mNoData)
+            mTextView.setVisibility(View.VISIBLE);
         mListView = (ExpandableListView) rootView.findViewById(R.id.listView);
         mListView.setAdapter(mAdapter);
         mListView.setOnChildClickListener(mListItemClicked);
@@ -107,7 +113,8 @@ public class HistoryFragment extends Fragment {
                 }
             }
             mGroups.append(c, group);
-        }
+        } else
+            mNoData = true;
     }
 
     public void removeData(int gp, int cp) {
@@ -119,6 +126,8 @@ public class HistoryFragment extends Fragment {
             if (mAdapter.addBpm(bpm))
                 mListView.expandGroup(mGroups.size());
             mAdapter.notifyDataSetChanged();
+            if (mTextView.getVisibility() == View.VISIBLE)
+                mTextView.setVisibility(View.GONE);
         }
 
     }

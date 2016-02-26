@@ -36,8 +36,8 @@
     <string name="text_bpm_min">FC Min :</string>
     <string name="text_bpm_max">FC Max :</string>
     <string name="dialog_delete">Voulez-vous supprimer cette mesure ?</string>
-    <string name="message_info_about_bpm">La fréquence cardiaque (FC), exprimée en Battement Par Minute <font fgcolor="#ff3498db"><b>BPM</b></font>, est déterminée par la <font fgcolor="#ff3498db"><i>prise de pouls</i></font> : <i>mesure au poignet ou à la carotide du nombre de pulsations en un temps donné</i>.\n\n
-Voici 3 <font fgcolor="#ff3498db">types de <B>FC</B></font> :\n
+    <string name="message_info_about_bpm">La Fréquence Cardiaque (FC), exprimée en Battement Par Minute <font fgcolor="#ff3498db"><b>BPM</b></font>, est déterminée par la <font fgcolor="#ff3498db"><i>prise de pouls</i></font> : <i>mesure au poignet ou à la carotide du nombre de pulsations en un temps donné</i>.\n\n
+Voici 3 <font fgcolor="#ff3498db">types de <b>FC</b></font> :\n
 - <font fgcolor="#ff2ecc71">FC Min</font> : FC au repos,\n  \u0020 \u0020 \u0020 \u0020 \u0020 calculée au reveil\n
 - <font fgcolor="#fff1c40f">FCE</font> : FC à l\'entrainement,\n  \u0020 \u0020 \u0020 \u0020 \u0020 calculée entre 2 efforts\n
 - <font fgcolor="#ffe74c3c">FC Max</font> : FC maximal,\n   \u0020 \u0020 \u0020 \u0020 \u0020 calculée juste après un effort intense\n\n

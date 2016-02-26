@@ -138,7 +138,8 @@ public class HistoryFragment extends Fragment {
         @Override
         public boolean onChildClick(ExpandableListView parent, View v,
                                     int groupPosition, int childPosition, long id) {
-            mListener.onDeleteBpmClick(mGroups.get(groupPosition).children.get(childPosition).getId(), groupPosition, childPosition);
+            if (mGroups.get(groupPosition) != null)//quick fix
+                mListener.onDeleteBpmClick(mGroups.get(groupPosition).children.get(childPosition).getId(), groupPosition, childPosition);
             return false;
         }
 

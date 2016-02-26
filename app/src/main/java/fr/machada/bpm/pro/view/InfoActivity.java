@@ -2,17 +2,20 @@ package fr.machada.bpm.pro.view;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import android.text.method.LinkMovementMethod;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import fr.machada.bpm.pro.PulseTuto;
 import fr.machada.bpm.pro.R;
 
 public class InfoActivity extends Activity {
 
-    public static final String VIEW_NAME_HEADER_IMAGE ="info:header:image" ;
+    public static final String VIEW_NAME_HEADER_IMAGE = "info:header:image";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

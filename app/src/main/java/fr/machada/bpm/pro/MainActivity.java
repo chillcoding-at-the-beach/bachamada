@@ -320,7 +320,6 @@ public class MainActivity extends ActionBarActivity implements
 
                 // Now we can start the Activity, providing the activity options as a bundle
                 ActivityCompat.startActivity(this, intent, activityOptions2.toBundle());
-              //  startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -391,7 +390,7 @@ public class MainActivity extends ActionBarActivity implements
         bpm.setValue(v);
         bpm.setHow(h.getInt());
         bpm.setEffort(e.getInt());
-        bpm.setPercent(v*100/mHRMaxRef);
+        bpm.setPercent(v * 100 / mHRMaxRef);
         bpm.setId((int) mDbHelper.insertBpm(user, bpm));
         mHistoryFrag.addData(bpm);
         mHistoryFrag.refresh();

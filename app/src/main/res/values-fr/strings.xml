@@ -33,7 +33,7 @@
     <string name="text_bpm_vma_c">VMA Court</string>
     <string name="text_set_timer">Valeur du Chrono</string>
     <string name="set">Changer</string>
-    <string name="text_bpm_min">FC Min:</string>
+    <string name="text_bpm_min">FC Min :</string>
     <string name="text_bpm_max">FC Max :</string>
     <string name="dialog_delete">Voulez-vous supprimer cette mesure ?</string>
     <string name="message_info_about_bpm">La fréquence cardiaque (FC), exprimée en Battement Par Minute <font fgcolor="#ff3498db"><b>BPM</b></font>, est déterminée par la <font fgcolor="#ff3498db"><i>prise de pouls</i></font> : <i>mesure au poignet ou à la carotide du nombre de pulsations en un temps donné</i>.\n\n

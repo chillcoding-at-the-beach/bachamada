@@ -43,7 +43,7 @@
     <string name="text_bpm_resting">RESTING</string>
     <string name="text_bpm_marathon">MARATHON</string>
     <string name="text_bpm_semi">SEMI-\n MARATHON</string>
-    <string name="text_bpm_allure">SPEED 6 m/h</string>
+    <string name="text_bpm_allure">SPEED 10 km/h</string>
     <string name="text_bpm_vma_l">SPEED HIGH</string>
     <string name="text_bpm_vma_c">SPEED HIGH +</string>
     <string name="text_set_timer">Value of timer</string>
@@ -51,21 +51,23 @@
     <string name="text_bpm_min">HR Min:</string>
     <string name="text_bpm_max">HR Max:</string>
     <string name="dialog_delete">Delete this measure?</string>
-    <string name="message_info_about_bpm">       Heart rate in Beat Per Minute, <font fgcolor="#ff3498db"><b>BPM</b></font>,  is determinated by <font fgcolor="#ff3498db"><i>taking pulse</i></font> : <i>measurement can be done by putting your fingers at clenched or at neck.</i>.\n  It is done in beat per minute <b>BPM</b>.\n\n
-Here is 3 <font fgcolor="#ff3498db">types of <B>HR</B></font> :\n
-- <font fgcolor="#ff2ecc71">HR Min</font>: HR at resting,\n \u0020 \u0020 \u0020 \u0020 \u0020 calculated at wake up\n
-- <font fgcolor="#fff1c40f">HR T</font>: HR during training,\n  \u0020 \u0020 \u0020 \u0020 \u0020 calculated between 2 efforts\n
-- <font fgcolor="#ffe74c3c">HR Max</font>: HR maximal,\n   \u0020 \u0020 \u0020 \u0020 \u0020 calculated after a strong effort\n\n
-Here is 7 <font fgcolor="#ff3498db">types of activity</font> :\n(<i> s the speed and t the time of the activity</i>)\n
-* <font fgcolor="#ff2ecc71">RESTING</font> s~0, t=everytime\n
-* <font fgcolor="#fff1c40f">FOOTING</font> \u0020 \u0020 \u0020 s~11km/h, t~3h and +\n
-* <font fgcolor="#fff1c40f">MARATHON</font>\u0020 \u0020 \u0020  s~11km/h, t~3h30\'\n
-* <font fgcolor="#fff1c40f">SEMI-MARATHON</font> \u0020 \u0020 \u0020 s~12km/h, t~1h45\'\n
-* <font fgcolor="#fff39c12">ALLURE 10km</font> \u0020 \u0020 \u0020 s~13km/h, t~45\'\n
-* <font fgcolor="#ffe74c3c">SMA Court</font>\u0020 \u0020 \u0020 s~15km/h, t~6-7\'\n
-*<font fgcolor="#ffe74c3c"> SMA Long</font>\u0020 \u0020 \u0020 s~16 km/h, t~5\' et -\n
-(<i>Speed Maximal Aeroby obtain during speedburning</i>)\n\n
-You can find <font fgcolor="#ff3498db"><b>HR Zones</b></font> in second tab. They give some values of <font fgcolor="#ff3498db">HR to maintain</font>, depending on the <font fgcolor="#ff3498db">activity</font> (footing...).\n HR Zones are based on Profile, they are determinated with <i>Astrand method</i> (theoric), used in first place, and with <i>Karvonen method</i> (customised with HR Min and HR Max), used after some measurements. \n <font fgcolor="#ff3498db"><b>HR Monitoring</b></font> is very important to follow <font fgcolor="#ff3498db"><i>athlete evolution</i></font> (more train less HR).\n
+    <string name="message_info_about_bpm">Heart Rate (in Beat Per Minute or <font fgcolor="#ff3498db"><b>BPM</b></font>), is measured by <font fgcolor="#ff3498db"><b>taking your pulse</b></font> : measurement can be done by putting two fingers on your wrist or your neck.</b>\n\n
+Following are three different <font fgcolor="#ff3498db">types of Heart Rate</font> (or <font fgcolor="#ff3498db"><b>HR</b></font>):\n
+- <font fgcolor="#ff2ecc71">HR Min</font>: Heart Rate at rest,\n \u0020 \u0020 \u0020 \u0020 \u0020 taken after waking up\n
+- <font fgcolor="#fff1c40f">HR T</font>: Heart Rate during a training,\n  \u0020 \u0020 \u0020 \u0020 \u0020 taken between two efforts\n
+- <font fgcolor="#ffe74c3c">HR Max</font>: Maximal Heart Rate,\n   \u0020 \u0020 \u0020 \u0020 \u0020 taken after an intensive effort\n\n
+Following are seven different <font fgcolor="#ff3498db">types of activity</font>:\n(<i>s</i> is the <i>speed</i> and <i>d</i> the <i>duration</i> of the activity</i>)\n
+* <font fgcolor="#ff2ecc71">RESTING</font>: s=0, t=∞\n
+* <font fgcolor="#fff1c40f">RUNNING</font>: s≈11km/h, d≈3 hours or more\n
+* <font fgcolor="#fff1c40f">MARATHON</font>: s≈11km/h, d≈3 hours 30 minutes\n
+* <font fgcolor="#fff1c40f">SEMI-MARATHON</font>: s≈12km/h, d≈1 hour 45 minutes\n
+* <font fgcolor="#fff39c12">SPEED 10 km/h</font>: s≈10km/h, d≈1 hour\n
+* <font fgcolor="#ffe74c3c">SPEED HIGH</font>: s≈15km/h, d≈6 or 7 minutes\n
+* <font fgcolor="#ffe74c3c">SPEED HIGH +</font>: s≈16 km/h, d≈5 minutes or less\n\n
+You can find your personalized <font fgcolor="#ff3498db"><b>HR Zones</b></font> in the third tab. They give you an idea of <font fgcolor="#ff3498db">HR to maintain</font>, depending on the <font fgcolor="#ff3498db">activity</font> (resting, marathon, etc.).\nHR zones are based on your profile (age, sex, HR Min & HR Max), they are determinated using:\n
+* the <i>Astrand method</i>, when you don't have any measurement yet
+* the <i>Karvonen method</i> once your profile is filled-out and you have some measurements\n
+<font fgcolor="#ff3498db"><b>HR Monitoring</b></font> is very important to track your <font fgcolor="#ff3498db"><i>athletic progression</i></font>: the more you train, the lower your Heart Rate will be.\n
  </string>
     <string name="link_icon">Healthy Heart Rate on <a href="https://www.facebook.com/bachamada">Facebook</a>\nApplication realised by <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
     <string name="text_stop">Stop</string>
@@ -76,7 +78,7 @@ You can find <font fgcolor="#ff3498db"><b>HR Zones</b></font> in second tab. The
     <string name="discard">Discard</string>
     <string name="text_share">SHARE</string>
     <string name="bpm_text">BPM</string>
-    <string name="how_take_pulse">How to check his pulse ?</string>
+    <string name="how_take_pulse">How to take your pulse?</string>
     <string name="how_one">First, feel your pulse.</string>
     <string name="how_two">Start crono !</string>
     <string name="how_two_details">When you are ready to count beats.</string>

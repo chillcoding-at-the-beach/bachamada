@@ -48,7 +48,7 @@
     <string name="text_share">COMPARTIR</string>
     <string name="text_stop">Stop</string>
     <string name="text_type">TIPO DE ESFUERZO</string>
-    <string name="text_year">Año de nacimiento :</string>
+    <string name="text_year">Año de \n Nacimiento :</string>
     <string name="title_about">Acierto</string>
     <string name="title_bpm">FC (PPM)</string>
     <string name="title_bpm_zone">Zonas de FC</string>
@@ -64,7 +64,7 @@
     <string name="how_take_pulse">¿ Cómo tomarse el pulso ?</string>
     <string name="how_two">¡ Lanza crono !</string>
     <string name="how_two_details">Cuando esté preparado para contar los pulsaciones.</string>
-    <string name="how_three">Entres el número de impulsos contados</string>
+    <string name="how_three">Introduce el número de impulsos contados</string>
     <string name="how_three_details">El número de batimentos contabas.</string>
     <string name="how_four">Ver el valor de su Frecuencia Cardíaca</string>
     <string name="how_four_details">En pulsaciones por minuto.</string>

@@ -69,4 +69,5 @@
     <string name="title_info">Informação</string>
     <string name="title_profil">Perfil</string>
     <string name="title_vpro">Versão pro</string>
+    <string name="delete_text">Excluir</string>
 </resources>

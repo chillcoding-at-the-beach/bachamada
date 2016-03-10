@@ -2,7 +2,7 @@ package fr.machada.bpm.pro.model;
 
 import java.io.Serializable;
 
-public class RegisteredBpm implements Serializable {
+public class RegisteredFC implements Serializable {
 
     private int mId = 0;
     private int mValue = 0;

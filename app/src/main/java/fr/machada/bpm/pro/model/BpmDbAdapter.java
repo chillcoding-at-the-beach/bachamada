@@ -116,7 +116,7 @@ public class BpmDbAdapter {
         return mDb.insert(TABLE_BPM, null, initialValues);
     }
 
-    public long insertBpm(String user, RegisteredBpm f) {
+    public long insertBpm(String user, RegisteredFC f) {
         ContentValues initialValues = new ContentValues();
         initialValues.put(COL_USER, user);
         initialValues.put(COL_DATE, f.getDate());
@@ -134,7 +134,7 @@ public class BpmDbAdapter {
      * @param rowId id of note to delete
      * @return true if deleted, false otherwise
      */
-    public boolean deleteBpm(long rowId) {
+    public boolean deleteFC(long rowId) {
 
         return mDb.delete(TABLE_BPM, COL_ID + "=" + rowId, null) > 0;
     }
@@ -168,8 +168,8 @@ public class BpmDbAdapter {
     }
 
 
-    public ArrayList<RegisteredBpm> getAllBpmUser(String user) {
-        ArrayList<RegisteredBpm> listFcs = new ArrayList<RegisteredBpm>();
+    public ArrayList<RegisteredFC> getAllBpmUser(String user) {
+        ArrayList<RegisteredFC> listFcs = new ArrayList<RegisteredFC>();
         //obtain in a Cursor HR value contained in BDD
         Cursor c = mDb.query(TABLE_BPM, new String[]{COL_ID, COL_DATE, COL_VALUE, COL_EFFORT, COL_HOW, COL_PERCENT}, COL_USER + " LIKE \"" + user + "\"", null, null, null, null);
         while (c.moveToNext()) {
@@ -209,12 +209,12 @@ public class BpmDbAdapter {
     }
 
     //this method aim to convert cursor in HR
-    private RegisteredBpm cursorToBpm(Cursor c) {
+    private RegisteredFC cursorToBpm(Cursor c) {
         //null is return if nothing found in request
         if (c.getCount() == 0)
             return null;
         //create HR
-        RegisteredBpm bpm = new RegisteredBpm();
+        RegisteredFC bpm = new RegisteredFC();
         //thanks to Cursor we fill info for registered hr
         bpm.setId(c.getInt(NUM_COL_ID));
         bpm.setDate(c.getLong(NUM_COL_DATE));

@@ -25,4 +25,7 @@ dependencies {
     compile 'com.facebook.android:facebook-android-sdk:4.6.0'
     compile 'net.steamcrafted:materialiconlib:1.0.4'
     compile 'com.github.paolorotolo:appintro:3.4.0'
+    compile 'de.greenrobot:eventbus:2.4.0'
+    compile 'com.daimajia.swipelayout:library:1.2.0@aar'
+
 }

@@ -69,4 +69,5 @@
     <string name="how_four">Ver el valor de su Frecuencia Cardíaca</string>
     <string name="how_four_details">En pulsaciones por minuto.</string>
     <string name="history_no_data">Ningún valor por el momento, cita en  <b>Medir FC </b> !</string>
+    <string name="delete_text">Suprimir</string>
 </resources>

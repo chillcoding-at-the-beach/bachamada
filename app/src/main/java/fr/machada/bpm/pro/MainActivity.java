@@ -46,10 +46,12 @@ import com.facebook.share.widget.ShareDialog;
 
 import java.util.ArrayList;
 
+import de.greenrobot.event.EventBus;
+import fr.machada.bpm.pro.event.OnDeleteFCEvent;
 import fr.machada.bpm.pro.model.BpmDbAdapter;
 import fr.machada.bpm.pro.model.Effort;
 import fr.machada.bpm.pro.model.How;
-import fr.machada.bpm.pro.model.RegisteredBpm;
+import fr.machada.bpm.pro.model.RegisteredFC;
 import fr.machada.bpm.pro.utils.SlidingTabLayout;
 import fr.machada.bpm.pro.utils.SomeKeys;
 import fr.machada.bpm.pro.view.BPMZoneFragment;
@@ -65,7 +67,6 @@ public class MainActivity extends ActionBarActivity implements
         MeasurementFragment.OnTimerListener,
         PulseNumberDialogFragment.NoticeDialogListener,
         ShowAndRegisterBPMDialogFragment.NoticeDialogListener,
-        HistoryFragment.ItemSelectedListener,
         TimerNumberDialogFragment.NoticeDialogListener {
 
     private final String NOTIFICATION_ID = "notification_id";
@@ -90,7 +91,7 @@ public class MainActivity extends ActionBarActivity implements
      * The Helper to manage BDD
      */
     private BpmDbAdapter mDbHelper;
-    private ArrayList<RegisteredBpm> mListBpm;
+    private ArrayList<RegisteredFC> mListBpm;
 
     private int mTime;
     private int mPosition;
@@ -385,7 +386,7 @@ public class MainActivity extends ActionBarActivity implements
             default:
                 h = How.HAPPY;
         }
-        RegisteredBpm bpm = new RegisteredBpm();
+        RegisteredFC bpm = new RegisteredFC();
         bpm.setDate(System.currentTimeMillis());
         bpm.setValue(v);
         bpm.setHow(h.getInt());
@@ -479,27 +480,12 @@ public class MainActivity extends ActionBarActivity implements
     }
 
 
-    @Override
-    public void onDeleteBpmClick(int idi, int grp, int cip) {
-        final int iid = idi;
-        final int gp = grp;
-        final int cp = cip;
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(R.string.dialog_delete)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        mDbHelper.deleteBpm(iid);
-                        mHistoryFrag.removeData(gp, cp);
-                        mHistoryFrag.refresh();
+    public void onEvent(final OnDeleteFCEvent deleteFCEvent) {
+
+                        mDbHelper.deleteFC(deleteFCEvent.getId());
                         updateBpmMinMax();
                         mZoneBPMFrag.updateZone();
-                    }
-                })
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                    }
-                });
-        builder.create().show();
+
     }
 
     @Override
@@ -578,6 +564,18 @@ public class MainActivity extends ActionBarActivity implements
     public void startTuto() {
         Intent intent = new Intent(this, PulseTuto.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
     }
 
 }

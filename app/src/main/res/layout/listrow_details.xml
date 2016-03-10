@@ -1,97 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="@dimen/item_height"
-    android:orientation="horizontal"
-    android:padding="5dip">
-    <!--  ListRow Left sied Thumbnail image -->
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/training_attendance_player_swipe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/black">
 
-    <ImageView
-        android:id="@+id/hiseffort"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginBottom="@dimen/general_space"
-        android:layout_marginTop="@dimen/general_space"
-        android:src="@drawable/ic_exercise" />
-
-    <ImageView
-        android:id="@+id/hishow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginBottom="@dimen/general_space"
-        android:layout_marginTop="@dimen/general_space"
-        android:layout_toRightOf="@id/hiseffort"
-        android:src="@drawable/ic_happy" />
-
-
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/hiseffort"
-        android:layout_margin="@dimen/general_space"
-        android:textColor="@android:color/white"
-        android:textSize="12dip"
-        android:textStyle="bold"
-        android:typeface="sans" />
-
-    <TextView
-        android:id="@+id/value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="@dimen/general_space"
-        android:background="@drawable/ic_heart"
-        android:padding="10dip"
-        android:text="80"
-        android:textColor="@android:color/white"
-        android:textSize="20dip" />
-
-
-    <TextView
-        android:id="@+id/bpm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/value"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="@dimen/general_space"
-        android:text="@string/bpm_text"
-        android:textColor="@android:color/white"
-        android:textSize="10dip"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/percent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="@dimen/general_space"
-        android:text="80"
-        android:textColor="@android:color/white"
-        android:textSize="20dip" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/bpm"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/percent"
-        android:layout_margin="10dip"
-        android:text="@string/formula_bpm"
-        android:textColor="@android:color/white"
-        android:textSize="10dip"
-        android:textStyle="bold" />
-
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0.8dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="10dp"
-        android:background="@color/gray"
-        android:paddingTop="10dp" />
+        android:layout_height="80dp">
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/listrow_button_delete"
+            style="@style/ListItem.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/red"
+            android:text="@string/delete_text" />
+    </LinearLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <!--  ListRow Left sied Thumbnail image -->
+
+        <ImageView
+            android:id="@+id/hiseffort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="@dimen/general_space"
+            android:src="@drawable/ic_exercise" />
+
+        <ImageView
+            android:id="@+id/hishow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/general_space"
+            android:layout_marginTop="@dimen/general_space"
+            android:layout_toRightOf="@id/hiseffort"
+            android:src="@drawable/ic_happy" />
+
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hiseffort"
+            android:layout_marginLeft="@dimen/general_space"
+            android:textColor="@android:color/white"
+            android:textSize="12dip"
+            android:textStyle="bold"
+            android:text="lundi 12 17:56"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/general_space"
+            android:background="@drawable/ic_heart"
+            android:padding="10dip"
+            android:text="80"
+            android:textColor="@android:color/white"
+            android:textSize="20dip" />
+
+
+        <TextView
+            android:id="@+id/bpm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/value"
+            android:layout_centerHorizontal="true"
+            android:layout_alignBaseline="@id/date"
+            android:text="@string/bpm_text"
+            android:textColor="@android:color/white"
+            android:textSize="10dip"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/general_space"
+            android:text="80"
+            android:textColor="@android:color/white"
+            android:textSize="20dip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/bpm"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/percent"
+            android:layout_marginRight="@dimen/general_space"
+            android:text="@string/formula_bpm"
+            android:textColor="@android:color/white"
+            android:textSize="10dip"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray"
+            />
+
+    </RelativeLayout>
+</com.daimajia.swipe.SwipeLayout>

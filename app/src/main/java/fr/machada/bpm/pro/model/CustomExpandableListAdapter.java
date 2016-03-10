@@ -7,14 +7,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
+import de.greenrobot.event.EventBus;
 import fr.machada.bpm.pro.R;
+import fr.machada.bpm.pro.event.OnDeleteFCEvent;
 
 
 public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
@@ -23,34 +27,66 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     public LayoutInflater inflater;
     public Activity activity;
 
-    public CustomExpandableListAdapter(Activity act, SparseArray<Group> groups) {
+    public CustomExpandableListAdapter(Activity act, List<RegisteredFC> bpmList) {
         activity = act;
-        mGroups = groups.clone();
+        createData(bpmList);
         inflater = act.getLayoutInflater();
     }
 
-    public void removeBpm(int gp, int cp) {
-        mGroups.get(gp).children.remove(cp);
+    public void createData(List<RegisteredFC> bpmList) {
+        mGroups = null;
+        mGroups = new SparseArray<Group>();
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM y");
+        int c = 0;
+        Date dc = null;
+        Group group = null;
+        if (bpmList.size() > 0) {
+            dc = new Date(bpmList.get(0).getDate());
+            group = new Group(sdf.format(dc));
+            for (int i = 0; i < bpmList.size(); i++) {
+                // to get a nice title for expandable list
+                Date di = new Date(bpmList.get(i).getDate());
+                if (dc.getMonth() == di.getMonth()) {
+                    group.children.add(bpmList.get(i));
+                } else {
+                    mGroups.append(c, group);
+                    dc = di;
+                    group = new Group(sdf.format(dc));
+                    c++;
+                    group.children.add(bpmList.get(i));
+                }
+            }
+            mGroups.append(c, group);
+        }
     }
 
-    public boolean addBpm(RegisteredBpm bpm) {
+    public void removeFC(int gp, int cp) {
+        mGroups.get(gp).children.remove(cp);
+        if (mGroups.get(gp).children.size() < 1) {
+            mGroups.remove(gp);
+        }
+    }
+
+    public boolean addFC(RegisteredFC fc) {
         SimpleDateFormat sdf = new SimpleDateFormat("MMMM yyyy");
-        Date d1 = new Date(bpm.getDate());
+        Date d1 = new Date(fc.getDate());
         if (mGroups.size() > 0) {
             int l1 = mGroups.size() - 1;
             int l2 = mGroups.get(l1).children.size() - 1;
             Date dc = new Date(mGroups.get(l1).children.get(l2).getDate());
             if (d1.getMonth() == dc.getMonth()) {
-                mGroups.get(l1).children.add(bpm);
+                mGroups.get(l1).children.add(fc);
             } else {
                 Group group = new Group(sdf.format(d1));
-                group.children.add(bpm);
+                group.children.add(fc);
                 mGroups.append(mGroups.size(), group);
                 return true;
             }
         } else {
+            mGroups = null;
+            mGroups = new SparseArray<Group>();
             Group group = new Group(sdf.format(d1));
-            group.children.add(bpm);
+            group.children.add(fc);
             mGroups.append(mGroups.size(), group);
             return true;
         }
@@ -65,13 +101,14 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public long getChildId(int groupPosition, int childPosition) {
-        return 0;
+        RegisteredFC fc = (RegisteredFC) getChild(groupPosition, childPosition);
+        return fc.getId();
     }
 
     @Override
-    public View getChildView(int groupPosition, final int childPosition,
+    public View getChildView(final int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
-        final RegisteredBpm children = (RegisteredBpm) getChild(groupPosition, childPosition);
+        final RegisteredFC children = (RegisteredFC) getChild(groupPosition, childPosition);
         TextView text, textD, textP = null;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.listrow_details, null);
@@ -123,14 +160,26 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
                     imE.setImageResource(R.drawable.ic_guru);
             }
         }
-
+        Button button = (Button) convertView.findViewById(R.id.listrow_button_delete);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventBus.getDefault().post(new OnDeleteFCEvent(mGroups.get(groupPosition).children.get(childPosition).getId()));
+                removeFC(groupPosition, childPosition);
+                notifyDataSetChanged();
+            }
+        });
         return convertView;
     }
 
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return mGroups.get(groupPosition).children.size();
+        if (mGroups != null) {
+            if (mGroups.get(groupPosition) != null)
+                return mGroups.get(groupPosition).children.size();
+        }
+        return 0;
     }
 
     @Override

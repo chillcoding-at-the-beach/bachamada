@@ -74,4 +74,5 @@ Le <font fgcolor="#ff3498db"><b>suivi de FC</b></font> est important pour suivre
     <string name="how_four">Obtient la valeur de ta Fréquence Cardiaque</string>
     <string name="how_four_details">En battements par minute.</string>
     <string name="history_no_data">Aucune valeur pour le moment, allez dans <b> Mesurer FC </b> !</string>
+    <string name="delete_text">Supprimer</string>
 </resources>

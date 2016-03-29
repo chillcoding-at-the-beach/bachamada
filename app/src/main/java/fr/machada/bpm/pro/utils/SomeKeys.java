@@ -5,4 +5,6 @@ package fr.machada.bpm.pro.utils;
  */
 public class SomeKeys {
     public static final String BUNDLE_BPM_LIST = "FC_LIST";
+    public static final String BUNDLE_FC = "FC";
+    public static final String DELETE_FC = "DELETE_FC";
 }

@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,9 +15,7 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import de.greenrobot.event.EventBus;
 import fr.machada.bpm.pro.R;
-import fr.machada.bpm.pro.event.OnDeleteFCEvent;
 
 
 public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
@@ -160,17 +157,14 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
                     imE.setImageResource(R.drawable.ic_guru);
             }
         }
-        Button button = (Button) convertView.findViewById(R.id.listrow_button_delete);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EventBus.getDefault().post(new OnDeleteFCEvent(mGroups.get(groupPosition).children.get(childPosition).getId()));
-                removeFC(groupPosition, childPosition);
-                notifyDataSetChanged();
-            }
-        });
         return convertView;
     }
+
+    /***
+     * EventBus.getDefault().post(new OnDeleteFCEvent(mGroups.get(groupPosition).children.get(childPosition).getId()));
+     * removeFC(groupPosition, childPosition);
+     * notifyDataSetChanged();
+     **/
 
 
     @Override

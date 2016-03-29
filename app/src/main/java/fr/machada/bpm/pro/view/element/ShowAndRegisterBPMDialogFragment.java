@@ -10,15 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RadioGroup;
 
+import de.greenrobot.event.EventBus;
 import fr.machada.bpm.pro.R;
+import fr.machada.bpm.pro.event.OnFBShareFCEvent;
 
 
 public class ShowAndRegisterBPMDialogFragment extends DialogFragment {
 
     public interface NoticeDialogListener {
         public void onDialogSaveClick(int v, int effort, int how);
-
-        public void onDialogShareClick(int V, int effort, int how);
     }
 
     NoticeDialogListener mListener;
@@ -78,9 +78,9 @@ public class ShowAndRegisterBPMDialogFragment extends DialogFragment {
         fbButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RadioGroup radioEffortGroup = (RadioGroup) promptsView.findViewById(R.id.efforts);
-                RadioGroup radioHowGroup = (RadioGroup) promptsView.findViewById(R.id.hows);
-                mListener.onDialogShareClick(mV, radioEffortGroup.getCheckedRadioButtonId(), radioHowGroup.getCheckedRadioButtonId());
+                EventBus.getDefault().post(new OnFBShareFCEvent((mV)));
+
+//                mListener.onDialogShareClick(mV);
             }
         });
 

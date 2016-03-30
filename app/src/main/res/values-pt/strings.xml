@@ -15,7 +15,7 @@
     <string name="how_three_details">Contou o número de batidas.</string>
     <string name="how_two">Lança crono !</string>
     <string name="how_two_details">Quando estiver pronto á contar as batidas.</string>
-    <string name="link_icon">Saúde Pulso em <a href="https://www.facebook.com/bachamada">Facebook</a>\nAplicação realizada por <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
+    <string name="link_icon">Saúde Pulso em <a href="https://www.facebook.com/bachamada">Facebook</a>\nMais em <a href="http://www.chillcoding.com/bachamada">ChillCoding.com</a>\n</string>
     <string name="message_info_about_bpm">Frequência cardíaca ou ritmo cardíaco é o número de batimentos cardíacos por unidade de tempo, geralmente expresso em batimentos por minuto (<b>bpm</b>).\n\n
     3 <font fgcolor="#ff3498db">tipo de <b>FC</b></font> :\n
 - <font fgcolor="#ff2ecc71">FCR</font> : FC em repouso ,\n \u0020 \u0020 \u0020 \u0020 \u0020  É tomado de manhã, antes de sair da cama\n

@@ -5,7 +5,7 @@
     <string name="dialog_delete">¿ Quiere suprimir esta medida ?</string>
     <string name="discard">Anular</string>
     <string name="formula_bpm">% FC Máx</string>
-    <string name="link_icon">Salud del Pulso en <a href="https://www.facebook.com/bachamada">Facebook</a>\nApplication realizado por Da Costa en <a href="http://www.chillcoding.com">ChillCoding</a>\n</string>
+    <string name="link_icon">Salud del Pulso en <a href="https://www.facebook.com/bachamada">Facebook</a>\nMas en <a href="http://www.chillcoding.com/bachamada">ChillCoding.com</a>\n</string>
     <string name="message_info_about_bpm">Frecuencia Cardíaca (FC) en pulsaciones por minuto, <font fgcolor="#ff3498db"><b>PPM</b></font>, podemos tomar en la <font fgcolor="#ff3498db"><i>muñeca</i></font>  <i>en el cuello sobre la arteria carótida o en el pecho.</i>.\n  se expresa en pulsaciones por minuto <b>PPM</b>.\n\n
   3 <font fgcolor="#ff3498db">tipo de <b>FC</b></font> :\n
 - <font fgcolor="#ff2ecc71">FCR</font> : FC en reposo,\n \u0020 \u0020 \u0020 \u0020 \u0020 Se toma por la mañana antes de levantarse de la cama\n

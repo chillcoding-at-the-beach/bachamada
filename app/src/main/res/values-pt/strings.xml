@@ -70,4 +70,6 @@
     <string name="title_profil">Perfil</string>
     <string name="title_vpro">Versão pro</string>
     <string name="delete_text">Excluir</string>
+    <string name="fc_value_title">Valor de FC</string>
+    <string name="text_and">e</string>
 </resources>

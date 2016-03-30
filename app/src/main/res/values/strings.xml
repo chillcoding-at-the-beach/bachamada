@@ -88,4 +88,6 @@ You can find your personalized <font fgcolor="#ff3498db"><b>HR Zones</b></font> 
     <string name="how_four_details">In beats per minute.</string>
     <string name="history_no_data">No value for the moment, go in <b>Check HR</b>!</string>
     <string name="delete_text">Delete</string>
+    <string name="fc_value_title">FC Value</string>
+    <string name="text_and">and</string>
 </resources>

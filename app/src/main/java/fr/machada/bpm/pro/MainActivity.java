@@ -1,21 +1,10 @@
 package fr.machada.bpm.pro;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Notification;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
@@ -29,29 +18,24 @@ import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.util.Pair;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
-import com.facebook.share.Sharer;
-import com.facebook.share.model.ShareLinkContent;
-import com.facebook.share.model.SharePhoto;
-import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
 
 import java.util.ArrayList;
 
 import de.greenrobot.event.EventBus;
 import fr.machada.bpm.pro.event.OnDeleteFCEvent;
+import fr.machada.bpm.pro.event.OnFBShareFCEvent;
 import fr.machada.bpm.pro.model.BpmDbAdapter;
 import fr.machada.bpm.pro.model.Effort;
 import fr.machada.bpm.pro.model.How;
 import fr.machada.bpm.pro.model.RegisteredFC;
+import fr.machada.bpm.pro.utils.FacebookShare;
 import fr.machada.bpm.pro.utils.SlidingTabLayout;
 import fr.machada.bpm.pro.utils.SomeKeys;
 import fr.machada.bpm.pro.view.BPMZoneFragment;
@@ -63,13 +47,14 @@ import fr.machada.bpm.pro.view.element.PulseNumberDialogFragment;
 import fr.machada.bpm.pro.view.element.ShowAndRegisterBPMDialogFragment;
 import fr.machada.bpm.pro.view.element.TimerNumberDialogFragment;
 
-public class MainActivity extends ActionBarActivity implements
+public class MainActivity extends AppCompatActivity implements
         MeasurementFragment.OnTimerListener,
         PulseNumberDialogFragment.NoticeDialogListener,
         ShowAndRegisterBPMDialogFragment.NoticeDialogListener,
         TimerNumberDialogFragment.NoticeDialogListener {
 
     private final String NOTIFICATION_ID = "notification_id";
+    public static final int DETAILS_REQUEST = 0;
     /**
      * The {@link ViewPager} that will display the three primary sections of the app, one at a
      * time.
@@ -106,6 +91,7 @@ public class MainActivity extends ActionBarActivity implements
     private CallbackManager callbackManager;
     private ShareDialog mShareDialog;
     private boolean mIsANewValue;
+    private FacebookShare mFacebookShare;
 
 
     @Override
@@ -120,7 +106,6 @@ public class MainActivity extends ActionBarActivity implements
         initFragment();
         initTabs();
         initNotification();
-        initFB();
         SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         boolean firstLaunch = sharedPref.getBoolean(getString(R.string.first_launch), true);
         if (firstLaunch)
@@ -134,28 +119,6 @@ public class MainActivity extends ActionBarActivity implements
         mHRMaxRef = sharedPref.getInt(getString(R.string.value_bpm_max_ref), mHRMaxRef);
     }
 
-    private void initFB() {
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        callbackManager = CallbackManager.Factory.create();
-        mShareDialog = new ShareDialog(this);
-        // this part is optional
-        mShareDialog.registerCallback(callbackManager, new FacebookCallback<Sharer.Result>() {
-            @Override
-            public void onSuccess(Sharer.Result result) {
-
-            }
-
-            @Override
-            public void onCancel() {
-
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-
-            }
-        });
-    }
 
     private void initData() {
         user = getString(R.string.text_default);
@@ -399,94 +362,19 @@ public class MainActivity extends ActionBarActivity implements
         mIsANewValue = true;
     }
 
-    @Override
-    public void onDialogShareClick(int v, int effort, int how) {
-        boolean installed = appInstalledOrNot("com.facebook.katana");
-        if (installed) {
-            Bitmap image = getPersonalHeartRateBitmap(v);
-            SharePhoto photo = new SharePhoto.Builder()
-                    .setBitmap(image)
-                    .build();
-            SharePhotoContent photoContent = new SharePhotoContent.Builder()
-                    .addPhoto(photo)
-                    .build();
-            mShareDialog.show(photoContent);
-
-        } else {
-            ShareLinkContent linkContent = new ShareLinkContent.Builder()
-                    .setContentTitle(String.format(getString(R.string.share_message_format), v))
-                    .setContentDescription(
-                            String.format(getString(R.string.share_message_format), v))
-                    .setContentUrl(Uri.parse("https://play.google.com/store/apps/details?id=fr.machada.bpm"))
-                    .build();
-            mShareDialog.show(linkContent);
-        }
-    }
-
-    public Bitmap getPersonalHeartRateBitmap(int value) {
-        Resources resources = getResources();
-        float scale = resources.getDisplayMetrics().density;
-        Bitmap bitmap = BitmapFactory.decodeResource(resources, R.drawable.heart_scale);
-
-        android.graphics.Bitmap.Config bitmapConfig =
-                bitmap.getConfig();
-        // set default bitmap config if none
-        if (bitmapConfig == null) {
-            bitmapConfig = android.graphics.Bitmap.Config.ARGB_8888;
-        }
-        // resource bitmaps are imutable,
-        // so we need to convert it to mutable one
-        bitmap = bitmap.copy(bitmapConfig, true);
-
-        Canvas canvas = new Canvas(bitmap);
-        // new antialised Paint
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        // text color - #3D3D3D
-        if (value < 90)
-            paint.setColor(getResources().getColor(R.color.green));
-        else if (value < 120)
-            paint.setColor(getResources().getColor(R.color.yellow));
-        else if (value < 150)
-            paint.setColor(getResources().getColor(R.color.orange));
-        else
-            paint.setColor(getResources().getColor(R.color.reed));
-        // text size in pixels
-        paint.setTextSize((int) (60 * scale));
-        // text shadow
-        paint.setShadowLayer(1f, 0f, 1f, Color.WHITE);
-
-        // draw text to the Canvas center
-        Rect bounds = new Rect();
-        String gText = String.format("%d %s", value, getString(R.string.bpm_text));
-        paint.getTextBounds(gText, 0, gText.length(), bounds);
-        int x = (bitmap.getWidth() - bounds.width()) / 2;
-        int y = (bitmap.getHeight() + bounds.height()) / 2;
-
-        canvas.drawText(gText, x, y, paint);
-
-        return bitmap;
-    }
-
-    private boolean appInstalledOrNot(String uri) {
-        PackageManager pm = getPackageManager();
-        boolean app_installed = false;
-        try {
-            pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
-            app_installed = true;
-        } catch (PackageManager.NameNotFoundException e) {
-            app_installed = false;
-        }
-        return app_installed;
-    }
-
-
     public void onEvent(final OnDeleteFCEvent deleteFCEvent) {
 
-                        mDbHelper.deleteFC(deleteFCEvent.getId());
-                        updateBpmMinMax();
-                        mZoneBPMFrag.updateZone();
+        mDbHelper.deleteFC(deleteFCEvent.getId());
+        updateBpmMinMax();
+        mZoneBPMFrag.updateZone();
 
     }
+
+    public void onEvent(final OnFBShareFCEvent fbShareFCEvent) {
+        mFacebookShare = new FacebookShare(this);
+        mFacebookShare.openFbDialog(fbShareFCEvent.getValue());
+    }
+
 
     @Override
     public void onDialogSetTimer(int value) {
@@ -552,7 +440,19 @@ public class MainActivity extends ActionBarActivity implements
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
+        if (mFacebookShare != null)
+            mFacebookShare.onActivityResult(requestCode, resultCode, data);
+        // Check which request we're responding to
+        if (requestCode == DETAILS_REQUEST) {
+            // Make sure the request was successful
+            if (resultCode == Activity.RESULT_OK) {
+                Boolean result = data.getBooleanExtra(SomeKeys.DELETE_FC, false);
+                if (result) {
+                    mHistoryFrag.removeLastData();
+                    mHistoryFrag.refresh();
+                }
+            }
+        }
     }
 
     @Override

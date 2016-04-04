@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import fr.machada.bpm.pro.R;
 
@@ -23,35 +24,70 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     public LayoutInflater inflater;
     public Activity activity;
 
-    public CustomExpandableListAdapter(Activity act, SparseArray<Group> groups) {
+    public CustomExpandableListAdapter(Activity act, List<RegisteredFC> bpmList) {
         activity = act;
-        mGroups = groups.clone();
+        createData(bpmList);
         inflater = act.getLayoutInflater();
     }
 
-    public void removeBpm(int gp, int cp) {
-        mGroups.get(gp).children.remove(cp);
+    public void createData(List<RegisteredFC> bpmList) {
+        mGroups = null;
+        mGroups = new SparseArray<Group>();
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM y");
+        int c = 0;
+        Date dc = null;
+        Group group = null;
+        if (bpmList.size() > 0) {
+            dc = new Date(bpmList.get(0).getDate());
+            group = new Group(sdf.format(dc));
+            for (int i = 0; i < bpmList.size(); i++) {
+                // to get a nice title for expandable list
+                Date di = new Date(bpmList.get(i).getDate());
+                if (dc.getMonth() == di.getMonth()) {
+                    group.children.add(bpmList.get(i));
+                } else {
+                    mGroups.append(c, group);
+                    dc = di;
+                    group = new Group(sdf.format(dc));
+                    c++;
+                    group.children.add(bpmList.get(i));
+                }
+            }
+            mGroups.append(c, group);
+        }
     }
 
-    public void addBpm(RegisteredBpm bpm) {
-        SimpleDateFormat sdf = new SimpleDateFormat("MMMM");
-        int l1 = mGroups.size() - 1;
-        int l2 = mGroups.get(l1).children.size() - 1;
-        Date dc = new Date(mGroups.get(l1).children.get(l2).getDate());
-        Date d1 = new Date(bpm.getDate());
+    public void removeFC(int gp, int cp) {
+        mGroups.get(gp).children.remove(cp);
+        if (mGroups.get(gp).children.size() < 1) {
+            mGroups.remove(gp);
+        }
+    }
+
+    public boolean addFC(RegisteredFC fc) {
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM yyyy");
+        Date d1 = new Date(fc.getDate());
         if (mGroups.size() > 0) {
+            int l1 = mGroups.size() - 1;
+            int l2 = mGroups.get(l1).children.size() - 1;
+            Date dc = new Date(mGroups.get(l1).children.get(l2).getDate());
             if (d1.getMonth() == dc.getMonth()) {
-                mGroups.get(l1).children.add(bpm);
+                mGroups.get(l1).children.add(fc);
             } else {
                 Group group = new Group(sdf.format(d1));
-                group.children.add(bpm);
+                group.children.add(fc);
                 mGroups.append(mGroups.size(), group);
+                return true;
             }
         } else {
+            mGroups = null;
+            mGroups = new SparseArray<Group>();
             Group group = new Group(sdf.format(d1));
-            group.children.add(bpm);
+            group.children.add(fc);
             mGroups.append(mGroups.size(), group);
+            return true;
         }
+        return false;
     }
 
 
@@ -62,28 +98,32 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public long getChildId(int groupPosition, int childPosition) {
-        return 0;
+        RegisteredFC fc = (RegisteredFC) getChild(groupPosition, childPosition);
+        return fc.getId();
     }
 
     @Override
-    public View getChildView(int groupPosition, final int childPosition,
+    public View getChildView(final int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
-        final RegisteredBpm children = (RegisteredBpm) getChild(groupPosition, childPosition);
-        TextView text, textD = null;
+        final RegisteredFC children = (RegisteredFC) getChild(groupPosition, childPosition);
+        TextView text, textD, textP = null;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.listrow_details, null);
         }
         text = (TextView) convertView.findViewById(R.id.value);
         textD = (TextView) convertView.findViewById(R.id.date);
+        textP = (TextView) convertView.findViewById(R.id.percent);
         ImageView imE, imH;
         imE = (ImageView) convertView.findViewById(R.id.hiseffort);
         imH = (ImageView) convertView.findViewById(R.id.hishow);
         if (children != null) {
-            text.setText("" + children.getValue());
+            text.setText(String.format("%d", children.getValue()));
+            if (children.getPercent() != 0)
+                textP.setText(String.format("%d %%", children.getPercent()));
 
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy, HH:mm");
+            SimpleDateFormat sdf = new SimpleDateFormat("EEEE dd  HH:mm");
             Date resultDate = new Date(children.getDate());
-            textD.setText("" + sdf.format(resultDate));
+            textD.setText(sdf.format(resultDate));
 
             How ho = How.values()[children.getHow()];
             switch (ho) {
@@ -117,14 +157,23 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
                     imE.setImageResource(R.drawable.ic_guru);
             }
         }
-
         return convertView;
     }
+
+    /***
+     * EventBus.getDefault().post(new OnDeleteFCEvent(mGroups.get(groupPosition).children.get(childPosition).getId()));
+     * removeFC(groupPosition, childPosition);
+     * notifyDataSetChanged();
+     **/
 
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return mGroups.get(groupPosition).children.size();
+        if (mGroups != null) {
+            if (mGroups.get(groupPosition) != null)
+                return mGroups.get(groupPosition).children.size();
+        }
+        return 0;
     }
 
     @Override

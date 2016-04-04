@@ -8,6 +8,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
+    <TextView
+        android:id="@+id/history_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/history_no_data"
+        android:textColor="@android:color/white"
+        android:visibility="gone" />
+
     <ExpandableListView
         android:id="@+id/listView"
         android:layout_width="match_parent"

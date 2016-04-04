@@ -12,12 +12,11 @@
     <string name="title_vpro">Version Pro</string>
     <string name="navigation_drawer_open">Ouvrir menu</string>
     <string name="navigation_drawer_close">Fermer menu</string>
-    <string name="action_settings">Paramètre</string>
+    <string name="action_settings">Paramètres</string>
     <string name="setting_timer">temps du chrono</string>
     <string name="text_nb_pulse">Entrez le nombre de pulsations comptées : </string>
-    <string name="text_heart_rate">Valeur FC en BPM :</string>
+    <string name="text_heart_rate">Valeur de la FC en BPM :</string>
     <string name="text_how">RESSENTI</string>
-    <string name="text_where">ENDROIT DE LA MESURE</string>
     <string name="text_type">TYPE D\'EFFORT</string>
     <string name="save">Enregistrer</string>
     <string name="text_year">Année de \n Naissance :</string>
@@ -34,11 +33,11 @@
     <string name="text_bpm_vma_c">VMA Court</string>
     <string name="text_set_timer">Valeur du Chrono</string>
     <string name="set">Changer</string>
-    <string name="text_bpm_min">FC Min:</string>
-    <string name="text_bpm_max">FC Max:</string>
+    <string name="text_bpm_min">FC Min :</string>
+    <string name="text_bpm_max">FC Max :</string>
     <string name="dialog_delete">Voulez-vous supprimer cette mesure ?</string>
-    <string name="message_info_about_bpm">La fréquence cardiaque (FC), exprimée en Battement Par Minute <font fgcolor="#ff3498db"><b>BPM</b></font>, est déterminée par la <font fgcolor="#ff3498db"><i>prise de pouls</i></font> : <i>mesure au poignet ou à la carotide du nombre de pulsations en un temps donné</i>.\n\n
-Voici 3 <font fgcolor="#ff3498db">types de <B>FC</B></font> :\n
+    <string name="message_info_about_bpm">La Fréquence Cardiaque (FC), exprimée en Battement Par Minute <font fgcolor="#ff3498db"><b>BPM</b></font>, est déterminée par la <font fgcolor="#ff3498db"><i>prise de pouls</i></font> : <i>mesure au poignet ou à la carotide du nombre de pulsations en un temps donné</i>.\n\n
+Voici 3 <font fgcolor="#ff3498db">types de <b>FC</b></font> :\n
 - <font fgcolor="#ff2ecc71">FC Min</font> : FC au repos,\n  \u0020 \u0020 \u0020 \u0020 \u0020 calculée au reveil\n
 - <font fgcolor="#fff1c40f">FCE</font> : FC à l\'entrainement,\n  \u0020 \u0020 \u0020 \u0020 \u0020 calculée entre 2 efforts\n
 - <font fgcolor="#ffe74c3c">FC Max</font> : FC maximal,\n   \u0020 \u0020 \u0020 \u0020 \u0020 calculée juste après un effort intense\n\n
@@ -55,15 +54,27 @@ Le <font fgcolor="#ff3498db"><b>suivi de FC</b></font> est important pour suivre
 </string>
     <string name="link_icon">BaChamada sur <a href="https://www.facebook.com/bachamada">Facebook</a>\nApplication réalisée par <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
 
-    <string name="text_start">Start</string>
     <string name="text_stop">Stop</string>
 
-    <string name="notification_text">Telechargez la version pro, pour utiliser avec une smartwatch.</string>
+    <string name="notification_text">Remplissez votre profil pour avoir une valeur de %FC Max adapté.</string>
     <string name="formula_bpm">% FC Max</string>
-    <string name="share_on">Partager sur Fb</string>
+    <string name="share_on">Partager sur FB</string>
 
     <string name="share_message_format">Avec BaChamada, mon pouls est de %d et vous ?</string>
     <string name="discard">Annuler</string>
     <string name="text_share">PARTAGE</string>
-
+    <string name="bpm_text">BPM</string>
+    <string name="text_default">Par défaut</string>
+    <string name="how_one">Pour commencer, sent ton pouls.</string>
+    <string name="how_take_pulse">Comment mesurer son pouls ?</string>
+    <string name="how_two">Lance le chrono !</string>
+    <string name="how_two_details">Quand tu es prêt à compter les battements.</string>
+    <string name="how_three">Entrez le nombre de pulsations comptés</string>
+    <string name="how_three_details">Le nombre de battements comptés.</string>
+    <string name="how_four">Obtient la valeur de ta Fréquence Cardiaque</string>
+    <string name="how_four_details">En battements par minute.</string>
+    <string name="history_no_data">Aucune valeur pour le moment, allez dans <b> Mesurer FC </b> !</string>
+    <string name="delete_text">Supprimer</string>
+    <string name="fc_value_title">Valeur de la FC</string>
+    <string name="text_and">et</string>
 </resources>

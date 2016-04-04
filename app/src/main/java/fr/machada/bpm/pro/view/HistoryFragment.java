@@ -1,65 +1,53 @@
 package fr.machada.bpm.pro.view;
 
-import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
-import android.util.SparseArray;
+import android.support.v4.util.Pair;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.TextView;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
+import de.greenrobot.event.EventBus;
+import fr.machada.bpm.pro.DetailsActivity;
+import fr.machada.bpm.pro.MainActivity;
 import fr.machada.bpm.pro.R;
+import fr.machada.bpm.pro.event.OnDeleteFCEvent;
 import fr.machada.bpm.pro.model.CustomExpandableListAdapter;
-import fr.machada.bpm.pro.model.Group;
-import fr.machada.bpm.pro.model.RegisteredBpm;
+import fr.machada.bpm.pro.model.RegisteredFC;
 import fr.machada.bpm.pro.utils.SomeKeys;
 
 public class HistoryFragment extends Fragment {
     // more efficient than HashMap for mapping integers to objects
-    SparseArray<Group> mGroups;
     CustomExpandableListAdapter mAdapter;
     ExpandableListView mListView;
-
-
-    public interface ItemSelectedListener {
-        public void onDeleteBpmClick(int id, int groupPosition, int childPosition);
-    }
-
-    // Use this instance of the interface to deliver action events
-    ItemSelectedListener mListener;
-
-
-    // Override the Fragment.onAttach() method to instantiate the NoticeDialogListener
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        // Verify that the host activity implements the callback interface
-        try {
-            // Instantiate the NoticeDialogListener so we can send events to the host
-            mListener = (ItemSelectedListener) activity;
-        } catch (ClassCastException e) {
-            // The activity doesn't implement the interface, throw exception
-            throw new ClassCastException(activity.toString()
-                    + " must implement ItemSelectedListener");
-        }
-    }
+    private TextView mTextView;
+    private boolean mNoData;
+    private int mGroupPosition;
+    private int mChildPosition;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = getArguments();
-        List<RegisteredBpm> listOfBpm;
+        List<RegisteredFC> listOfBpm = null;
         if (bundle != null && bundle.containsKey(SomeKeys.BUNDLE_BPM_LIST)) {
-            listOfBpm = (List<RegisteredBpm>) bundle.get(SomeKeys.BUNDLE_BPM_LIST);
-            createData(listOfBpm);
+            listOfBpm = (List<RegisteredFC>) bundle.get(SomeKeys.BUNDLE_BPM_LIST);
+            if (listOfBpm.size() < 1)
+                mNoData = true;
         }
-        mAdapter = new CustomExpandableListAdapter(getActivity(), mGroups);
+        mAdapter = new CustomExpandableListAdapter(getActivity(), listOfBpm);
     }
 
 
@@ -69,76 +57,98 @@ public class HistoryFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_layout_history, container, false);
 
+        mTextView = (TextView) rootView.findViewById(R.id.history_empty);
+        if (mNoData)
+            mTextView.setVisibility(View.VISIBLE);
         mListView = (ExpandableListView) rootView.findViewById(R.id.listView);
         mListView.setAdapter(mAdapter);
         mListView.setOnChildClickListener(mListItemClicked);
+        mListView.setOnItemLongClickListener(mListItemLongClick);
         return rootView;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        if (mGroups.size() > 0)
-            mListView.expandGroup(0);
-    }
-
-    public void createData(List<RegisteredBpm> bpmList) {
-
-        mGroups = null;
-        mGroups = new SparseArray<Group>();
-        SimpleDateFormat sdf = new SimpleDateFormat("MMMM");
-        int c = 0;
-        Date dc = null;
-        Group group = null;
-        if (bpmList.size() > 0) {
-            dc = new Date(bpmList.get(0).getDate());
-            group = new Group(sdf.format(dc));
-            for (int i = 0; i < bpmList.size(); i++) {
-                // to get a nice title for expandable list
-                Date di = new Date(bpmList.get(i).getDate());
-                if (dc.getMonth() == di.getMonth()) {
-                    group.children.add(bpmList.get(i));
-                } else {
-                    mGroups.append(c, group);
-                    dc = di;
-                    group = new Group(sdf.format(dc));
-                    c++;
-                    group.children.add(bpmList.get(i));
-                }
-            }
-            mGroups.append(c, group);
-        }
+        if (mAdapter != null && mAdapter.getGroupCount() > 0)
+            mListView.expandGroup(mAdapter.getGroupCount() - 1);
     }
 
     public void removeData(int gp, int cp) {
-        mAdapter.removeBpm(gp, cp);
+        mAdapter.removeFC(gp, cp);
     }
 
-    public void addData(RegisteredBpm bpm) {
+    public void addData(RegisteredFC bpm) {
         if (mAdapter != null) {
-            mAdapter.addBpm(bpm);
+            if (mAdapter.addFC(bpm))
+                mListView.expandGroup(mAdapter.getGroupCount() - 1);
             mAdapter.notifyDataSetChanged();
+            if (mTextView.getVisibility() == View.VISIBLE)
+                mTextView.setVisibility(View.GONE);
         }
 
     }
-
 
     private OnChildClickListener mListItemClicked = new OnChildClickListener() {
-
         @Override
-        public boolean onChildClick(ExpandableListView parent, View v,
-                                    int groupPosition, int childPosition, long id) {
-            mListener.onDeleteBpmClick(mGroups.get(groupPosition).children.get(childPosition).getId(), groupPosition, childPosition);
+        public boolean onChildClick(ExpandableListView parent, final View v,
+                                    final int groupPosition, final int childPosition, long id) {
+
+            if (mLongClick) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage(R.string.dialog_delete)
+                        .setPositiveButton(R.string.delete_text, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                EventBus.getDefault().post(new OnDeleteFCEvent((int) mAdapter.getChildId(groupPosition, childPosition)));
+                                removeData(groupPosition, childPosition);
+                                refresh();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                            }
+                        });
+                builder.create().show();
+                mLongClick = false;
+            } else {
+                mGroupPosition = groupPosition;
+                mChildPosition = childPosition;
+                Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                Bundle b = new Bundle();
+                b.putSerializable(SomeKeys.BUNDLE_FC, (RegisteredFC) mAdapter.getChild(groupPosition, childPosition));
+                intent.putExtras(b);
+                ActivityOptionsCompat activityOptions2 = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        getActivity(),
+
+
+                        // Now we provide a list of Pair items which contain the view we can transitioning
+                        // from, and the name of the view it is transitioning to, in the launched activity
+                        new Pair<View, String>(v.findViewById(R.id.value),
+                                DetailsActivity.VIEW_NAME_FC));
+
+                // Now we can start the Activity, providing the activity options as a bundle
+                ActivityCompat.startActivityForResult(getActivity(), intent, MainActivity.DETAILS_REQUEST, activityOptions2.toBundle());
+
+            }
             return false;
         }
-
     };
 
+    private boolean mLongClick;
+    private OnItemLongClickListener mListItemLongClick = new OnItemLongClickListener() {
+        @Override
+        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            mLongClick = true;
+            return false;
+        }
+    };
 
     public void refresh() {
         if (mAdapter != null)
             mAdapter.notifyDataSetChanged();
     }
 
-
+    public void removeLastData() {
+        removeData(mGroupPosition, mChildPosition);
+    }
 }

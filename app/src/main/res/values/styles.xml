@@ -13,9 +13,26 @@
     </style>
 
     <style name="button">
-        <item name="android:textColor">@color/blue</item>
-        <item name="android:background">@color/gray</item>
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:background">@drawable/profile_button</item>
+        <item name="android:shadowRadius">0.2</item>
         <item name="android:layout_margin">@dimen/general_space</item>
     </style>
+
+    <style name="ListItem.Button">
+            <item name="android:textColor">@android:color/white</item>
+            <item name="android:layout_margin">10dp</item>
+            <item name="android:paddingRight">@dimen/button_padding_horizontal</item>
+            <item name="android:paddingLeft">@dimen/button_padding_horizontal</item>
+            <item name="android:layout_centerHorizontal">true</item>
+        </style>
+
+    <style name="ListItem">
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
+
+    <dimen name="button_padding_horizontal">60dp</dimen>
+
 
 </resources>

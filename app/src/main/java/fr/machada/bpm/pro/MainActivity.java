@@ -1,21 +1,10 @@
 package fr.machada.bpm.pro;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Notification;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
@@ -29,28 +18,24 @@ import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.util.Pair;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
-import com.facebook.share.Sharer;
-import com.facebook.share.model.ShareLinkContent;
-import com.facebook.share.model.SharePhoto;
-import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
 
 import java.util.ArrayList;
 
+import de.greenrobot.event.EventBus;
+import fr.machada.bpm.pro.event.OnDeleteFCEvent;
+import fr.machada.bpm.pro.event.OnFBShareFCEvent;
 import fr.machada.bpm.pro.model.BpmDbAdapter;
 import fr.machada.bpm.pro.model.Effort;
 import fr.machada.bpm.pro.model.How;
-import fr.machada.bpm.pro.model.RegisteredBpm;
+import fr.machada.bpm.pro.model.RegisteredFC;
+import fr.machada.bpm.pro.utils.FacebookShare;
 import fr.machada.bpm.pro.utils.SlidingTabLayout;
 import fr.machada.bpm.pro.utils.SomeKeys;
 import fr.machada.bpm.pro.view.BPMZoneFragment;
@@ -62,14 +47,14 @@ import fr.machada.bpm.pro.view.element.PulseNumberDialogFragment;
 import fr.machada.bpm.pro.view.element.ShowAndRegisterBPMDialogFragment;
 import fr.machada.bpm.pro.view.element.TimerNumberDialogFragment;
 
-public class MainActivity extends ActionBarActivity implements
+public class MainActivity extends AppCompatActivity implements
         MeasurementFragment.OnTimerListener,
         PulseNumberDialogFragment.NoticeDialogListener,
         ShowAndRegisterBPMDialogFragment.NoticeDialogListener,
-        HistoryFragment.ItemSelectedListener,
         TimerNumberDialogFragment.NoticeDialogListener {
 
     private final String NOTIFICATION_ID = "notification_id";
+    public static final int DETAILS_REQUEST = 0;
     /**
      * The {@link ViewPager} that will display the three primary sections of the app, one at a
      * time.
@@ -91,10 +76,13 @@ public class MainActivity extends ActionBarActivity implements
      * The Helper to manage BDD
      */
     private BpmDbAdapter mDbHelper;
-    private ArrayList<RegisteredBpm> mListBpm;
+    private ArrayList<RegisteredFC> mListBpm;
 
     private int mTime;
     private int mPosition;
+    //for algorithm
+    private int mHRMinRef = 80;
+    private int mHRMaxRef = 188;
     //for notification
     private int notification_id = 1;
     /* These are the classes you use to start the notification */
@@ -102,6 +90,8 @@ public class MainActivity extends ActionBarActivity implements
     private NotificationManagerCompat mNotificationManager;
     private CallbackManager callbackManager;
     private ShareDialog mShareDialog;
+    private boolean mIsANewValue;
+    private FacebookShare mFacebookShare;
 
 
     @Override
@@ -115,34 +105,22 @@ public class MainActivity extends ActionBarActivity implements
         initData();
         initFragment();
         initTabs();
-        initFB();
 
-        Toast.makeText(this, R.string.message_ready_to_count, Toast.LENGTH_LONG).show();
+        initNotification();
+        SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        boolean firstLaunch = sharedPref.getBoolean(getString(R.string.first_launch), true);
+        if (firstLaunch)
+            startTuto();
+
 
     }
 
-    private void initFB() {
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        callbackManager = CallbackManager.Factory.create();
-        mShareDialog = new ShareDialog(this);
-        // this part is optional
-        mShareDialog.registerCallback(callbackManager, new FacebookCallback<Sharer.Result>() {
-            @Override
-            public void onSuccess(Sharer.Result result) {
-
-            }
-
-            @Override
-            public void onCancel() {
-
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-
-            }
-        });
+    private void initAlgorithmValue() {
+        SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        mHRMinRef = sharedPref.getInt(getString(R.string.value_bpm_min_ref), mHRMinRef);
+        mHRMaxRef = sharedPref.getInt(getString(R.string.value_bpm_max_ref), mHRMaxRef);
     }
+
 
     private void initData() {
         user = getString(R.string.text_default);
@@ -152,6 +130,7 @@ public class MainActivity extends ActionBarActivity implements
         mDbHelper.open();
 
         mListBpm = mDbHelper.getAllBpmUser(user);
+        initAlgorithmValue();
         updateBpmMinMax();
     }
 
@@ -201,6 +180,10 @@ public class MainActivity extends ActionBarActivity implements
                 if (mMeasurementFrag != null)
                     mMeasurementFrag.stopTimer();
                 invalidateOptionsMenu();
+                if (mPosition == 2 && mIsANewValue) {
+                    mZoneBPMFrag.updateZone();
+                    mIsANewValue = false;
+                }
             }
         });
 
@@ -236,7 +219,7 @@ public class MainActivity extends ActionBarActivity implements
                 getMenuInflater().inflate(R.menu.zone, menu);
                 break;
             default:
-                getMenuInflater().inflate(R.menu.history, menu);
+                getMenuInflater().inflate(R.menu.zone, menu);
         }
 
         return true;
@@ -303,7 +286,6 @@ public class MainActivity extends ActionBarActivity implements
 
                 // Now we can start the Activity, providing the activity options as a bundle
                 ActivityCompat.startActivity(this, intent, activityOptions2.toBundle());
-              //  startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -311,27 +293,28 @@ public class MainActivity extends ActionBarActivity implements
     }
 
     public void updateBpmMinMax() {
-        int bpmMin = 0;
-        int bpmMax = 0;
+        int bpmMin;
+        int bpmMax;
 
         SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-        bpmMin = sharedPref.getInt(getString(R.string.value_bpm_min), bpmMin);
-        bpmMax = sharedPref.getInt(getString(R.string.value_bpm_max), bpmMax);
 
-        if (bpmMin == 0 || bpmMax == 0) {
-            SharedPreferences.Editor editor = sharedPref.edit();
 
-            if (bpmMin == 0) {
-                bpmMin = mDbHelper.getBpmMin(user);
-                editor.putInt(getString(R.string.value_bpm_min), bpmMin);
-            }
-            if (bpmMax == 0) {
-                bpmMax = mDbHelper.getBpmMax(user);
-                editor.putInt(getString(R.string.value_bpm_max), bpmMax);
-            }
-            editor.commit();
-        }
+        bpmMin = mDbHelper.getBpmMin(user);
+        bpmMax = mDbHelper.getBpmMax(user);
+
+        //new bpmMin or bpmMax is eligible ?
+        SharedPreferences.Editor editor = sharedPref.edit();
+        if (bpmMin < mHRMinRef)
+            editor.putInt(getString(R.string.value_bpm_min), bpmMin);
+        else
+            editor.putInt(getString(R.string.value_bpm_min), mHRMinRef);
+        if (bpmMax > mHRMaxRef)
+            editor.putInt(getString(R.string.value_bpm_max), bpmMax);
+        else
+            editor.putInt(getString(R.string.value_bpm_max), mHRMaxRef);
+        editor.commit();
     }
+
 
     @Override
     public void onDialogSaveClick(int v, int effort, int how) {
@@ -368,119 +351,32 @@ public class MainActivity extends ActionBarActivity implements
             default:
                 h = How.HAPPY;
         }
-        RegisteredBpm bpm = new RegisteredBpm();
+        RegisteredFC bpm = new RegisteredFC();
         bpm.setDate(System.currentTimeMillis());
         bpm.setValue(v);
         bpm.setHow(h.getInt());
         bpm.setEffort(e.getInt());
+        bpm.setPercent(v * 100 / mHRMaxRef);
         bpm.setId((int) mDbHelper.insertBpm(user, bpm));
-        //fixme for optimization
-        initHistoryFragment();
         mHistoryFrag.addData(bpm);
         mHistoryFrag.refresh();
+        updateBpmMinMax();
+        mIsANewValue = true;
     }
 
-    @Override
-    public void onDialogShareClick(int v, int effort, int how) {
-        boolean installed = appInstalledOrNot("com.facebook.katana");
-        if (installed) {
-            Bitmap image = getPersonalHeartRateBitmap(v);
-            SharePhoto photo = new SharePhoto.Builder()
-                    .setBitmap(image)
-                    .build();
-            SharePhotoContent photoContent = new SharePhotoContent.Builder()
-                    .addPhoto(photo)
-                    .build();
-            mShareDialog.show(photoContent);
+    public void onEvent(final OnDeleteFCEvent deleteFCEvent) {
 
-        } else {
-            ShareLinkContent linkContent = new ShareLinkContent.Builder()
-                    .setContentTitle(String.format(getString(R.string.share_message_format), v))
-                    .setContentDescription(
-                            String.format(getString(R.string.share_message_format), v))
-                    .setContentUrl(Uri.parse("https://play.google.com/store/apps/details?id=fr.machada.bpm"))
-                    .build();
-            mShareDialog.show(linkContent);
-        }
+        mDbHelper.deleteFC(deleteFCEvent.getId());
+        updateBpmMinMax();
+        mZoneBPMFrag.updateZone();
+
     }
 
-    public Bitmap getPersonalHeartRateBitmap(int value) {
-        Resources resources = getResources();
-        float scale = resources.getDisplayMetrics().density;
-        Bitmap bitmap = BitmapFactory.decodeResource(resources, R.drawable.heart_scale);
-
-        android.graphics.Bitmap.Config bitmapConfig =
-                bitmap.getConfig();
-        // set default bitmap config if none
-        if (bitmapConfig == null) {
-            bitmapConfig = android.graphics.Bitmap.Config.ARGB_8888;
-        }
-        // resource bitmaps are imutable,
-        // so we need to convert it to mutable one
-        bitmap = bitmap.copy(bitmapConfig, true);
-
-        Canvas canvas = new Canvas(bitmap);
-        // new antialised Paint
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        // text color - #3D3D3D
-        if (value < 90)
-            paint.setColor(getResources().getColor(R.color.green));
-        else if (value < 120)
-            paint.setColor(getResources().getColor(R.color.yellow));
-        else if (value < 150)
-            paint.setColor(getResources().getColor(R.color.orange));
-        else
-            paint.setColor(getResources().getColor(R.color.reed));
-        // text size in pixels
-        paint.setTextSize((int) (60 * scale));
-        // text shadow
-        paint.setShadowLayer(1f, 0f, 1f, Color.WHITE);
-
-        // draw text to the Canvas center
-        Rect bounds = new Rect();
-        String gText = String.format("%d BPM", value);
-        paint.getTextBounds(gText, 0, gText.length(), bounds);
-        int x = (bitmap.getWidth() - bounds.width()) / 2;
-        int y = (bitmap.getHeight() + bounds.height()) / 2;
-
-        canvas.drawText(gText, x, y, paint);
-
-        return bitmap;
+    public void onEvent(final OnFBShareFCEvent fbShareFCEvent) {
+        mFacebookShare = new FacebookShare(this);
+        mFacebookShare.openFbDialog(fbShareFCEvent.getValue());
     }
 
-    private boolean appInstalledOrNot(String uri) {
-        PackageManager pm = getPackageManager();
-        boolean app_installed = false;
-        try {
-            pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
-            app_installed = true;
-        } catch (PackageManager.NameNotFoundException e) {
-            app_installed = false;
-        }
-        return app_installed;
-    }
-
-
-    @Override
-    public void onDeleteBpmClick(int idi, int grp, int cip) {
-        final int iid = idi;
-        final int gp = grp;
-        final int cp = cip;
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(R.string.dialog_delete)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        mDbHelper.deleteBpm(iid);
-                        mHistoryFrag.removeData(gp, cp);
-                        mHistoryFrag.refresh();
-                    }
-                })
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                    }
-                });
-        builder.create().show();
-    }
 
     @Override
     public void onDialogSetTimer(int value) {
@@ -516,9 +412,9 @@ public class MainActivity extends ActionBarActivity implements
                 case 0:
                     return mMeasurementFrag;
                 case 1:
-                    return mZoneBPMFrag;
-                default:
                     return mHistoryFrag;
+                default:
+                    return mZoneBPMFrag;
             }
         }
 
@@ -533,19 +429,55 @@ public class MainActivity extends ActionBarActivity implements
                 case 0:
                     return getResources().getString(R.string.title_check_bpm);
                 case 1:
-                    return getResources().getString(R.string.title_bpm_zone);
-                case 2:
                     return getResources().getString(R.string.title_history);
+                case 2:
+                    return getResources().getString(R.string.title_bpm_zone);
                 default:
                     return getResources().getString(R.string.text_default);
             }
         }
+
     }
 
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
+        if (mFacebookShare != null)
+            mFacebookShare.onActivityResult(requestCode, resultCode, data);
+        // Check which request we're responding to
+        if (requestCode == DETAILS_REQUEST) {
+            // Make sure the request was successful
+            if (resultCode == Activity.RESULT_OK) {
+                Boolean result = data.getBooleanExtra(SomeKeys.DELETE_FC, false);
+                if (result) {
+                    mHistoryFrag.removeLastData();
+                    mHistoryFrag.refresh();
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initAlgorithmValue();
+    }
+
+    public void startTuto() {
+        Intent intent = new Intent(this, PulseTuto.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
     }
 
 }

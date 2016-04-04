@@ -17,9 +17,10 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
-        <provider android:authorities="com.facebook.app.FacebookContentProvider529160923919069"
+        <provider
             android:name="com.facebook.FacebookContentProvider"
-            android:exported="true"/>
+            android:authorities="com.facebook.app.FacebookContentProvider529160923919069"
+            android:exported="true" />
 
         <activity
             android:name="fr.machada.bpm.pro.MainActivity"
@@ -42,6 +43,15 @@
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name=".PulseTuto"></activity>
+        <activity
+            android:name=".DetailsActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
     </application>
 
 </manifest>

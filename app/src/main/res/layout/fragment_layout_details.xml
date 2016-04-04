@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <View
+        android:id="@+id/details_divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/gray" />
+
+    <TextView
+        android:id="@+id/details_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/details_divider"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="@dimen/general_space"
+        android:text="@string/text_default"
+        android:textColor="@android:color/white"
+        android:textSize="15dip"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/details_show_fc"
+        android:layout_width="@dimen/details_show_fc_size"
+        android:layout_height="@dimen/details_show_fc_size"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/details_date"
+        android:layout_margin="@dimen/general_space"
+        android:background="@drawable/ic_heart_hr"
+        android:gravity="center"
+        android:padding="10dip"
+        android:text="80"
+        android:textColor="@android:color/white"
+        android:textSize="50dip" />
+
+    <TextView
+        android:id="@+id/details_bpm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/details_show_fc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="80dip"
+        android:text="@string/bpm_text"
+        android:textColor="@android:color/white"
+        android:textSize="25dip"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/details_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/details_date"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/general_space"
+        android:paddingTop="80dp"
+        android:text="80"
+        android:textColor="@android:color/white"
+        android:textSize="40dip" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/details_percent"
+        android:layout_marginRight="@dimen/general_space"
+        android:text="@string/formula_bpm"
+        android:textColor="@android:color/white"
+        android:textSize="20dip"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/details_divider_fc"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_below="@id/details_bpm"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/gray" />
+
+
+    <TextView
+        android:id="@+id/details_text_how"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/details_divider_fc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="@dimen/details_margin_horizontal"
+        android:text="@string/text_how"
+        android:textColor="@android:color/white"
+        android:textSize="15dip"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/details_text_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/details_divider_fc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/details_margin_horizontal"
+        android:text="@string/text_type"
+        android:textColor="@android:color/white"
+        android:textSize="15dip"
+        android:textStyle="italic" />
+
+    <ImageView
+        android:id="@+id/details_hishow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/details_text_how"
+        android:layout_marginRight="@dimen/details_margin_horizontal"
+        android:src="@drawable/ic_guru" />
+
+    <ImageView
+        android:id="@+id/details_hiseffort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/details_text_activity"
+        android:layout_marginLeft="@dimen/details_margin_horizontal"
+        android:src="@drawable/ic_exercise" />
+
+    <View
+        android:id="@+id/details_divider_info"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_below="@id/details_hiseffort"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/gray" />
+
+    <net.steamcrafted.materialiconlib.MaterialIconView
+        android:id="@+id/details_fb_icon"
+        android:layout_width="@dimen/details_icon_size"
+        android:layout_height="@dimen/details_icon_size"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/details_divider_info"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/general_space"
+        android:background="@android:color/black"
+        android:scaleType="center"
+        app:materialIcon="facebook_box"
+        app:materialIconColor="#435f9c"
+        app:materialIconSize="@dimen/details_icon_size" />
+
+    <net.steamcrafted.materialiconlib.MaterialIconView
+        android:id="@+id/details_delete_icon"
+        android:layout_width="@dimen/details_icon_size"
+        android:layout_height="@dimen/details_icon_size"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/details_divider_info"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/general_space"
+        android:background="@android:color/black"
+        android:scaleType="center"
+        app:materialIcon="delete"
+        app:materialIconColor="@color/red"
+        app:materialIconSize="@dimen/details_icon_size" />
+
+
+</RelativeLayout>

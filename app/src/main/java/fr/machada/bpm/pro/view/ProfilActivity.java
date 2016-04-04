@@ -5,18 +5,20 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
 
 import fr.machada.bpm.pro.R;
-import fr.machada.bpm.pro.model.BpmDbAdapter;
 
 public class ProfilActivity extends Activity implements RadioGroup.OnCheckedChangeListener {
 
@@ -32,6 +34,12 @@ public class ProfilActivity extends Activity implements RadioGroup.OnCheckedChan
     private EditText mTextBpmMax;
     private SharedPreferences mSharedPref;
     private int mAge;
+    private TextView mTextBpmMinDef;
+    private TextView mTextBpmMaxDef;
+    private int mBpmMinRef;
+    private int mBpmMaxRef;
+    private boolean mBpmMinIsDefault;
+    private boolean mBpmMaxIsDefault;
 
 
     @Override
@@ -39,32 +47,104 @@ public class ProfilActivity extends Activity implements RadioGroup.OnCheckedChan
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_layout_profil);
 
+        //transition
         ImageView headerImageView = (ImageView) findViewById(R.id.profile_img);
         ViewCompat.setTransitionName(headerImageView, VIEW_NAME_HEADER_IMAGE);
 
         user = getString(R.string.text_default);
+        Calendar calendar = Calendar.getInstance();
+        final int curYear = calendar.get(Calendar.YEAR);
 
         //get Shared_pref of a user
         mSharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         mSexe = mSharedPref.getInt(getString(R.string.value_sexe), mSexe);
         mYear = mSharedPref.getInt(getString(R.string.value_year), mYear);
+        mBpmMin = mSharedPref.getInt(getString(R.string.value_bpm_min), mBpmMin);
+        mBpmMax = mSharedPref.getInt(getString(R.string.value_bpm_max), mBpmMax);
 
         //sexe
         RadioGroup radioSexeGroup = (RadioGroup) findViewById(R.id.profil_sexe);
         radioSexeGroup.check(mSexe);
         radioSexeGroup.setOnCheckedChangeListener(this);
         //age
+        mAge = curYear - mYear;
         final EditText textYear = (EditText) findViewById(R.id.edit_year);
         textYear.setText(String.valueOf(mYear));
-        Calendar calendar = Calendar.getInstance();
-        int curYear = calendar.get(Calendar.YEAR);
-        mAge = curYear - mYear;
+        textYear.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!textYear.getText().toString().isEmpty()) {
+                    mYear = Integer.valueOf(textYear.getText().toString());
+                    mAge = curYear - mYear;
+                    if (0 < mAge && mAge < 150) {
+                        //change HRMin
+                        if (mBpmMinIsDefault) {
+                            initBpmMinRef();
+                            initBpmMin();
+                        }
+                        //change HRMax
+                        if (mBpmMaxIsDefault) {
+                            initBpmMaxRef();
+                            initBpmMax();
+                        }
+                    }
+                }
+            }
+        });
+
         //BPMs
         mTextBpmMin = (EditText) findViewById(R.id.profil_bpm_min);
         mTextBpmMax = (EditText) findViewById(R.id.profil_bpm_max);
+        mTextBpmMinDef = (TextView) findViewById(R.id.profil_bpm_min_is_default);
+        mTextBpmMaxDef = (TextView) findViewById(R.id.profil_bpm_max_is_default);
 
-
+        initBpmMinRef();
+        initBpmMaxRef();
         updateBPM();
+
+        //
+        mTextBpmMin.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                mTextBpmMinDef.setText("");
+            }
+        });
+        mTextBpmMax.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                mTextBpmMaxDef.setText("");
+            }
+        });
 
         //Valid button
         Button valid = (Button) findViewById(R.id.profil_valid);
@@ -73,46 +153,47 @@ public class ProfilActivity extends Activity implements RadioGroup.OnCheckedChan
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(getApplicationContext(), R.string.text_profile_saved, duration);
                 toast.show();
-                mYear = Integer.valueOf(textYear.getText().toString());
+                if (!textYear.getText().toString().isEmpty())
+                    mYear = Integer.valueOf(textYear.getText().toString());
                 mBpmMin = Integer.valueOf(mTextBpmMin.getText().toString());
                 mBpmMax = Integer.valueOf(mTextBpmMax.getText().toString());
-                onDialogChangeProfilClick(mSexe, mYear, mBpmMin, mBpmMax);
+                onDialogChangeProfilClick(mSexe, mYear, mBpmMin, mBpmMax, mBpmMinRef, mBpmMaxRef);
             }
         });
 
     }
 
+    public boolean isUpdateOnBpmMin() {
+        if (mBpmMin != 0) {
+            if (mBpmMin >= mBpmMinRef)
+                return true;
+        } else
+            return true;
+        return false;
+    }
 
-    public void updateBPM() {
-        BpmDbAdapter dbHelper = new BpmDbAdapter(this);
-        dbHelper.open();
-        mBpmMax = dbHelper.getBpmMax(user);
-        mBpmMin = dbHelper.getBpmMin(user);
-        dbHelper.close();
+    public boolean isUpdateOnBpmMax() {
+        if (mBpmMin != 0) {
+            if (mBpmMax <= mBpmMaxRef)
+                return true;
+        } else
+            return true;
+        return false;
+    }
 
-        SharedPreferences.Editor editor = mSharedPref.edit();
-
-        Calendar calendar = Calendar.getInstance();
-        int curYear = calendar.get(Calendar.YEAR);
-        int age = curYear - mYear;
-        int bpmMax, bpmMin = 80;
-        if (mSexe == R.id.sexe_male)
-            bpmMax = 220 - age;
-        else
-            bpmMax = 226 - age;
-
+    private void initBpmMinRef() {
         switch (mAge) {
             case 0:
-                bpmMin = 190;
+                mBpmMinRef = 190;
                 break;
             case 1:
             case 2:
-                bpmMin = 150;
+                mBpmMinRef = 150;
                 break;
             case 3:
             case 4:
             case 5:
-                bpmMin = 140;
+                mBpmMinRef = 140;
                 break;
             case 6:
             case 7:
@@ -121,90 +202,67 @@ public class ProfilActivity extends Activity implements RadioGroup.OnCheckedChan
             case 10:
             case 11:
             case 12:
-                bpmMin = 125;
+                mBpmMinRef = 125;
                 break;
             default:
-                bpmMin = 80;
+                mBpmMinRef = 80;
         }
+    }
 
-        if (mBpmMin != 0) {
-            if (mBpmMin > bpmMin)
-                initBpmMin();
-            if (mBpmMax < bpmMax)
-                mBpmMax = bpmMax;
-        } else {
+    private void initBpmMaxRef() {
+        if (mSexe == R.id.sexe_male)
+            mBpmMaxRef = 220 - mAge;
+        else
+            mBpmMaxRef = 226 - mAge;
+    }
+
+    public void updateBPM() {
+        if (isUpdateOnBpmMin())
             initBpmMin();
-            mBpmMax = bpmMax;
-        }
-
-        editor.putInt(getString(R.string.value_bpm_min), mBpmMin);
-        editor.putInt(getString(R.string.value_bpm_max), mBpmMax);
-        editor.commit();
-
-        mTextBpmMin.setText(String.valueOf(mBpmMin));
-        mTextBpmMax.setText(String.valueOf(mBpmMax));
+        else
+            mTextBpmMin.setText(String.valueOf(mBpmMin));
+        if (isUpdateOnBpmMax())
+            initBpmMax();
+        else
+            mTextBpmMax.setText(String.valueOf(mBpmMax));
     }
 
     private void initBpmMin() {
-        switch (mAge) {
-            case 0:
-                mBpmMin = 90 + (190 - 90) / 2;
-                break;
-            case 1:
-            case 2:
-                mBpmMin = 70 + (150 - 70) / 2;
-                break;
-            case 3:
-            case 4:
-            case 5:
-                mBpmMin = 70 + (140 - 70) / 2;
-                break;
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-            case 10:
-            case 11:
-            case 12:
-                mBpmMin = 65 + (125 - 65) / 2;
-                break;
-            default:
-                mBpmMin = 75;
-        }
+        mBpmMin = mBpmMinRef;
+        mTextBpmMin.setText(String.valueOf(mBpmMin));
+        mTextBpmMinDef.setText(getString(R.string.text_default));
+        mBpmMinIsDefault = true;
+    }
+
+    private void initBpmMax() {
+        mBpmMax = mBpmMaxRef;
+        mTextBpmMax.setText(String.valueOf(mBpmMax));
+        mTextBpmMaxDef.setText(getString(R.string.text_default));
+        mBpmMaxIsDefault = true;
+
     }
 
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         mSexe = checkedId;
+        // change HRMax default
+        if (mBpmMaxIsDefault) {
+            initBpmMaxRef();
+            initBpmMax();
+        }
     }
 
-    public void onDialogChangeProfilClick(int sexe, int year, int bpmMin, int bpmMax) {
+    public void onDialogChangeProfilClick(int sexe, int year, int bpmMin, int bpmMax, int bpmMinRef, int bpmMaxRef) {
         SharedPreferences.Editor editor = mSharedPref.edit();
         editor.putInt(getString(R.string.value_sexe), sexe);
         editor.putInt(getString(R.string.value_year), year);
         editor.putInt(getString(R.string.value_bpm_min), bpmMin);
         editor.putInt(getString(R.string.value_bpm_max), bpmMax);
+        editor.putInt(getString(R.string.value_bpm_min_ref), bpmMinRef);
+        editor.putInt(getString(R.string.value_bpm_max_ref), bpmMaxRef);
         editor.commit();
         finish();
-    }
-
-    public void updateBpmWithDb(View v) {
-        //BDD
-        BpmDbAdapter dbHelper = new BpmDbAdapter(this);
-        dbHelper.open();
-        int bpmMax = dbHelper.getBpmMax(user);
-        int bpmMin = dbHelper.getBpmMin(user);
-        dbHelper.close();
-
-        if (bpmMin != 0 && bpmMax != 0) {
-            SharedPreferences.Editor editor = mSharedPref.edit();
-            editor.putInt(getString(R.string.value_bpm_min), bpmMin);
-            editor.putInt(getString(R.string.value_bpm_max), bpmMax);
-            editor.commit();
-
-            updateBPM();
-        }
     }
 
 }

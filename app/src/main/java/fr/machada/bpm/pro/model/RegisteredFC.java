@@ -2,13 +2,14 @@ package fr.machada.bpm.pro.model;
 
 import java.io.Serializable;
 
-public class RegisteredBpm implements Serializable {
+public class RegisteredFC implements Serializable {
 
     private int mId = 0;
     private int mValue = 0;
     private long mDate = 0;
     private int mEffort = 0;
     private int mHow = 0;
+    private int mPercent = 0;
 
 
     public void setId(int id) {
@@ -51,5 +52,11 @@ public class RegisteredBpm implements Serializable {
         mHow = how;
     }
 
+    public int getPercent() {
+        return mPercent;
+    }
 
+    public void setPercent(int mPercent) {
+        this.mPercent = mPercent;
+    }
 }

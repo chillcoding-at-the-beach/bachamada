@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Saúde Pulso</string>
+    <string name="action_settings">Definções</string>
+    <string name="bpm_text">BPM</string>
+    <string name="dialog_delete">Excluir esta medida ?</string>
+    <string name="discard">Cancelar</string>
+    <string name="formula_bpm">% FC Máx</string>
+    <string name="history_no_data">Nenhum valor por agora, vá para <b>Medir FC</b> !</string>
+    <string name="how_four">Obtém o valor do seu saldo de frequência cardíaca</string>
+    <string name="how_four_details">Em batimentos por minuto.</string>
+    <string name="how_one">Para começarm sentir o pulso.</string>
+    <string name="how_take_pulse">Como medir o seu pulso ?</string>
+    <string name="how_three">Digite o número de pulsações contados</string>
+    <string name="how_three_details">Contou o número de batidas.</string>
+    <string name="how_two">Lança crono !</string>
+    <string name="how_two_details">Quando estiver pronto á contar as batidas.</string>
+    <string name="link_icon">Saúde Pulso em <a href="https://www.facebook.com/bachamada">Facebook</a>\nAplicação realizada por <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
+    <string name="message_info_about_bpm">Frequência cardíaca ou ritmo cardíaco é o número de batimentos cardíacos por unidade de tempo, geralmente expresso em batimentos por minuto (<b>bpm</b>).\n\n
+    3 <font fgcolor="#ff3498db">tipo de <b>FC</b></font> :\n
+- <font fgcolor="#ff2ecc71">FCR</font> : FC em repouso ,\n \u0020 \u0020 \u0020 \u0020 \u0020  É tomado de manhã, antes de sair da cama\n
+- <font fgcolor="#fff1c40f">FCE</font> : FC de tensão,\n  \u0020 \u0020 \u0020 \u0020 \u0020 valor entre 2 tansão\n
+- <font fgcolor="#ffe74c3c">FCMáx</font> : FC máxima,\n   \u0020 \u0020 \u0020 \u0020 \u0020 É tomado após o exercício\n\n
+  7 <font fgcolor="#ff3498db">tipo de actividade</font> :\n(<i>s a velocidade e t o tempo de actividade</i>)\n
+* <font fgcolor="#ff2ecc71">REPOUSO</font> s~0, t=everytime\n
+* <font fgcolor="#fff1c40f">COOPER</font> \u0020 \u0020 \u0020 s~11km/h, t~3h and +\n
+* <font fgcolor="#fff1c40f">MARATONA</font>\u0020 \u0020 \u0020  s~11km/h, t~3h30\'\n
+* <font fgcolor="#fff1c40f">SEMIMARATONA</font> \u0020 \u0020 \u0020 s~12km/h, t~1h45\'\n
+* <font fgcolor="#fff39c12">OLHAR 10km</font> \u0020 \u0020 \u0020 s~13km/h, t~45\'\n
+* <font fgcolor="#ffe74c3c">VELOCIDADE</font>\u0020 \u0020 \u0020 s~15km/h, t~6-7\'\n
+*<font fgcolor="#ffe74c3c">VELOCIDADE +</font>\u0020 \u0020 \u0020 s~16 km/h, t~5\' et -\n
+(<i>Velocidade Máxima Aeroby obtenido durante VELOCIDADE +</i>)\n\n
+<font fgcolor="#ff3498db"><b>FC Zonas</b></font> da valor del <font fgcolor="#ff3498db">FC</font>, según <font fgcolor="#ff3498db">actividade</font> (cooper, maratona...).\n FC Zonas estan basado en Perfil, y determinado con <i>metodo Astrand</i> (teórica), y con <i>metodo Karvonen</i> ( FCR and FC Máx), despues medida. \n <font fgcolor="#ff3498db"><b>Monitor FC</b></font> es muy importante en el <font fgcolor="#ff3498db"><i>deporte</i></font> (ejercicio diminua FC).\n</string>
+    <string name="message_ready_to_count">Pressione iniciar quando estiver pronto uma contagem de seu batimento cardíaco !</string>
+    <string name="navigation_drawer_close">Menu de perto</string>
+    <string name="navigation_drawer_open">Abra o menu</string>
+    <string name="notification_text">Preencher o seu perfil para ter um valor adaptada % FC Máx.</string>
+    <string name="save">Gravado</string>
+    <string name="set">Mudança</string>
+    <string name="setting_timer">Relógio de ponto</string>
+    <string name="share_message_format">Com Saúde Pulso meu pulso é de %d e você ?</string>
+    <string name="share_on">Partilhar no FB</string>
+    <string name="text_bpm_activity">ACTIVIDADE</string>
+    <string name="text_bpm_allure">OLHAR 10km</string>
+    <string name="text_bpm_footing">COOPER</string>
+    <string name="text_bpm_marathon">MARATONA</string>
+    <string name="text_bpm_max">FCmax :</string>
+    <string name="text_bpm_min">FCrepouso :</string>
+    <string name="text_bpm_resting">DESCANSO</string>
+    <string name="text_bpm_semi">MEIA \n MARATONA</string>
+    <string name="text_bpm_vma_c">VELOCIDADE +</string>
+    <string name="text_bpm_vma_l">VELOCIDADE</string>
+    <string name="text_default">Por padrão</string>
+    <string name="text_heart_rate">Valor FC, em BPM :</string>
+    <string name="text_how">FELTRO</string>
+    <string name="text_nb_pulse">Digite o número de pulsos contados :</string>
+    <string name="text_profile_saved">Perfil salvo</string>
+    <string name="text_set_timer">Valor crono</string>
+    <string name="text_sexe">Sexo :</string>
+    <string name="text_share">COMPARTILHAR</string>
+    <string name="text_stop">Parar</string>
+    <string name="text_type">TIPO DE ESFORÇO</string>
+    <string name="text_year">Ano de \n Nascimento :</string>
+    <string name="title_about">Sobre</string>
+    <string name="title_bpm">FC (BPM)</string>
+    <string name="title_bpm_zone">Zonas FC</string>
+    <string name="title_check_bpm">Medir FC</string>
+    <string name="title_history">Histórico</string>
+    <string name="title_info">Informação</string>
+    <string name="title_profil">Perfil</string>
+    <string name="title_vpro">Versão pro</string>
+    <string name="delete_text">Excluir</string>
+    <string name="fc_value_title">Valor de FC</string>
+    <string name="text_and">e</string>
+</resources>

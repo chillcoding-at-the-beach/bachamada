@@ -6,7 +6,7 @@ import java.util.List;
 public class Group {
 
     public String string;
-    public final List<RegisteredBpm> children = new ArrayList<RegisteredBpm>();
+    public final List<RegisteredFC> children = new ArrayList<RegisteredFC>();
 
     public Group(String string) {
         this.string = string;

@@ -11,5 +11,9 @@
     <color name="reed">#e74c3c</color>
     <color name="colorAccent">#33B5E5</color>
     <color name="colorPrimary">#000000</color>
+    <color name="darkgray">#212121</color>
+    <color name="middlegray">#424242</color>
+    <color name="lightgray">#757575</color>
+
 
 </resources>

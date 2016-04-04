@@ -1,9 +1,10 @@
 pages:
   type: deploy
   script:
-    - echo "Bachamada bat la chamade!"
+    - mkdir public
+    - cp ./* public/
   artifacts:
     paths:
-      - ./
+      - public
   only:
     - gh-pages

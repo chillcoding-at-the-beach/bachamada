@@ -2,7 +2,7 @@ pages:
   type: deploy
   script:
     - mkdir public
-    - cp ./* public/
+    - cp -R ./assets *.png *.html public/
   artifacts:
     paths:
       - public

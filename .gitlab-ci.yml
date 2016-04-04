@@ -1,6 +1,9 @@
 pages:
+  type: deploy
+  script:
+    - echo "Bachamada bat la chamade!"
   artifacts:
     paths:
-    - ./
+      - ./
   only:
-  - gh-pages
+    - gh-pages

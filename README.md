@@ -13,15 +13,15 @@ and on Amazon at: https://www.amazon.com/ChillCoding-Healthy-Heart-Rate/dp/B01DO
 
 See our privacy policy: https://www.chillcoding.com/bachamada/privacy-policy.html
 
-Give us feed back here: https://www.chillcoding.com/bachamada/#support
+Give us your feed back here: https://www.chillcoding.com/bachamada/#support
 
 Follow us on Facebook: https://www.facebook.com/bachamada/
 
 # What is innovative ?
 - Smartwatch
 - App indexing, Deeplinking
-- Use of Git (+versioning free and paid app, +gh-pages)
 - App Store Optimization: store listing (+video, +landing page), localization, facebook sharing (+page configuration), promotion, App indexing (first step), Maintenance (regular updates)
+- Use of Git (+versioning free and paid app, +gh-pages)
 
 # What is next ?
 - Give more info contact in app

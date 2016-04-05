@@ -9,6 +9,7 @@ Values can be shared via Facebook or keep it private.
 Take a quick look: https://www.youtube.com/watch?v=RRMYrJeAArU and: https://www.chillcoding.com/bachamada/
 
 The App. is available on Play Store at https://play.google.com/store/apps/details?id=fr.machada.bpm
+and on Amazon at: https://www.amazon.com/ChillCoding-Healthy-Heart-Rate/dp/B01DO67DUG
 
 Give us feed back here: https://www.chillcoding.com/bachamada/#support
 

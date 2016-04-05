@@ -25,7 +25,7 @@ Follow us on Facebook: https://www.facebook.com/bachamada/
 - Add privacy policy page
 - Give more info contact in app
 - Configure depplink and check it in search console
-- Improve smartwatch features
-- Ask feedback (reviews/rate) in smart way
+- Improve smartwatch features (show % of Heart Rate in terms of Heart Rate Max with corresponding color and icon found in personalised Heart Rate Zones)
+- Ask for feedback (reviews/rate) in smart way
 
 

@@ -11,6 +11,8 @@ Take a quick look: https://www.youtube.com/watch?v=RRMYrJeAArU and: https://www.
 The App. is available on Play Store at https://play.google.com/store/apps/details?id=fr.machada.bpm
 and on Amazon at: https://www.amazon.com/ChillCoding-Healthy-Heart-Rate/dp/B01DO67DUG
 
+See our privacy policy: https://www.chillcoding.com/bachamada/privacy-policy.html
+
 Give us feed back here: https://www.chillcoding.com/bachamada/#support
 
 Follow us on Facebook: https://www.facebook.com/bachamada/
@@ -18,11 +20,10 @@ Follow us on Facebook: https://www.facebook.com/bachamada/
 # What is innovative ?
 - Smartwatch
 - App indexing, Deeplinking
-- Use of Git (+versioning free and paid app,+new feature historic, +gh-pages)
+- Use of Git (+versioning free and paid app, +gh-pages)
 - App Store Optimization: store listing (+video, +landing page), localization, facebook sharing (+page configuration), promotion, App indexing (first step), Maintenance (regular updates)
 
 # What is next ?
-- Add privacy policy page
 - Give more info contact in app
 - Configure depplink and check it in search console
 - Improve smartwatch features (show % of Heart Rate in terms of Heart Rate Max with corresponding color and icon found in personalised Heart Rate Zones)

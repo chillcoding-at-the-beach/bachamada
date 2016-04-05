@@ -14,10 +14,10 @@ Give us feed back here: https://www.chillcoding.com/bachamada/#support
 
 Follow us on Facebook: https://www.facebook.com/bachamada/
 
-# What is inovative ?
+# What is innovative ?
 - Smartwatch
 - App indexing, Deeplinking
-- Follow App Store Optimization guidelines: store listing (+video, +landing page), localization, facebook sharing (+page configuration), promotion, App indexing (first step), Maintenance (regular updates)
+- App Store Optimization: store listing (+video, +landing page), localization, facebook sharing (+page configuration), promotion, App indexing (first step), Maintenance (regular updates)
 
 # What is next ?
 - Add privacy policy page

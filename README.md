@@ -17,6 +17,7 @@ Follow us on Facebook: https://www.facebook.com/bachamada/
 # What is innovative ?
 - Smartwatch
 - App indexing, Deeplinking
+- Use of Git (+versioning free and paid app,+new feature historic, +gh-pages)
 - App Store Optimization: store listing (+video, +landing page), localization, facebook sharing (+page configuration), promotion, App indexing (first step), Maintenance (regular updates)
 
 # What is next ?

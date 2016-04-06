@@ -48,7 +48,7 @@ public class ProfilActivity extends Activity implements RadioGroup.OnCheckedChan
         setContentView(R.layout.fragment_layout_profil);
 
         //transition
-        ImageView headerImageView = (ImageView) findViewById(R.id.profile_img);
+        TextView headerImageView = (TextView) findViewById(R.id.profil_title);
         ViewCompat.setTransitionName(headerImageView, VIEW_NAME_HEADER_IMAGE);
 
         user = getString(R.string.text_default);

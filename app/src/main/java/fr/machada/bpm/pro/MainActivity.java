@@ -105,11 +105,13 @@ public class MainActivity extends AppCompatActivity implements
         initData();
         initFragment();
         initTabs();
+
         initNotification();
         SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         boolean firstLaunch = sharedPref.getBoolean(getString(R.string.first_launch), true);
         if (firstLaunch)
             startTuto();
+
 
     }
 

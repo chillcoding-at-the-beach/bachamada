@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="facebook_app_id" translatable="false">529160923919069</string>
-
-
     <string name="value_sexe" translatable="false">sexe</string>
     <string name="value_year" translatable="false">year</string>
     <string name="value_timer" translatable="false">timer</string>
@@ -69,7 +65,7 @@ You can find your personalized <font fgcolor="#ff3498db"><b>HR Zones</b></font> 
 * the <i>Karvonen method</i> once your profile is filled-out and you have some measurements\n
 <font fgcolor="#ff3498db"><b>HR Monitoring</b></font> is very important to track your <font fgcolor="#ff3498db"><i>athletic progression</i></font>: the more you train, the lower your Heart Rate will be.\n
  </string>
-    <string name="link_icon">Healthy Heart Rate on <a href="https://www.facebook.com/bachamada">Facebook</a>\nApplication realised by <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
+    <string name="link_icon">Healthy Heart Rate on <a href="https://www.facebook.com/bachamada">Facebook</a>\nMore at<a href="http://www.chillcoding.com/bachamada">ChillCoding.com</a>\n</string>
     <string name="text_stop">Stop</string>
     <string name="notification_text">Give us your feed back on Facebook ! More in Info.</string>
     <string name="formula_bpm">% HR Max</string>

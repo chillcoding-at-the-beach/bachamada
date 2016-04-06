@@ -36,7 +36,7 @@
     <string name="text_bpm_min">FC Min :</string>
     <string name="text_bpm_max">FC Max :</string>
     <string name="dialog_delete">Voulez-vous supprimer cette mesure ?</string>
-    <string name="message_info_about_bpm">Dans l'onglet Historique, les valeurs de fréquence cardiaque sont présentés en % de votre HR Max, c'est votre fréquence cardiaque maximale, il est calculée avec la méthode Astrand (220 - âge pour les hommes, et 226 - âge pour les femmes).\n\n
+    <string name="message_info_about_bpm">Dans l\'onglet Historique, les valeurs de fréquence cardiaque sont présentés en % de votre HR Max, c\'est votre fréquence cardiaque maximale, il est calculée avec la méthode Astrand (220 - âge pour les hommes, et 226 - âge pour les femmes).\n\n
 Voici 3 principaux<font fgcolor="#ff3498db">types de <b>FC</b></font> :\n
 - <font fgcolor="#ff2ecc71">FC Min</font> : FC au repos,\n  \u0020 \u0020 \u0020 \u0020 \u0020 calculée au reveil\n
 - <font fgcolor="#fff1c40f">FCE</font> : FC à l\'entrainement,\n  \u0020 \u0020 \u0020 \u0020 \u0020 calculée entre 2 efforts\n

@@ -8,23 +8,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/info_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_info" />
-
         <TextView
             android:id="@+id/info_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/info_img"
             android:layout_marginLeft="@dimen/general_space"
             android:layout_marginTop="@dimen/general_space"
-            android:layout_toRightOf="@id/info_img"
-            android:text="@string/title_about"
+            android:text="@string/title_contact"
+            android:drawableLeft="@drawable/ic_action_info"
+            android:drawablePadding="@dimen/general_space_icon"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/blu" />
+            android:textColor="@android:color/white" />
 
         <View
             android:id="@+id/info_bar_1"
@@ -58,7 +52,7 @@
             android:drawablePadding="@dimen/general_space_icon"
             android:text="@string/title_info"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/blu" />
+            android:textColor="@android:color/white" />
 
         <View
             android:id="@+id/info_bar_2"
@@ -80,7 +74,7 @@
             android:textColor="@color/blu"
             android:layout_margin="@dimen/general_space"
             android:layout_centerHorizontal="true"
-            android:text="@string/how_take_pulse" />
+            android:text="@string/message_how_to_take_your_pulse" />
 
         <TextView
             android:layout_width="wrap_content"

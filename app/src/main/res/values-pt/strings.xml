@@ -15,12 +15,12 @@
     <string name="how_three_details">Contou o número de batidas.</string>
     <string name="how_two">Lança crono !</string>
     <string name="how_two_details">Quando estiver pronto á contar as batidas.</string>
-    <string name="link_icon">Saúde Pulso em <a href="https://www.facebook.com/bachamada">Facebook</a>\nAplicação realizada por <a href="http://www.machada.fr/contact">Macha Da Costa</a>\n</string>
-    <string name="message_info_about_bpm">Frequência cardíaca ou ritmo cardíaco é o número de batimentos cardíacos por unidade de tempo, geralmente expresso em batimentos por minuto (<b>bpm</b>).\n\n
+    <string name="link_icon">* <a href="http://www.chillcoding.com/bachamada/#support">Dê-nos a sua opinião !</a>\n\n* <a href="https://play.google.com/store/apps/details?id=fr.machada.bpm">Nota Saúde Pulso :)</a>\n\n* <a href="https://www.facebook.com/bachamada">Seguimos em Facebook ;)</a>\n\n* <a href="http://www.chillcoding.com/bachamada/#support">Pedindo novo recurso !</a></string>
+    <string name="message_info_about_bpm">Na guia Histórico, os valores da frequência cardíaca são apresentados como % do seu FC Máx, é a sua frequência cardíaca máxima, que é calculado com o método Astrand (220 - idade para os homens, e 226 - idade para as mulheres).\n\n
     3 <font fgcolor="#ff3498db">tipo de <b>FC</b></font> :\n
-- <font fgcolor="#ff2ecc71">FCR</font> : FC em repouso ,\n \u0020 \u0020 \u0020 \u0020 \u0020  É tomado de manhã, antes de sair da cama\n
+- <font fgcolor="#ff2ecc71">FC Min</font> : FC em repouso ,\n \u0020 \u0020 \u0020 \u0020 \u0020  É tomado de manhã, antes de sair da cama\n
 - <font fgcolor="#fff1c40f">FCE</font> : FC de tensão,\n  \u0020 \u0020 \u0020 \u0020 \u0020 valor entre 2 tansão\n
-- <font fgcolor="#ffe74c3c">FCMáx</font> : FC máxima,\n   \u0020 \u0020 \u0020 \u0020 \u0020 É tomado após o exercício\n\n
+- <font fgcolor="#ffe74c3c">FC Máx</font> : FC máxima,\n   \u0020 \u0020 \u0020 \u0020 \u0020 É tomado após o exercício\n\n
   7 <font fgcolor="#ff3498db">tipo de actividade</font> :\n(<i>s a velocidade e t o tempo de actividade</i>)\n
 * <font fgcolor="#ff2ecc71">REPOUSO</font> s~0, t=everytime\n
 * <font fgcolor="#fff1c40f">COOPER</font> \u0020 \u0020 \u0020 s~11km/h, t~3h and +\n
@@ -61,7 +61,7 @@
     <string name="text_stop">Parar</string>
     <string name="text_type">TIPO DE ESFORÇO</string>
     <string name="text_year">Ano de \n Nascimento :</string>
-    <string name="title_about">Sobre</string>
+    <string name="title_contact">Contato</string>
     <string name="title_bpm">FC (BPM)</string>
     <string name="title_bpm_zone">Zonas FC</string>
     <string name="title_check_bpm">Medir FC</string>
@@ -72,4 +72,5 @@
     <string name="delete_text">Excluir</string>
     <string name="fc_value_title">Valor de FC</string>
     <string name="text_and">e</string>
+    <string name="message_how_to_take_your_pulse">Frequência cardíaca ou ritmo cardíaco é o número de batimentos cardíacos por unidade de tempo, geralmente expresso em batimentos por minuto (<b>bpm</b>).</string>
 </resources>

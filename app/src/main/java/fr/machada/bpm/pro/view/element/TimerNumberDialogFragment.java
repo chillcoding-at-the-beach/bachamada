@@ -67,8 +67,7 @@ public class TimerNumberDialogFragment extends DialogFragment implements NumberP
         np.setValue(mValue);
         np.setOnValueChangedListener(this);
 
-        builder.setIcon(R.drawable.ic_action_settings)
-                .setTitle(R.string.text_set_timer)
+        builder.setTitle(R.string.text_set_timer)
                 .setPositiveButton(R.string.set, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // Send the positive button event back to the host activity

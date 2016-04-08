@@ -70,7 +70,7 @@ You can find your personalized <font fgcolor="#ff3498db"><b>HR Zones</b></font> 
  </string>
     <string name="link_icon">* <a href="http://www.chillcoding.com/bachamada/#support">Give us your feedback!</a>\n\n* <a href="https://play.google.com/store/apps/details?id=fr.machada.bpm">Rate Healthy Heart Rate :)</a>\n\n* <a href="https://www.facebook.com/bachamada">Follow us on Facebook ;)</a>\n\n* <a href="http://www.chillcoding.com/bachamada/#support">Ask for new feature!</a></string>
     <string name="text_stop">Stop</string>
-    <string name="notification_text">Give us your feed back on Facebook ! More in Info.</string>
+    <string name="notification_text">Give us your feedback! Go in Info.</string>
     <string name="formula_bpm">% HR Max</string>
     <string name="share_on">Share on FB</string>
     <string name="share_message_format">With Healthy Heart Rate, my pulse is about %d and you?</string>

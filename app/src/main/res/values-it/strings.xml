@@ -70,8 +70,8 @@
     <string name="text_type">TIPO DI ATTIVITÀ</string>
     <string name="text_year">Anno di nascita :</string>
     <string name="title_bpm">FC (BPM)</string>
-    <string name="title_bpm_zone">Zona FC</string>
-    <string name="title_check_bpm">FC Misura</string>
+    <string name="title_bpm_zone">Zone FC</string>
+    <string name="title_check_bpm">Misura FC</string>
     <string name="title_contact">Contatto</string>
     <string name="title_history">Storico</string>
     <string name="title_info">Informazioni</string>

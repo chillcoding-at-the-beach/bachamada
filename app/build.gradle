@@ -29,5 +29,5 @@ dependencies {
     compile 'com.github.paolorotolo:appintro:3.4.0'
     compile 'de.greenrobot:eventbus:2.4.0'
     compile 'com.daimajia.swipelayout:library:1.2.0@aar'
-
+    compile 'com.google.android.gms:play-services:5.0.40'
 }

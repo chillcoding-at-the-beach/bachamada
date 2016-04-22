@@ -19,7 +19,7 @@
     <string name="title_history">History</string>
     <string name="title_check_bpm">Check HR</string>
     <string name="title_bpm_zone">HR Zones</string>
-    <string name="title_about">About</string>
+    <string name="title_contact">Contact</string>
     <string name="title_vpro">Version Pro</string>
     <string name="action_settings">Settings</string>
     <string name="setting_timer">duration of timer</string>
@@ -47,27 +47,30 @@
     <string name="text_bpm_min">HR Min:</string>
     <string name="text_bpm_max">HR Max:</string>
     <string name="dialog_delete">Delete this measure?</string>
-    <string name="message_info_about_bpm">Heart Rate (in Beat Per Minute or <font fgcolor="#ff3498db"><b>BPM</b></font>), is measured by <font fgcolor="#ff3498db"><b>taking your pulse</b></font> : measurement can be done by putting two fingers on your wrist or your neck.\n\n
-Following are three different <font fgcolor="#ff3498db">types of Heart Rate</font> (or <font fgcolor="#ff3498db"><b>HR</b></font>):\n
+
+    <string name="message_how_to_take_your_pulse">Heart Rate (in Beat Per Minute or <font fgcolor="#ff3498db"><b>BPM</b></font>), is measured by <font fgcolor="#ff3498db"><b>taking your pulse</b></font> : measurement can be done by putting two fingers on your wrist or your neck.</string>
+    <string name="message_info_about_bpm">In History tab, Heart Rate values are shown as % of your HR Max, HR Max is your maximum Heart Rate, it\'s calculated with Astrand method (220 - age for men, and 226 - age for women).\n\n
+Following are the three main <font fgcolor="#ff3498db">types of Heart Rate (<b>HR</b>)</font>:\n
 - <font fgcolor="#ff2ecc71">HR Min</font>: Heart Rate at rest,\n \u0020 \u0020 \u0020 \u0020 \u0020 taken after waking up\n
 - <font fgcolor="#fff1c40f">HR T</font>: Heart Rate during a training,\n  \u0020 \u0020 \u0020 \u0020 \u0020 taken between two efforts\n
 - <font fgcolor="#ffe74c3c">HR Max</font>: Maximal Heart Rate,\n   \u0020 \u0020 \u0020 \u0020 \u0020 taken after an intensive effort\n\n
-Following are seven different <font fgcolor="#ff3498db">types of activity</font>:\n(<i>s</i> is the <i>speed</i> and <i>d</i> the <i>duration</i> of the activity)\n
-* <font fgcolor="#ff2ecc71">RESTING</font>: s=0, t=∞\n
-* <font fgcolor="#fff1c40f">RUNNING</font>: s≈11km/h, d≈3 hours or more\n
-* <font fgcolor="#fff1c40f">MARATHON</font>: s≈11km/h, d≈3 hours 30 minutes\n
-* <font fgcolor="#fff1c40f">SEMI-MARATHON</font>: s≈12km/h, d≈1 hour 45 minutes\n
-* <font fgcolor="#fff39c12">SPEED 10 km/h</font>: s≈10km/h, d≈1 hour\n
-* <font fgcolor="#ffe74c3c">SPEED HIGH</font>: s≈15km/h, d≈6 or 7 minutes\n
-* <font fgcolor="#ffe74c3c">SPEED HIGH +</font>: s≈16 km/h, d≈5 minutes or less\n\n
+Following are seven <font fgcolor="#ff3498db">types of activity</font>: with corresponding references, % of HR Max, <i>speed</i> (<i>s</i>) and <i>duration</i> (<i>d</i>)\n
+* <font fgcolor="#ff2ecc71">RESTING</font>: &lt; 42%, s=0, t=∞\n
+* <font fgcolor="#fff1c40f">RUNNING</font>: 65-75%, s≈11km/h, d≈3 hours or more\n
+* <font fgcolor="#fff1c40f">MARATHON</font>: 75-80%, s≈11km/h, d≈3 hours 30 minutes\n
+* <font fgcolor="#fff1c40f">SEMI-MARATHON</font>: 80-85%, s≈12km/h, d≈1 hour 45 minutes\n
+* <font fgcolor="#fff39c12">SPEED 10 km/h</font>: 85-90%, s≈10km/h, d≈1 hour\n
+* <font fgcolor="#ffe74c3c">SPEED HIGH</font>: 90-95%, s≈15km/h, d≈6 or 7 minutes\n
+* <font fgcolor="#ffe74c3c">SPEED HIGH +</font>: 95-100%, s≈16 km/h, d≈5 minutes or less\n\n
 You can find your personalized <font fgcolor="#ff3498db"><b>HR Zones</b></font> in the third tab. They give you an idea of <font fgcolor="#ff3498db">HR to maintain</font>, depending on the <font fgcolor="#ff3498db">activity</font> (resting, marathon, etc.).\nHR zones are based on your profile (age, sex, HR Min and HR Max), they are determinated using:\n
-* the <i>Astrand method</i>, when you don\'t have any measurement yet
-* the <i>Karvonen method</i> once your profile is filled-out and you have some measurements\n
-<font fgcolor="#ff3498db"><b>HR Monitoring</b></font> is very important to track your <font fgcolor="#ff3498db"><i>athletic progression</i></font>: the more you train, the lower your Heart Rate will be.\n
+* the <i>Astrand method</i>, when you don\'t have any measurement yet\n
+* the <i>Karvonen method</i> once your profile is filled-out and you have some measurements\n\n
+        Physical exercise reduce your pulse at resting, and it does not really influence HR Max.\n
+<font fgcolor="#ff3498db"><b>Checking your pulse</b></font> is very important to track your <font fgcolor="#ff3498db"><i>athletic progression</i></font>: the more you train, the lower your Heart Rate will be.\n
  </string>
-    <string name="link_icon">Healthy Heart Rate on <a href="https://www.facebook.com/bachamada">Facebook</a>\nMore at<a href="http://www.chillcoding.com/bachamada">ChillCoding.com</a>\n</string>
+    <string name="link_icon">* <a href="http://www.chillcoding.com/bachamada/#support">Give us your feedback!</a>\n\n* <a href="https://play.google.com/store/apps/details?id=fr.machada.bpm">Rate Healthy Heart Rate :)</a>\n\n* <a href="https://www.facebook.com/bachamada">Follow us on Facebook ;)</a>\n\n* <a href="http://www.chillcoding.com/bachamada/#support">Ask for new feature!</a></string>
     <string name="text_stop">Stop</string>
-    <string name="notification_text">Give us your feed back on Facebook ! More in Info.</string>
+    <string name="notification_text">Give us your feedback! Go in Info.</string>
     <string name="formula_bpm">% HR Max</string>
     <string name="share_on">Share on FB</string>
     <string name="share_message_format">With Healthy Heart Rate, my pulse is about %d and you?</string>

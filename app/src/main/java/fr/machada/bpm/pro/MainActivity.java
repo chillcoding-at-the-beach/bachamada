@@ -100,16 +100,18 @@ public class MainActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_main);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_SHOW_TITLE);
-        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+        getSupportActionBar().setIcon(R.drawable.ic_launcher_icon);
 
         initData();
         initFragment();
         initTabs();
+
         initNotification();
         SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         boolean firstLaunch = sharedPref.getBoolean(getString(R.string.first_launch), true);
         if (firstLaunch)
             startTuto();
+
 
     }
 

@@ -8,7 +8,7 @@
     <string name="title_history">Historique</string>
     <string name="title_check_bpm">Mesurer FC</string>
     <string name="title_bpm_zone">Zones de FC</string>
-    <string name="title_about">A Propos</string>
+    <string name="title_contact">Contact</string>
     <string name="title_vpro">Version Pro</string>
     <string name="navigation_drawer_open">Ouvrir menu</string>
     <string name="navigation_drawer_close">Fermer menu</string>
@@ -36,8 +36,8 @@
     <string name="text_bpm_min">FC Min :</string>
     <string name="text_bpm_max">FC Max :</string>
     <string name="dialog_delete">Voulez-vous supprimer cette mesure ?</string>
-    <string name="message_info_about_bpm">La Fréquence Cardiaque (FC), exprimée en Battement Par Minute <font fgcolor="#ff3498db"><b>BPM</b></font>, est déterminée par la <font fgcolor="#ff3498db"><i>prise de pouls</i></font> : <i>mesure au poignet ou à la carotide du nombre de pulsations en un temps donné</i>.\n\n
-Voici 3 <font fgcolor="#ff3498db">types de <b>FC</b></font> :\n
+    <string name="message_info_about_bpm">Dans l\'onglet Historique, les valeurs de fréquence cardiaque sont présentés en % de votre HR Max, c\'est votre fréquence cardiaque maximale, il est calculée avec la méthode Astrand (220 - âge pour les hommes, et 226 - âge pour les femmes).\n\n
+Voici 3 principaux<font fgcolor="#ff3498db">types de <b>FC</b></font> :\n
 - <font fgcolor="#ff2ecc71">FC Min</font> : FC au repos,\n  \u0020 \u0020 \u0020 \u0020 \u0020 calculée au reveil\n
 - <font fgcolor="#fff1c40f">FCE</font> : FC à l\'entrainement,\n  \u0020 \u0020 \u0020 \u0020 \u0020 calculée entre 2 efforts\n
 - <font fgcolor="#ffe74c3c">FC Max</font> : FC maximal,\n   \u0020 \u0020 \u0020 \u0020 \u0020 calculée juste après un effort intense\n\n
@@ -52,7 +52,7 @@ Voici 6  <font fgcolor="#ff3498db">types de courses</font> :\n(<i>notons v la vi
 Vous trouverez un tableau des <font fgcolor="#ff3498db"><b>zones de FC</b></font> dans le deuxième onglet de l\'app., elles donnent des repères sur la <font fgcolor="#ff3498db">FC à maintenir</font>, à ne pas depasser, selon la <font fgcolor="#ff3498db">course pratiquée</font> (footing, marathon,etc.).\n Les zones de FC sont calculées par raport au Profil. Il intègre la <i>méthode Astrand</i> (théorique), utilisée dans un premiers temps, ainsi que la <i>méthode Karvonen</i> (individualisée avec FC Min et FC Max), utilisée après quelques mesures. \n
 Le <font fgcolor="#ff3498db"><b>suivi de FC</b></font> est important pour suivre l\'<font fgcolor="#ff3498db"><i>évolution des performances</i></font> d\'un sportif (plus le sujet s\'entrainera plus sa FC sera basse).\n
 </string>
-    <string name="link_icon">BaChamada sur <a href="https://www.facebook.com/bachamada">Facebook</a>\nPlus à <a href="http://www.chillcoding.com/bachamada">ChillCoding.com</a>\n</string>
+    <string name="link_icon">* <a href="http://www.chillcoding.com/bachamada/#support">Faites-nous part de vos retours !</a>\n\n* <a href="https://play.google.com/store/apps/details?id=fr.machada.bpm">Notez Bachamada :)</a>\n\n* <a href="https://www.facebook.com/bachamada">Suivez-nous sur Facebook ;)</a>\n\n* <a href="http://www.chillcoding.com/bachamada/#support">Demandez des nouvelles fonctionalités!</a></string>
 
     <string name="text_stop">Stop</string>
 
@@ -77,4 +77,5 @@ Le <font fgcolor="#ff3498db"><b>suivi de FC</b></font> est important pour suivre
     <string name="delete_text">Supprimer</string>
     <string name="fc_value_title">Valeur de la FC</string>
     <string name="text_and">et</string>
+    <string name="message_how_to_take_your_pulse">La Fréquence Cardiaque (FC), exprimée en Battement Par Minute <font fgcolor="#ff3498db"><b>BPM</b></font>, est déterminée par la <font fgcolor="#ff3498db"><i>prise de pouls</i></font> : <i>mesure au poignet ou à la carotide du nombre de pulsations en un temps donné</i>.</string>
 </resources>

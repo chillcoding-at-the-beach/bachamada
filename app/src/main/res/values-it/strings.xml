@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pulso Sano</string>
+    <string name="action_settings">Impostazioni</string>
+    <string name="bpm_text">BPM</string>
+    <string name="delete_text">Elimina</string>
+    <string name="dialog_delete">Elimina valore</string>
+    <string name="discard">Annulla</string>
+    <string name="fc_value_title">Valori di Frequenza Cardiaca</string>
+    <string name="formula_bpm">% FC Max</string>
+    <string name="history_no_data">Nessun valore</string>
+    <string name="how_four">Vedere il valore della frequenza cardiaca</string>
+    <string name="how_four_details">Il numero di battiti del cuore al minuto.</string>
+    <string name="how_one">In primo luogo, si sentono il polso.</string>
+    <string name="how_take_pulse">Come prendere il polso ?</string>
+    <string name="how_three"> Inserire il numero di impulsi contati</string>
+    <string name="how_three_details">Il numero di battute che si sono contati.</string>
+    <string name="how_two">Inizia crono !</string>
+    <string name="how_two_details">Quando si è pronti a contare i battiti.</string>
+    <string name="link_icon">* <a href="http://www.chillcoding.com/bachamada/#support">Dateci il vostro feedback !</a>\n\n* <a href="https://play.google.com/store/apps/details?id=fr.machada.bpm">Tasso Pulso Sano :)</a>\n\n* <a href="https://www.facebook.com/bachamada">Seguici su Facebook ;)</a>\n\n* <a href="http://www.chillcoding.com/bachamada/#support">Chiedere nuova funzionalità !</a></string>
+    <string name="message_how_to_take_your_pulse">Frequenza cardiaca (in battute per minuto o <font fgcolor="#ff3498db"><b>BPM</b></font>, si misura con <font fgcolor="#ff3498db"><b>di prendere il polso </b></font> : misura può essere fatto mettendo due dita al polso o al collo.</string>
+    <string name="message_info_about_bpm">Nella scheda Cronologia, i valori di frequenza cardiaca sono mostrati come % del vostra FC max, la vostra frequenza cardiaca massima è calcolato con il metodo Astrand (220 - anni di età per gli uomini e 226 - anni di età per le donne).\n\n
+    Di seguito sono i tre principali <font fgcolor="#ff3498db">tipi della frequenza cardiaca (<b>FC</b>)</font> :\n
+- <font fgcolor="#ff2ecc71">FC Min</font>: la frequenza cardiaca a riposo,\n \u0020 \u0020 \u0020 \u0020 \u0020 non fa esercizio fisico\n \u0020 \u0020 \u0020 \u0020 \u0020 compreso tra 60 e 100 bpm
+- <font fgcolor="#fff1c40f">FC T</font>: la frequenza cardiaca durante un’attività fisica intensa,\n
+- <font fgcolor="#ffe74c3c">FC Max</font>: la frequenza cardiaca massima,\n\n
+    In seguito sono sette <font fgcolor="#ff3498db">tipi di attività</font> : con i riferimenti corrispondenti, % della FC Max, <i>velocità</i> (<i>v</i>) e <i>durata</i> (<i>d</i>)\n
+* <font fgcolor="#ff2ecc71">RIPOSO</font>: &lt; 42%, v=0, t=∞\n
+* <font fgcolor="#fff1c40f">CORSA</font>: 65-75%, v≈11km/h, d≈3 hours or more\n
+* <font fgcolor="#fff1c40f">MARATONA</font>: 75-80%, v≈11km/h, d≈3 hours 30 minutes\n
+* <font fgcolor="#fff1c40f">SEMI-MARATONA</font>: 80-85%, v≈12km/h, d≈1 hour 45 minutes\n
+* <font fgcolor="#fff39c12">VELOCITÀ 10 km/h</font>: 85-90%, v≈10km/h, d≈1 hour\n
+* <font fgcolor="#ffe74c3c">VELOCITÀ +</font>: 90-95%, v≈15km/h, d≈6 or 7 minutes\n
+* <font fgcolor="#ffe74c3c">VELOCITÀ + +</font>: 95-100%, v≈16 km/h, d≈5 minutes or less\n\n
+    Si possono trovare il tuo personalizzato <font fgcolor="#ff3498db"><b>FC Zona</b></font>nella terza scheda. Ti danno un\'idea della <font fgcolor="#ff3498db"><b>frequenza cardiaca da mantenere</b></font>, a seconda dell\'<font fgcolor="#ff3498db">attività</font> (reposo, corsa, maratona, ...).\n
+        FC Zona si basano sul tuo profilo (età, sesso , FC Min e FC max), essi sono determinati utilizzando:\n
+        * Il <i>metodo Astrand</i>, quando non si dispone di alcuna misura ancora\n
+* Il <i>metodo Karvonen</i> una volta che il profilo è pieno e si dispone di alcune misurazioni\n\n
+        L\'esercizio fisico riduce il polso a riposo, e in realtà non influenza FC max.\n
+    </string>
+    <string name="message_ready_to_count">Premere Start quando si è pronti a contare il polso !</string>
+    <string name="navigation_drawer_close">Chiudi menù</string>
+    <string name="navigation_drawer_open">aprire il menù</string>
+    <string name="notification_text">Dacci il tuo feedback !</string>
+    <string name="save">Salva</string>
+    <string name="set">Modifica</string>
+    <string name="setting_timer">Durata del temporizzatore</string>
+    <string name="share_message_format">Con Pulso Sano, il mio impulso è di circa %d e voi ?</string>
+    <string name="share_on">Condividi su FB</string>
+    <string name="text_and">e</string>
+    <string name="text_bpm_activity">ATTIVITÀ</string>
+    <string name="text_bpm_allure">VELOCITÀ 10 km</string>
+    <string name="text_bpm_footing">CORSA</string>
+    <string name="text_bpm_marathon">MARATONA</string>
+    <string name="text_bpm_max">FC Max :</string>
+    <string name="text_bpm_min">FC Min :</string>
+    <string name="text_bpm_resting">RIPOSO</string>
+    <string name="text_bpm_semi">SEMI-MARATONA</string>
+    <string name="text_bpm_vma_c">VELOCITÀ +</string>
+    <string name="text_bpm_vma_l">VELOCITÀ ++</string>
+    <string name="text_default">Predefinito</string>
+    <string name="text_heart_rate">Valori di FC, in BPM :</string>
+    <string name="text_how">SENSAZIONE</string>
+    <string name="text_nb_pulse">Inserire il numero di impulsi contati :</string>
+    <string name="text_profile_saved">Profilo salvato</string>
+    <string name="text_set_timer">Valore di temporizzatore</string>
+    <string name="text_sexe">Sesso :</string>
+    <string name="text_share">CONDIVIDERE</string>
+    <string name="text_stop">Stop</string>
+    <string name="text_type">TIPO DI ATTIVITÀ</string>
+    <string name="text_year">Anno di nascita :</string>
+    <string name="title_bpm">FC (BPM)</string>
+    <string name="title_bpm_zone">Zona FC</string>
+    <string name="title_check_bpm">FC Misura</string>
+    <string name="title_contact">Contatto</string>
+    <string name="title_history">Storico</string>
+    <string name="title_info">Informazioni</string>
+    <string name="title_profil">Profilo</string>
+    <string name="title_vpro">Versione Pro</string>
+</resources>

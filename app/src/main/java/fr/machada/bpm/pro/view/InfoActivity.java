@@ -34,7 +34,7 @@ public class InfoActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_layout_info);
-        ImageView headerImageView = (ImageView) findViewById(R.id.info_img);
+        TextView headerImageView = (TextView) findViewById(R.id.info_title);
         ViewCompat.setTransitionName(headerImageView, VIEW_NAME_HEADER_IMAGE);
 
         TextView link = (TextView) findViewById(R.id.link_icon);

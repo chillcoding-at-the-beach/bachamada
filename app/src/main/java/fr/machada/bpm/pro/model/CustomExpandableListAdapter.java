@@ -2,6 +2,7 @@ package fr.machada.bpm.pro.model;
 
 
 import android.app.Activity;
+import android.support.v4.content.ContextCompat;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import fr.machada.bpm.pro.R;
+import fr.machada.bpm.pro.utils.FCIndicator;
 
 
 public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
@@ -118,8 +120,18 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
         imH = (ImageView) convertView.findViewById(R.id.hishow);
         if (children != null) {
             text.setText(String.format("%d", children.getValue()));
-            if (children.getPercent() != 0)
-                textP.setText(String.format("%d %%", children.getPercent()));
+            if (children.getPercent() != 0) {
+                int percent = children.getPercent();
+                textP.setText(String.format("%d %%", percent));
+                if (percent < FCIndicator.mPercentGuru)
+                    textP.setTextColor(ContextCompat.getColor(activity, R.color.green));
+                else if (percent < FCIndicator.mPercentSpeed)
+                    textP.setTextColor(ContextCompat.getColor(activity, R.color.yellow));
+                else if (percent < FCIndicator.mPercentSpeedMore)
+                    textP.setTextColor(ContextCompat.getColor(activity, R.color.orange));
+                else
+                    textP.setTextColor(ContextCompat.getColor(activity, R.color.reed));
+            }
 
             SimpleDateFormat sdf = new SimpleDateFormat("EEEE dd  HH:mm");
             Date resultDate = new Date(children.getDate());

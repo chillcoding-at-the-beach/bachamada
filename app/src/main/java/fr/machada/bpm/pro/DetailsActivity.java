@@ -3,6 +3,7 @@ package fr.machada.bpm.pro;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import fr.machada.bpm.pro.model.BpmDbAdapter;
 import fr.machada.bpm.pro.model.Effort;
 import fr.machada.bpm.pro.model.How;
 import fr.machada.bpm.pro.model.RegisteredFC;
+import fr.machada.bpm.pro.utils.FCIndicator;
 import fr.machada.bpm.pro.utils.FacebookShare;
 import fr.machada.bpm.pro.utils.SomeKeys;
 
@@ -47,7 +49,25 @@ public class DetailsActivity extends AppCompatActivity {
         textDate.setText(sdf.format(resultDate));
 
         TextView textPercent = (TextView) findViewById(R.id.details_percent);
-        textPercent.setText(String.format("%d %%", fc.getPercent()));
+        ImageView imgEffort = (ImageView) findViewById(R.id.details_ind_effort);
+        int percent = fc.getPercent();
+        textPercent.setText(String.format("%d %%", percent));
+        if (percent < FCIndicator.mPercentGuru) {
+            textPercent.setTextColor(ContextCompat.getColor(this, R.color.green));
+            imgEffort.setImageResource(R.drawable.ic_guru);
+        } else if (percent < FCIndicator.mPercentSpeed) {
+            textPercent.setTextColor(ContextCompat.getColor(this, R.color.yellow));
+            if (percent < FCIndicator.mPercentWalking)
+                imgEffort.setImageResource(R.drawable.ic_walking);
+            else
+                imgEffort.setImageResource(R.drawable.ic_running);
+        } else if (percent < FCIndicator.mPercentSpeedMore) {
+            textPercent.setTextColor(ContextCompat.getColor(this, R.color.orange));
+            imgEffort.setImageResource(R.drawable.ic_interval);
+        } else {
+            textPercent.setTextColor(ContextCompat.getColor(this, R.color.reed));
+            imgEffort.setImageResource(R.drawable.ic_exercise);
+        }
 
         TextView viewFC = (TextView) findViewById(R.id.details_show_fc);
         viewFC.setText(String.format("%d", fc.getValue()));
@@ -101,7 +121,7 @@ public class DetailsActivity extends AppCompatActivity {
             }
         });
 
-View deleteButton =  findViewById(R.id.details_delete_icon);
+        View deleteButton = findViewById(R.id.details_delete_icon);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

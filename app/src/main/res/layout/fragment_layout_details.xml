@@ -70,6 +70,7 @@
         android:textSize="40dip" />
 
     <TextView
+        android:id="@+id/details_text_percent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -79,6 +80,15 @@
         android:textColor="@android:color/white"
         android:textSize="20dip"
         android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/details_ind_effort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/details_text_percent"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/details_margin_horizontal"
+        />
 
     <View
         android:id="@+id/details_divider_fc"

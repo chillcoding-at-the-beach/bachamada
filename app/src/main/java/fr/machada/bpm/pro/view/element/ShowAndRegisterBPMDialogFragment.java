@@ -13,9 +13,13 @@ import android.widget.RadioGroup;
 import de.greenrobot.event.EventBus;
 import fr.machada.bpm.pro.R;
 import fr.machada.bpm.pro.event.OnFBShareFCEvent;
+import fr.machada.bpm.pro.model.Effort;
+import fr.machada.bpm.pro.utils.FCIndicator;
 
 
 public class ShowAndRegisterBPMDialogFragment extends DialogFragment {
+
+    private FCIndicator mFCInd;
 
     public interface NoticeDialogListener {
         public void onDialogSaveClick(int v, int effort, int how);
@@ -46,13 +50,35 @@ public class ShowAndRegisterBPMDialogFragment extends DialogFragment {
         int t = b.getInt(getString(R.string.value_timer));
         mV = b.getInt(getString(R.string.value_bpa)) * 60000 / t;
 
+
+        mFCInd = new FCIndicator(getContext(), getResources());
+        Effort ef = mFCInd.getStep(mV);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater li = LayoutInflater.from(getActivity());
         final View promptsView = li.inflate(R.layout.bpm_dialog, null);
 
+        final RadioGroup radioEffortGroup = (RadioGroup) promptsView.findViewById(R.id.efforts);
+
         CustomShowBPM viewBPM = (CustomShowBPM) promptsView.findViewById(R.id.show_bpm);
         viewBPM.setValue(mV);
+        viewBPM.setStep(ef);
+
+        switch (ef) {
+            case GURU:
+                radioEffortGroup.check(R.id.guru);
+                break;
+            case WALKING:
+                radioEffortGroup.check(R.id.walking);
+                break;
+            case INTERVAL:
+                radioEffortGroup.check(R.id.interval);
+                break;
+            case EXERCISE:
+                radioEffortGroup.check(R.id.exercise);
+
+        }
 
         builder.setView(promptsView);
 
@@ -61,7 +87,6 @@ public class ShowAndRegisterBPMDialogFragment extends DialogFragment {
             public void onClick(DialogInterface dialog, int id) {
                 // Send the positive button event back to the host activity
 
-                RadioGroup radioEffortGroup = (RadioGroup) promptsView.findViewById(R.id.efforts);
                 RadioGroup radioHowGroup = (RadioGroup) promptsView.findViewById(R.id.hows);
                 mListener.onDialogSaveClick(mV, radioEffortGroup.getCheckedRadioButtonId(), radioHowGroup.getCheckedRadioButtonId());
 
@@ -79,8 +104,6 @@ public class ShowAndRegisterBPMDialogFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 EventBus.getDefault().post(new OnFBShareFCEvent((mV)));
-
-//                mListener.onDialogShareClick(mV);
             }
         });
 

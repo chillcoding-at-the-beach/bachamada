@@ -21,7 +21,7 @@
     <string name="message_how_to_take_your_pulse">Frequenza cardiaca (in battute per minuto o <font fgcolor="#ff3498db"><b>BPM</b></font>, si misura con <font fgcolor="#ff3498db"><b>di prendere il polso </b></font> : misura può essere fatto mettendo due dita al polso o al collo.</string>
     <string name="message_info_about_bpm">Nella scheda Cronologia, i valori di frequenza cardiaca sono mostrati come % del vostra FC max, la vostra frequenza cardiaca massima è calcolato con il metodo Astrand (220 - anni di età per gli uomini e 226 - anni di età per le donne).\n\n
     Di seguito sono i tre principali <font fgcolor="#ff3498db">tipi della frequenza cardiaca (<b>FC</b>)</font> :\n
-- <font fgcolor="#ff2ecc71">FC Min</font>: la frequenza cardiaca a riposo,\n \u0020 \u0020 \u0020 \u0020 \u0020 non fa esercizio fisico\n \u0020 \u0020 \u0020 \u0020 \u0020 compreso tra 60 e 100 bpm
+- <font fgcolor="#ff2ecc71">FC Min</font>: la frequenza cardiaca a riposo,\n \u0020 \u0020 \u0020 \u0020 \u0020 non fa esercizio fisico\n \u0020 \u0020 \u0020 \u0020 \u0020 compreso tra 60 e 100 bpm\n
 - <font fgcolor="#fff1c40f">FC T</font>: la frequenza cardiaca durante un’attività fisica intensa,\n
 - <font fgcolor="#ffe74c3c">FC Max</font>: la frequenza cardiaca massima,\n\n
     In seguito sono sette <font fgcolor="#ff3498db">tipi di attività</font> : con i riferimenti corrispondenti, % della FC Max, <i>velocità</i> (<i>v</i>) e <i>durata</i> (<i>d</i>)\n

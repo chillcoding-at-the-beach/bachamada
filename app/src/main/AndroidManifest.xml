@@ -43,7 +43,6 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!-- ATTENTION: This data URL was auto-generated. We recommend that you use the HTTP scheme.-->
                 <data android:scheme="http" />
                 <data android:scheme="https" />
                 <data

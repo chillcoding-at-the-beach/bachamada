@@ -32,8 +32,8 @@ Follow us on Facebook: https://www.facebook.com/bachamada/
  - App indexing, Deeplinking,
 
 # What is next ?
-* [ ] Give more info contact in app
-* [ ] Configure depplink and check it in search console
+* [X] Give more info contact in app
+* [X] Configure deeplink and check it in search console
 * [ ] Improve smartwatch features 
  * [ ] show Heart Rate in valuable way
   * % of Heart Rate in terms of Heart Rate Max with corresponding color 
@@ -41,4 +41,5 @@ Follow us on Facebook: https://www.facebook.com/bachamada/
  * [ ] link to Profile (in-app purchase)
  * [ ] register measured HR (in-app purchase)
 * [ ] Ask for feedback (reviews/rate) in smart way
+* [ ] Re-engage users with GCM Notifications
 

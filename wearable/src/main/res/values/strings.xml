@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BaChamada</string>
+    <string name="bpm_unit">BPM</string>
 </resources>

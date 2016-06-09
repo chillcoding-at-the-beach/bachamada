@@ -9,8 +9,8 @@ android {
         applicationId "fr.machada.bpm"
         minSdkVersion 20
         targetSdkVersion 22
-        versionCode 26
-        versionName "2.0"
+        versionCode 27
+        versionName "2.1"
     }
     buildTypes {
         release {

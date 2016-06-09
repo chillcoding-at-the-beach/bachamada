@@ -7,9 +7,9 @@ android {
     defaultConfig {
         applicationId "fr.machada.bpm"
         minSdkVersion 15
-        versionCode 26
+        versionCode 27
         targetSdkVersion 22
-        versionName "2.0"
+        versionName "2.1"
     }
 
     buildTypes {

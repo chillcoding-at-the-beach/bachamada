@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wear_main_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/heart_scale"
+    android:background="@drawable/ic_heart_scale"
     android:gravity="center_horizontal|center_vertical"
+    tools:context=".MainActivity"
     tools:deviceIds="wear_round">
 
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="180"
         android:textColor="@color/green"
-        android:gravity="center"
         android:textSize="@dimen/digital_text_size" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text"
+        android:layout_centerHorizontal="true"
+        android:text="@string/bpm_unit"
+        android:textColor="@color/white" />
 
 </RelativeLayout>

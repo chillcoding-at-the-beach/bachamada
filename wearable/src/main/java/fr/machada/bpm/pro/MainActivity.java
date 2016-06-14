@@ -55,7 +55,7 @@ public class MainActivity extends WearableActivity implements SensorEventListene
 
     private void initText() {
         mTextView.setTextColor(getResources().getColor(R.color.green));
-        mTextView.setText(String.format("%d", 80));
+        mTextView.setText("XX");
     }
 
     @Override

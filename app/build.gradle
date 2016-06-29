@@ -7,16 +7,15 @@ android {
     defaultConfig {
         applicationId "fr.machada.bpm"
         minSdkVersion 15
-        versionCode 27
+        versionCode 28
         targetSdkVersion 22
         versionName "2.1"
     }
 
     buildTypes {
         release {
-            shrinkResources true
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
         }
     }
 }
@@ -24,11 +23,10 @@ android {
 dependencies {
     wearApp project(':wearable')
     compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.google.android.gms:play-services:+'
     compile 'com.facebook.android:facebook-android-sdk:4.6.0'
     compile 'net.steamcrafted:materialiconlib:1.0.4'
     compile 'com.github.paolorotolo:appintro:3.4.0'
     compile 'de.greenrobot:eventbus:2.4.0'
     compile 'com.daimajia.swipelayout:library:1.2.0@aar'
-    compile 'com.google.android.gms:play-services:5.0.40'
+    compile 'com.google.android.gms:play-services:9.0.2'
 }

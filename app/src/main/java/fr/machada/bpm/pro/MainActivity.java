@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.annotation.Keep;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
@@ -364,6 +365,7 @@ public class MainActivity extends AppCompatActivity implements
         mIsANewValue = true;
     }
 
+    @Keep
     public void onEvent(final OnDeleteFCEvent deleteFCEvent) {
 
         mDbHelper.deleteFC(deleteFCEvent.getId());
@@ -372,6 +374,7 @@ public class MainActivity extends AppCompatActivity implements
 
     }
 
+    @Keep
     public void onEvent(final OnFBShareFCEvent fbShareFCEvent) {
         mFacebookShare = new FacebookShare(this);
         mFacebookShare.openFbDialog(fbShareFCEvent.getValue());
